@@ -1,507 +1,280 @@
-<!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>前端小站</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="find css to my html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端小站">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="前端小站">
-<meta property="og:description" content="find css to my html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端小站">
-<meta name="twitter:description" content="find css to my html">
-  
-    <link rel="alternative" href="/atom.xml" title="前端小站" type="application/atom+xml">
+  <meta name="author" content="高源">
   
   
-    <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
+  
+    <meta name="description" content="find css to my html">
+  
+  <title>house [ memory ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img src="/img/2.jpg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">高源</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">house</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>Menu</li>
-						<li>Tags</li>
-						
-						<li>Links</li>
-						
-						
-						<li>Über</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/GyuanHFUT/" title="github">github</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+<div class="random-center hide-area">
+  <div id="random-index">
+    <div class="center-field">
+      <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg" width=120 height=120 onClick="openUserCard()">
+    </div>
+    <div class="center-field">
+      <div class="title" onClick="openUserCard()">memory</div>
+      <div class="sub-title" onClick="openUserCard()">house</div>
+    </div>
+    <hr >
+    <div class="center-field">
+      <ul class="index-nav-link">
+        
+        
+          
+            <li><a href="/index.html">Home</a></li>
+          
+        
+          
+            <li><a href="/archives">Archives</a></li>
+          
+        
+          
+            <li><a href="/tags">Tags</a></li>
+          
+        
+          
+            <li><a href="/categories">Categories</a></li>
+          
+        
+          
+            <li><a href="/about">About</a></li>
+          
+        
+          
+            <li><a href="https://github.com/stiekel/hexo-theme-random">Github</a></li>
+          
+        
+      </ul>
+      <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/stiekel/hexo-theme-random">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Stiekel">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/SidCN">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/sidcn">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.douban.com/people/Stiekel/">
+        
+          <i class="icon iconfont douban">&#xe609;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+    </div>
+  </div>
+</div>
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description">find css to my html</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/stiekel/hexo-theme-random">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Stiekel">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/SidCN">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/sidcn">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.douban.com/people/Stiekel/">
+        
+          <i class="icon iconfont douban">&#xe609;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">高源</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/2.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">高源</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">house</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/GyuanHFUT/" title="github">github</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-寻游框架" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/03/寻游框架/" class="article-date">
-  	<time datetime="2016-08-03T08:19:19.695Z" itemprop="datePublished">2016-08-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="寻游项目整体架构"><a href="#寻游项目整体架构" class="headerlink" title="寻游项目整体架构"></a>寻游项目整体架构</h1><p>###公共部分</p>
-<p>公共头部，底部设计</p>
-<p>采用什么形式引入文件？<br>1：和以前一样，每个人写文件，然后引入头部和底部<br>2：一个html，每次点击菜单局部加载渲染html</p>
-<p>公共js编写</p>
-<p>1：Util.js什么的，里面包含工具方法的处理（比如发送ajax，查询dom等工具）<br>2：Extend.js什么的，专门用于扩展各种js原生对象的。比如自己写的MyArray在Array基础上扩展各种函数和属性什么的（可用于学习）</p>
-<p>公共资源</p>
-<p> 1：公共图片，比如logo。<br> 2：公共的框架js，css什么的</p>
-<p>功能</p>
-<p>说明，此处是后台管理的界面，正常情况下不需要太美化而不是简洁实用的功能。但是我们主要用于锻炼技术，所以采用更加复杂的页面。</p>
-<h4 id="1：景点管理"><a href="#1：景点管理" class="headerlink" title="1：景点管理"></a>1：景点管理</h4><p>需要实现增删改查以及和蓝牙信标的关联<br>总体页面纵向瀑布流加横向瀑布流？</p>
-<h5 id="1-1：查询功能"><a href="#1-1：查询功能" class="headerlink" title="1.1：查询功能"></a>1.1：查询功能</h5><p>页面<br>以什么方式展现，有两部分，一部分展示景点信息（包含景点评价等级），另一部分可以通过点击景点页面查询景点的html网页介绍。<br>此处可以链接到景点的评价页面<br>按楼层展示景点。<br>技术<br>发送ajax加载数据，前端渲染。</p>
-<h5 id="1-2：添加功能"><a href="#1-2：添加功能" class="headerlink" title="1.2：添加功能"></a>1.2：添加功能</h5><p>页面<br>景点名称（输入框）、景点所属楼层（下拉框，后台数据）、景点主图（文件）、景点音频介绍（文件）、-景点视频介绍（文件）、景点详细说明介绍（ueditor,打的输入框）。<br>使用弹框还是新开页面？<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因<br>51.3：编辑功能</p>
-<p>页面<br>弹出添加功能相同的页面，此处需要加载原有景点信息<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因</p>
-<h5 id="1-4：删除功能"><a href="#1-4：删除功能" class="headerlink" title="1.4：删除功能"></a>1.4：删除功能</h5><p>页面<br>在查询结果页面显示删除按钮？或者编辑页面显示删除按钮。<br>技术<br>Ajax删除，成功刷新页面，否则提示后台传入的失败原因</p>
-<h5 id="1-5：蓝牙关联"><a href="#1-5：蓝牙关联" class="headerlink" title="1.5：蓝牙关联"></a>1.5：蓝牙关联</h5><p>页面<br>弹出当前景点已有蓝牙信标的列表，可以对该列表进行删除、添加操作。<br>技术<br>使用ajax处理删除和添加操作，同时需要自己更新蓝牙列表数据。</p>
-<h4 id="2-景点评论管理"><a href="#2-景点评论管理" class="headerlink" title="2:景点评论管理"></a>2:景点评论管理</h4><p>需要实现删除、查询功能。<br>总体页面纵向瀑布流卡片形式？</p>
-<h5 id="2-1：查询功能"><a href="#2-1：查询功能" class="headerlink" title="2.1：查询功能"></a>2.1：查询功能</h5><p>页面<br>需要提供选择景点，然后展示景点评价的功能。展示景点评价，按评价时间倒序排序。需要显示，评价等级，时间和评价内容。<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="2-2：删除功能"><a href="#2-2：删除功能" class="headerlink" title="2.2：删除功能"></a>2.2：删除功能</h5><p>页面<br>在查询结果页面如何显示删除按钮？鼠标一上去出现？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="3：留言管理"><a href="#3：留言管理" class="headerlink" title="3：留言管理"></a>3：留言管理</h4><p>需要实现删除、查询功能。<br>总体页面纵向瀑布流卡片形式？</p>
-<h5 id="3-1：查询功能"><a href="#3-1：查询功能" class="headerlink" title="3.1：查询功能"></a>3.1：查询功能</h5><p>页面<br>直接展示游客留言信息。包含留言内容，留言时间。<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="3-2：删除功能"><a href="#3-2：删除功能" class="headerlink" title="3.2：删除功能"></a>3.2：删除功能</h5><p>页面<br>在查询结果页面如何显示删除按钮？鼠标一上去出现？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="4：新闻管理"><a href="#4：新闻管理" class="headerlink" title="4：新闻管理"></a>4：新闻管理</h4><p>需要实现添加、删除、查询功能。<br>总体页面纵向时间轴形式？</p>
-<h5 id="4-1：查询功能"><a href="#4-1：查询功能" class="headerlink" title="4.1：查询功能"></a>4.1：查询功能</h5><p>页面<br>左边以时间加日期展示。每个日期下面的新闻列表在右边展示，只展示部分新闻。点击展开可以实现全屏查看该新闻详细信息。动画展开效果？<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="4-2：添加功能"><a href="#4-2：添加功能" class="headerlink" title="4.2：添加功能"></a>4.2：添加功能</h5><p>页面<br>新闻标题（输入框）、作者（输入框）、新闻详情（ueditor,大的输入框）。<br>使用弹框还是新开页面？<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因。</p>
-<h5 id="4-3：删除功能"><a href="#4-3：删除功能" class="headerlink" title="4.3：删除功能"></a>4.3：删除功能</h5><p>页面<br>删除按钮出现在哪里，新闻卡片的右上角？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="5：照片墙"><a href="#5：照片墙" class="headerlink" title="5：照片墙"></a>5：照片墙</h4><p>需要实现添加、删除、查询功能。<br>总体页面纵向瀑布流形式？</p>
-<h5 id="5-1：查询功能"><a href="#5-1：查询功能" class="headerlink" title="5.1：查询功能"></a>5.1：查询功能</h5><p>页面<br>直接展示照片，照片说明，拍摄时间信息。以瀑布流方式加载，滚动到底部自动加载更多<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置发送ajax加载更多。</p>
-<h5 id="5-2：添加功能"><a href="#5-2：添加功能" class="headerlink" title="5.2：添加功能"></a>5.2：添加功能</h5><p>页面<br>图片说明（输入框）、图片（ueditor,大的输入框）。<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因。</p>
-<h5 id="5-3：删除功能"><a href="#5-3：删除功能" class="headerlink" title="5.3：删除功能"></a>5.3：删除功能</h5><p>页面<br>删除按钮出现在哪里，照片的右上角？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="6：数据"><a href="#6：数据" class="headerlink" title="6：数据"></a>6：数据</h4><p>需要实现查询功能。<br>总体页面缩略图展示，点击全屏展示？可以左右切换表格？</p>
-<h5 id="6-1：查询功能"><a href="#6-1：查询功能" class="headerlink" title="6.1：查询功能"></a>6.1：查询功能</h5><p>页面<br>显示哪些数据统计页面？<br>技术<br>发送ajax加载数据，前端渲染。<br>文件结构层次<br>-webapp<br>—libs<br>———jquery..<br>—app<br>—system<br>———pages<br>—————tour<br>—————news<br>—————feedback<br>—————comments<br>—————photo<br>—————data<br>———src<br>—————css<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>—————less<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>—————js<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>————images<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data</p>
-<p>后端</p>
-<p>使用技术</p>
-<p>Springmvc、Spring、mybatis。使用maven管理项目。</p>
-<p>文件目录</p>
-<p>Controller、domain、service、service.impl、mapper、mapping、util</p>
-<p>注意：为了后期扩展，需要考虑后期加入多个页面的情况             </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-node学习心得" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/13/node学习心得/" class="article-date">
-  	<time datetime="2016-07-13T11:49:39.000Z" itemprop="datePublished">2016-07-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/node学习心得/">node学习心得</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-postName" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/13/postName/" class="article-date">
-  	<time datetime="2016-07-13T03:13:27.000Z" itemprop="datePublished">2016-07-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/postName/">postName</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/13/hello-world/" class="article-date">
-  	<time datetime="2016-07-13T01:19:57.806Z" itemprop="datePublished">2016-07-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 高源
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
+<div id="btn-view">Hide</div>
 
 <script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: true
-	}
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
 
 
 
 
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
 
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
     }
+  }
 });
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
 });
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
 </script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
 </body>
 </html>
+
