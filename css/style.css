@@ -507,10 +507,11 @@ a {
   text-align: center;
 }
 #header .profilepic img {
-  width: 100%;
-  height: 100%;
+  width: 20%;
+  height: 20%;
   -webkit-border-radius: 300px;
   border-radius: 300px;
+  opacity: 0;
   -webkit-transition: all 0.2s ease-in;
 }
 #header .profilepic img.show {
