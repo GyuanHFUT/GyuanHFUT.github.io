@@ -511,7 +511,6 @@ a {
   height: 100%;
   -webkit-border-radius: 300px;
   border-radius: 300px;
-
   -webkit-transition: all 0.2s ease-in;
 }
 #header .profilepic img.show {
