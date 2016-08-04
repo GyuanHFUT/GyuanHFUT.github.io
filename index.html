@@ -248,189 +248,6 @@
 
 
   
-    <article id="post-前端面试" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/04/前端面试/" class="article-date">
-  	<time datetime="2016-08-04T14:39:57.226Z" itemprop="datePublished">2016-08-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、列举你工作中遇到的IE6 BUG，谈谈解决方案。<br>3、如何用CSS分别单独定义IE6、7、8的width属性。<br>所有浏览器 通用<br>height: 100px;<br>IE6 专用<br>_height: 100px;<br>IE6 专用<br><em>height: 100px;<br>IE7 专用
-</em>+height: 100px;<br>IE7、FF 共用<br>height: 100px !important;<br>4、CSS中哪些属性可以同父元素继承。<br>继承：(X)HTML元素可以从其父元素那里继承部分CSS属性，即使当前元素并没有定义该属性<br>Color;font-size;<br>5、你如何理解HTML结构的语意化。<br>1.去掉或样式丢失的时候能让页面呈现清晰的结构：<br>html本身是没有表现的，我们看到例如</p><h1>是粗体，字体大小2em，加粗；<strong>是加粗的，不要认为这是html的表现，这些其实html默认的css样式在起作用，所以去掉或样式丢失的时候能让页面呈现清晰的结构不是语义化的HTML结构的优点，但是浏览器都有有默认样式，默认样式的目的也是为了更好的表达html的语义，可以说浏览器的默认样式和语义化的HTML结构是不可分割的。<br>2.屏幕阅读器（如果访客有视障）会完全根据你的标记来“读”你的网页.<br>例如,如果你使用的含语义的标记,屏幕阅读器就会“逐个拼出”你的单词,而不是试着去对它完整发音.<br>3.PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）.<br>使用语义标记可以确保这些设备以一种有意义的方式来渲染网页.理想情况下,观看设备的任务是符合设备本身的条件来渲染网页.<br>语义标记为设备提供了所需的相关信息,就省去了你自己去考虑所有可能的显示情况（包括现有的或者将来新的设备）.例如,一部手机可以选择使一段标记了标题的文字以粗体显示.而掌上电脑可能会以比较大的字体来显示.无论哪种方式一旦你对文本标记为标题,您就可以确信读取设备将根据其自身的条件来合适地显示页面.<br>4.搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重.<br>过去你可能还没有考虑搜索引擎的爬虫也是网站的“访客”,但现在它们他们实际上是极其宝贵的用户.没有他们的话,搜索引擎将无法索引你的网站,然后一般用户将很难过来访问.<br>5.你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记.<br>因此,如果页面文件的标题被标记,而不是,那么这个页面在搜索结果的位置可能会比较靠后.除了提升易用性外,语义标记有利于正确使用CSS和JavaScript,因为其本身提供了许多“钩钩”来应用页面的样式与行为.<br>SEO主要还是靠你网站的内容和外部链接的。(转载请注明出处：WEB前端开发 <a href="http://www.css88.com/" target="_blank" rel="external">http://www.css88.com/</a>)<br>6.便于团队开发和维护<br>W3C给我们定了一个很好的标准，在团队中大家都遵循这个标准，可以减少很多差异化的东西，方便开发和维护，提高开发效率，甚至实现模块化开发。<p></p>
-<p>6、谈谈以前端角度出发做好SEO需要考虑什么。<br>1、了解搜索引擎如何抓取网页和如何索引网页<br>　　你需要知道一些搜索引擎的基本工作原理，各个搜索引擎之间的区别，搜索机器人（SE robot 或叫 web crawler）如何进行工作，搜索引擎如何对搜索结果进行排序等等。<br>　　2、Meta标签优化<br>　　主要包括主题（Title)，网站描述(Description)，和关键词（Keywords）。还有一些其它的隐藏文字比如Author（作者），Category（目录），Language（编码语种）等。<br>　　3、如何选取关键词并在网页中放置关键词<br>　　搜索就得用关键词。关键词分析和选择是SEO最重要的工作之一。首先要给网站确定主关键词（一般在5个上下），然后针对这些关键词进行优化，包括关键词密度（Density），相关度（Relavancy），突出性（Prominency）等等。<br>　　4、了解主要的搜索引擎<br>　　虽然搜索引擎有很多，但是对网站流量起决定作用的就那么几个。比如英文的主要有Google，Yahoo，Bing等；中文的有百度，搜狗，有道等。不同的搜索引擎对页面的抓取和索引、排序的规则都不一样。还要了解各搜索门户和搜索引擎之间的关系，比如AOL网页搜索用的是Google的搜索技术，MSN用的是Bing的技术。<br>　　5、主要的互联网目录<br>　　Open Directory自身不是搜索引擎，而是一个大型的网站目录，他和搜索引擎的主要区别是网站内容的收集方式不同。目录是人工编辑的，主要收录网站主页；搜索引擎是自动收集的，除了主页外还抓取大量的内容页面。<br>　　6、按点击付费的搜索引擎<br>　　搜索引擎也需要生存，随着互联网商务的越来越成熟，收费的搜索引擎也开始大行其道。最典型的有Overture和百度，当然也包括Google的广告项目Google Adwords。越来越多的人通过搜索引擎的点击广告来定位商业网站，这里面也大有优化和排名的学问，你得学会用最少的广告投入获得最多的点击。<br>　　7、搜索引擎登录<br>　　网站做完了以后，别躺在那里等着客人从天而降。要让别人找到你，最简单的办法就是将网站提交（submit）到搜索引擎。如果你的是商业网站，主要的搜索引擎和目录都会要求你付费来获得收录（比如Yahoo要299美元），但是好消息是（至少到目前为止）最大的搜索引擎Google目前还是免费，而且它主宰着60％以上的搜索市场。<br>　　8、链接交换和链接广泛度（Link Popularity）<br>　　网页内容都是以超文本（Hypertext）的方式来互相链接的，网站之间也是如此。除了搜索引擎以外，人们也每天通过不同网站之间的链接来Surfing（“冲浪”）。其它网站到你的网站的链接越多，你也就会获得更多的访问量。更重要的是，你的网站的外部链接数越多，会被搜索引擎认为它的重要性越大，从而给你更高的排名。<br>　　9、标签的合理使用<br>7、我们知道可以以外链的方式引入CSS文件，请谈谈外链引入CSS有哪些方式，这些方式的性能有区别吗。<br>要说出CSS的引入方式，没有什么难度，但要说到为什么使用不同的引入方式，就有些学问在里面了。</p>
-<p>CSS的引入方式最常用的有三种，</p>
-<p>第一：在head部分加入<link rel="stylesheet" type="text/css" href="my.css">,引入外部的CSS文件。</p>
-<p>这种方法可以说是现在占统治地位的引入方法。如同IE与浏览器。这也是最能体现CSS特点的方法；最能体现DIV+CSS中的内容与显示分离的思想，也最易改版维护，代码看起来也是最美观的一种。</p>
-<p>第二：在head部分加入 </p>
-<style type="text/css">
-div{margin: 0;padding: 0;border:1px red solid;}
-</style>
-
-<p>这种方法的使用情况要少的多，最长见得就是访问量大的门户网站。或者访问量较大的企业网站的首页。与第一种方法比起来，优点突出，弊端也明显。优点：速度快，所有的CSS控制都是针对本页面标签的，没有多余的ＣＳＳ命令；再者不用外链ＣＳＳ文件。直接在ＨＴＭＬ文档中读取样式。缺点就是改版麻烦些，单个页面显得臃肿，ＣＳＳ不能被其他ＨＴＭＬ引用造成代码量相对较多，维护也麻烦些。　但是采用这种方法的公司大多有钱，对他们来说用户量是关键，他们不缺人进行复杂的维护工作。</p>
-<p>第三：直接在页面的标签里加　<div style="border:1px red solid;">测试信息</div></p>
-<p>这种方法现在用的很少，很多公司不了解前端技术的领导还对这种写法很痛恨。认为ＨＴＭＬ里不能出现ＣＳＳ命令。其实有时候使用下也没有什么大不了。比如通用性差，效果特殊，使用ＣＳＳ命令较少，并且不常改动的地方，使用这种方法反而是很好的选择。</p>
-<p>除了这三种常用的ＣＳＳ引入方式，还有种很多人都没有见过的引入方式</p>
-<style type="text/css">
-@import url(my.css);
-</style>
-
-<p>这就是第四种引入方式。在ＩＢＭ工作的时候，只能使用一种Ajax框架，就是ＤＯＪＯ。而ＤＯＪＯ的CSS引用，就是采用了@import的方式。这种情况非常少，主要用在CSS文件数量庞大的负责的系统中。另外@important本身是一个CSS命令，是放在CSS文件里的，这个跟LINK标签有很大的区别。<br>8、CSS Sprite是什么，谈谈这个技术的优缺点。<br>CSSSprites在国内很多人叫css精灵，是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去，这样一来，当访问该页面时，载入的图片就不会像以前那样一幅一幅地慢慢显示出来了。对于当前网络流行的速度而言，不高于200KB的单张图片的所需载入时间基本是差不多的，所以无需顾忌这个问题。<br>加速的关键，不是降低重量，而是减少个数。传统切图讲究精细，图片规格越小越好，重量越小越好，其实规格大小无所谓，计算机统一都按byte计算。客户端每显示一张图片都会向服务器发送请求。所以，图片越多请求次数越多，造成延迟的可能性也就越大。<br>CSS Sprites优缺点<br>　　利用CSS Sprites能很好地减少了网页的http请求，从而大大的提高了页面的性能，这也是CSS Sprites最大的优点，也是其被广泛传播和应用的主要原因；<br>　　CSS Sprites能减少图片的字节，曾经比较过多次3张图片合并成1张图片的字节总是小于这3张图片的字节总和。<br>　　解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需要对每一个小元素进行命名，从而提高了网页的制作效率。<br>　　更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格就可以改变。维护起来更加方便。<br>　　诚然CSS Sprites是如此的强大，但是也存在一些不可忽视的缺点，如下：<br>　　在图片合并的时候，你要把多张图片有序的合理的合并成一张图片，还要留好足够的空间，防止板块内不会出现不必要的背景；这些还好，最痛苦的是在宽屏，高分辨率的屏幕下的自适应页面，你的图片如果不够宽，很容易出现背景断裂；<br>　　CSS Sprites在开发的时候比较麻烦，你要通过photoshop或其他工具测量计算每一个背景单元的精确位置，这是针线活，没什么难度，但是很繁琐；幸好腾讯的鬼哥用RIA开发了一个CSS Sprites 样式生成工具，虽然还有一些使用上的不灵活，但是已经比photoshop测量来的方便多了，而且样式直接生成，复制，拷贝就OK！<br>　　CSS Sprites在维护的时候比较麻烦，如果页面背景有少许改动，一般就要改这张合并的图片，无需改的地方最好不要动，这样避免改动更多的css，如果在原来的地方放不下，又只能（最好）往下加图片，这样图片的字节就增加了，还要改动css。<br>　　CSS Sprites非常值得学习和应用，特别是页面有一堆ico（图标）。总之很多时候大家要权衡一下利弊，再决定是不是应用CSS Sprites。<br>9、以CSS3标准定义一个webkit内核浏览器识别的圆角（尺寸随意）<br>-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius:10px;。<br>10、有这么一段HTML，请挑毛病：</p>
-<p></p><p>  哥写的不是HTML，是寂寞。<br><br>  我说：<br>不要迷恋哥，哥只是一个传说</p>
-<h1 id="缺少p标记的结束标记。"><a href="#缺少p标记的结束标记。" class="headerlink" title=" 缺少p标记的结束标记。"></a> 缺少p标记的结束标记。</h1><ol>
-<li>Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?<br>Doctype声明位于文档中的最前面的位置，处于标签之前。此标签可告知浏览器文档使用哪种 HTML 或 XHTML 规范。该标签可声明三种DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。<br>当浏览器厂商开始创建与标准兼容的浏览器时，他们希望确保向后兼容性。为了实现这一点，他们创建了两种呈现模式：标准模式和混杂模式（quirks mode）。在标准模式中，浏览器根据规范呈现页面；在混杂模式中，页面以一种比较宽松的向后兼容的方式显示。混杂模式通常模拟老式浏览器（比如Microsoft IE 4和Netscape Navigator 4）的行为以防止老站点无法工作。<br>浏览器根据DOCTYPE是否存在以及使用的哪种DTD来选择要使用的呈现方法。如果XHTML文档包含形式完整的DOCTYPE，那么它一般以标准模式呈现。对于HTML 4.01文档，包含严格DTD的DOCTYPE常常导致页面以标准模式呈现。包含过渡DTD和URI的DOCTYPE也导致页面以标准模式呈现，但是有过渡DTD而没有URI会导致页面以混杂模式呈现。DOCTYPE不存在或形式不正确会导致HTML和XHTML文档以混杂模式呈现。<br>2：行内元素有哪些？块级元素有哪些？CSS的盒模型？<br>行内元素有：a b span I bem img input select strong<br>级元素有：div ul ol lidl dt dd h1 h2 h3 h4…p<br>盒模型：margin border padding width<br>3.CSS引入的方式有哪些? link和@import的区别是?</li>
-<li>使用 LINK标签<br>将样式规则写在.css的样式文件中，再以<link>标签引入。<link rel="stylesheet" type="text/css" href="example.css"></li>
-<li>使用@import引入<br>跟link方法很像，但必须放在<style>…</style> 中<style type="text/css"><br><!--
-　　@import url(css/example.css);
---><br></style></li>
-<li>使用STYLE标签<br>将样式规则写在<style>…</style>标签之中。<style type="text/css"><br><!--
-body {color: #666;background: #f0f0f0;font-size: 12px;}
-td,p {color:#c00;font-size: 12px;}
---><br></style></li>
-<li>使用STYLE属性<br>将STYLE属性直接加在个别的元件标签里，&lt;元件(标签) STYLE=”性质(属性)1: 设定值1;  性质(属性)2: 设定值2; …}</li>
-<li>使用<span></span>标记引入样式<br><span style="font:12px/20px  #000000;">cnwebshow.com</span></li>
-</ol>
-<p>两者区别：加载顺序的差别。当一个页面被加载的时候，link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表，如：</p>
-<p>main.css<br>———————-<br>@import“sub1.css”;<br>@import“sub2.css”;<br>这样做有一个缺点，会对网站服务器产生过多的HTTP请求，以前是一个文件，而现在却是两个或更多文件了，服务器的压力增大，浏览量大的网站还是谨慎使用。</p>
-<p>4.CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高？</p>
-<p>5:前端页面有哪三层构成，分别是什么？作用是什么？<br>网页分成三个层次，即：结构层、表示层、行为层。<br>网页的结构层（structurallayer）由HTML 或XHTML 之类的标记语言负责创建。标签，也就是那些出现在尖括号里的单词，对网页内容的语义含义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。例如，P标签表达了这样一种语义：“这是一个文本段。”<br>网页的表示层（presentationlayer）由CSS 负责创建。CSS 对“如何显示有关内容”的问题做出了回答。<br>网页的行为层（behaviorlayer）负责回答“内容应该如何对事件做出反应”这一问题。这是Javascript 语言和DOM 主宰的领域。<br>6:css的基本语句构成是？</p>
-<p>8：你做的页面在哪些流览器测试过？这些浏览器的内核分别是什么?经常遇到的浏览器的兼容性有哪些？怎么会出现？解决方法是什么？</p>
-<p>9.如何居中一个浮动元素?<br>设置容器的浮动方式为相对定位，然后确定容器的宽高，比如宽500 高 300 的层，然后设置层的外边距。<br>div{Width:500px;height:300px;Margin: -150px 0 0-250px;position:relative;left:50%;top:50%;}<br>10.有没有关注HTML5和CSS3?如有请简单说一些您对它们的了解情况！<br>HTML5标签的改变：<header>,<footer>, <dialog>, <aside>, <figure>, <section> 等<br>IE9以上开始支持<br>CSS3实现圆角，阴影，对文字加特效，增加了更多的CSS选择器。<br>11.你怎么来实现下面这个设计图,主要讲述思路 （效果图省略）<br>13:如果让你来制作一个访问量很高的大型网站，你会如何来管理所有CSS文件、JS与图片？<br>14：你对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？</section></figure></aside></dialog></footer></header></p>
-<p>[Javascript]<br>1：js是什么，js和html 的开发如何结合？</p>
-<p>2.怎样添加、移除、移动、复制、创建和查找节点<br>3.怎样使用事件以及IE和DOM事件模型之间存在哪些主要差别<br>4.面向对象编程:b怎么继承a<br>5.看看下面alert的结果是什么<br>view sourceprint?1.function b(x, y, a) {<br>.arguments[2] = 10;<br>.alert(a);<br>}<br>b(1, 2, 3);<br>如果函数体改成下面，结果又会是什么？<br>a = 10;<br>alert(arguments[2] );</p>
-<p>6.请编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象<br>var obj = parseQueryString(url);<br>alert(obj.key0)  // 输出0</p>
-<p>7.ajax是什么?  ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?</p>
-<p>8.什么是闭包？下面这个ul，如何点击每一列的时候alert其index?</p>
-<ul id="”test”"><br><li>这是第一条</li><li>这是第二条</li><li>这是第三条</li><br></ul>
-
-<p>9.最近看的一篇Javascript的文章是？</p>
-<p>10.常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？</p>
-<p>11.说说YSlow(可以详细一点)</p>
-<p>===========================================================================================</p>
-<p>　Class 可继承<br>　　4.CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高？ 回答：ID 和 CLASS<br>　　伪类A标签可以继承<br>　　列表 UL LIDL DD DT可继承<br>　　优先级就近原则，样式定义最近者为准<br>　　载入样式以最后载入的定位为准<br>　　优先级为<br>　　!important &gt; [ id &gt; class &gt; tag ]<br>　　Important 比内联优先级高<br>　　5:前端页面有哪三层构成，分别是什么？作用是什么？<br>　　回答：结构层，表现层，定义层；<br>　　6:css的基本语句构成是？<br>　　回答：选择器、属性和属性值。<br>　　8：你做的页面在哪些流览器测试过？这些浏览器的内核分别是什么?经常遇到的浏览器的兼容性有哪些？怎么会出现？解决方法是什么？<br>　　回答：涉及到效率一般就在IEtext firefox 3.5 软件上测试模拟 IE6 IE7 IE8内核是IE7 的<br>　　浏览器PNG8格式背景图透明 JS 报错，浏览器本身的兼容问题有些电脑IE7IE6 下正常，有些提示错误<br>　　9.如何居中一个浮动元素?<br>　　回答：设置容器的浮动方式为相对定位<br>　　然后确定容器的宽高比如宽500 高 300 的层<br>　　然后设置层的外边距<br>　　.Div<br>　　{<br>　　Width:500px ; height:300px;<br>　　Margin: -150px 0 0 -250px;<br>　　position: absolute;<br>　　left:50%;<br>　　top:50%;<br>　　}<br>　　10.有没有关注HTML5和CSS3?如有请简单说一些您对它们的了解情况！<br>　　回答：HTML5 没有关注CSS3 有关注<br>　　比如对多背景图圆角投影等样式的关注<br>　　13:如果让你来制作一个访问量很高的大型网站，你会如何来管理所有CSS文件、JS与图片？<br>　　回答：涉及到人手、分工、同步；<br>　　先期团队必须确定好全局样式（globe.css），编码模式(utf-8) 等<br>　　编写习惯必须一致（例如都是采用继承式的写法，单样式都写成一行）；<br>　　标注样式编写人，各模块都及时标注（标注关键样式调用的地方）；<br>　　页面进行标注（例如页面模块开始和结束）；<br>　　CSS跟HTML 分文件夹并行存放，命名都得统一（例如style.css）<br>　　JS 分文件夹存放命民以该JS 功能为准英文翻译；<br>　　图片采用整合的 images.pngpng8 格式文件使用尽量整合在一起使用方便将来的管理<br>　　14：你对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？<br>　　是策划 UI设计需要转换成程序可实施中的必须的中间环节，这个环节直接关系到页面的正确高效稳定还原策划和UI 设计的效果，同时为程序套接做好程序表现基础载体。这个工作的前景，只能是深造技术流的，模块化管理，新的技术不断更新，对于向后兼容思维的逐步放弃，比如真的淘汰掉IE6后，向前的空间还是有的。前端开发工程师的前景是非常不错的。现在各大IT企业都在招聘这方面的人才。WEB2.0的普及会更加促进本行业本工种的繁荣。 </p>
-<p>===========================================================================================================</p>
-<p>一、填空题（40分）<br>1、目前常用的WEB标准静态页面语言是<strong> <em>__</em></strong>。（4分）html<br>2、改变元素的外边距用<strong><em>__</em></strong>，改变元素的内填充用<strong><em>__</em></strong>。（6分）margin  padding<br>3、在Table中，TR是<strong><em>__</em></strong>，TD是<strong><em>__</em></strong>。（6分）行列<br>4、如果给一行两列的表格（table）定义高度样式，在<strong><em>__</em></strong>标签中定义最合理，最能减少代码的臃肿。（5分）css样式也有说tr<br>5、对ul li的样式设成无，应该是用什么属性<strong><em>__</em></strong>。（6分）list-styl-type：none；<br>6、在新窗口打开链接的方法是<strong><em>__</em></strong>。（4分）target=_bank<br>7、Color:#666666;可缩写为<strong><em>__</em></strong>。（2分）color：#666<br>8、合理的页面布局中常听过结构与表现分离，那么结构是<strong><em>__</em></strong>，表现是<strong><em>__</em></strong>。（9分）div css</p>
-<p>二、选择题（20分）<br>1</p>
-<p>1、  列举常用的浏览器类型以及他们使用的内核还有对应的调试工具<br>常用的有IE(6,7,8,9,10,FF,chrome )<br>IE常用的调试工具有 IEWebDeveloper (IE9默认有安装)<br>Firefox大家估计用的最多。firefox<br>chrome(内核webkit) 自带的有google 开发的内置调试工具。<br>三者内核各不相同。<br>其它还有opera，遨游，世界之窗等；<br>chrome内核跑的比较快，安全。Firefox做调试是最棒的。</p>
-<p>4、html5和css3有什么新特性<br>html5强化了 Web 网页的表现性能，如:nav header section canvas等，语义化更强<br>css3新特性有阴影特效，圆角处理等，都是非常不错的效果；<br>5、说出其他浏览器和IE浏览器在页面元素引用有什么区别？<br>这个和内核有关系，及是否w3c来定制，不同浏览器渲染结果不同。<br>目前国内还有大部份使用IE6，常常web在制作的时候碰到兼容性的问题：<br>如：<br>display-block, padding, margin 等盒子模型比较多。还有不同的字间距等产生的问题；<br>常用解决的方法：<br>IE6：_xxx:{}<br>IE7：*<br>等处理不IE和其它不同浏览器间的差异；<br>4、请选择对javascript理解有误的：(        )<br>A. javascript是网景公司开发的一种基于事件和驱动网页脚本语言<br>B. JScript是javascript的简称<br>C.FireFox和IE存在大量兼容性问题的主要原因在于他们对javascript的支持不同上<br>D.AJAX技术一定要使用javascript技术<br>5、在Jquery中下面哪一个是用来追加到指定元素的末尾的？(     )<br>A、insertAfter() B、append() C、appendTo() D、after()<br>6、在javascript中定义变量 var a=”35”, var b=”7” 运算 a %  b的结果为（      ）<br>A、357  B、57 C、0  D、5<br>7、下面哪种不属于jquery的筛选？（     ）<br>A、过滤 B、自动 C、查找 D、串联<br>8、  有这样一个表单元素，想要找到这个hidden元素，下面哪个是正确的？(      )<br>A、visible B、hidden C、visible() D、overflow<br>9、下面哪个属于javascript的布尔型（        ）<br>A、1.2 B、“true” C、false D、null<br>10、onload事件是 window 的事件，但是在 HTML 中指定事件处理程序的时候，我们是把它写在（      ）标记中的。<br>A、<body>   B、<head>   C、<form>   D、<script><br>11、请选择结果为真的表达式：（        ）<br>A、null instanceof Object  B、null === undefined  C、C.null == undefined<br>D、NaN == NaN<br>12、下列哪个对象是用来代表特定的窗口URL信息（        ）<br>A、location  B、history   C、form    D、frame<br>13、（     ）是一个可以执行的JavaScript代码段。<br>A、对象  B、方法  C、事件   D、函数<br>14、在window 窗口对象中，（        ）使焦点从窗口移走，窗口变为“非活动窗口”。<br>A、focus( ) B、blur( )   C、password（） D、check（）<br>15、下面哪个属于javascript的字符型（       ）<br>A、false B、你好C、“123” D、null<br>16、下列运算方式不属于逻辑运算的是（          ）<br>A、!a  B、a&amp;&amp;b  C、a ‖ b  D、a&gt;b<br>17、关于变量的声明，下列选项阐述不正确的是（       ）<br>A、变量声明时，所有类型均由小写var声明，如 var  name=“张勇” sex=“女生”<br>B、可以以字母、下划线或者数字开头  C、变量名区分大小写  D、变量名不能是Javascript的保留字<br>18、（       ）指浏览器的浏览历史对象<br>A、history   B、location   C、window   D、protocol<br>19、JavaScript是一种基于（      ）的安全脚本语言。<br>A、对象 B、方法 C、事件 D、对象和事件驱动</p>
-<ol>
-<li><p>HTTP协议的状态消息都有哪些?(如200、302对应的描述)</p>
-</li>
-<li><p>AJAX是什么? AJAX的交互模型(流程)? AJAX跨域的解决办法?</p>
-</li>
-<li><p>同步和异步的区别?</p>
-</li>
-<li><p>简述JavaScript封装。</p>
-</li>
-<li><p>JavaScript继承有哪两种形式形式，进行描述。</p>
-</li>
-<li><p>什么是闭包?以下代码点击<p> 会输出什么?为什么?能大概说明白的话继续问能想出几种解决办法。</p>
-</li>
-</ol>
-<p>&lt;!DOCTYPE HTML&gt; <html> <head> <meta charset="utf-8" /> <title>闭包演示</title> <style type="text/css">     p {background:gold;}  </style> <script type="text/javascript">   function init() {          var pAry = document.getElementsByTagName(“p”);          for( var i=0; i<pAry.length; i++ ) {               pAry[i].onclick = function() {               alert(i);          }     }  }  </script>   </form></head>   <body onload="init();">   <p>产品 0</p>   <p>产品 1</p>   <p>产品 2</p>   <p>产品 3</p>   <p>产品 4</p>   </body>     7. 在JS中this关键字的使用场合和用法(如在构造函数中、setTimeout中等)。</body></p>
-<ol>
-<li><p>简述下cookie的操作，还有cookie的属性都知道哪些。</p>
-</li>
-<li><p>IE与FF的JS兼容性都知道哪些。</p>
-</li>
-<li><p>DOM操作 - 怎样添加、移除、移动、复制、创建和查找节点(这个问题真心是基础题，一般不会问)。</p>
-</li>
-</ol>
-<p>jQuery相关</p>
-<ol>
-<li><p>jQuery源码是否尝试去读过?说说基本的架构或者 jQuery.fn.init 中都做了哪些判断。</p>
-</li>
-<li><p>都知道哪些不好的jQuery书写方式。</p>
-</li>
-<li><p>Sizzle是否有读过?</p>
-</li>
-</ol>
-<p>其它相关的加分项：</p>
-<ol>
-<li><p>都使用和了解过哪些编辑器?都使用和了解过哪些日常工具?</p>
-</li>
-<li><p>都知道有哪些浏览器内核?开发过的项目都兼容哪些浏览器?</p>
-</li>
-<li><p>国内外的JS牛人都知道哪些?</p>
-</li>
-<li><p>瀑布流布局或者流式布局是否有了解</p>
-</li>
-<li><p>正则表达式有系统学习过吗(看书或网上教程)?有的话就问问简单点的邮箱验证、URL验证， 或者问问 贪婪匹配与懒惰匹配 的理论知识。</p>
-</li>
-<li><p>Node.js是否有过尝试?到什么程度?说说个人理解的看法?</p>
-</li>
-<li><p>HTML5都有哪些新的JS API?</p>
-</li>
-<li><p>前端优化知识都知道哪些?</p>
-</li>
-<li><p>基础算法题(如快速排序，能否一两句说说重要的核心原理或者数组消重等)。</p>
-</li>
-<li><p>是否有接触过或者了解过重构。<br>一、<br>1、javascript的数据类型不包括 （   a    ）<br>A. 汉字型          B. 数值型           C. 对象型           D. 布尔型<br>2、以下哪条语句不能创建对象：（       ）<br>A.var obj = ();      B.var obj = [];   C.var obj = {};     D.var obj = //;<br>3、javascript的单行注释方式（    c     ）<br>A. {}               B. &lt;!–&gt;          C.   //            D.  /<em> </em> <em> </em> */<br>20、关于下列运算符与表达式叙述不正确的是（      ）<br>A、delete是用来删除对象、属性、数组、变量，删除成功返回true，删除失败返回false<br>B、typeof是用来判断操作数类型<br>C、this代表当前对象，因此在不同的地方就有不同的结果<br>D、new能用来声明变量，并给变量赋值<br>21、写 “Hello World” 的正确 Javascript 语法是（        ）<br>A、(“Hello World”)  B、”Hello World” C、response.write(“Hello World”)<br>D、document.write(“Hello World”)<br>22、如何在警告框中写入 “Hello World”？（      ）<br>A、alertBox=”Hello World”  B、msgBox(“Hello World”)  C、alert(“Hello World”)<br>D、alertBox(“Hello World”)<br>23、如何创建函数（         ）<br>A、function:myFunction()  B、function myFunction()  C、function=myFunction()<br>24、如何调用名为 “myFunction” 的函数(       )<br>A、call function myFunction   B、call myFunction()  C、myFunction()<br>25、如何编写当 i 等于 5 时执行一些语句的条件语句？（       ）<br>A、if (i==5)  B、if i=5 then  C、if i=5  D、if i==5 then<br>26、jQuery中如果需要匹配包含文本的元素，用下面哪种来实现？(     )<br>A、text() B、contains() C、input() D、attr(name)<br>27、在 JavaScript 中，有多少种不同类型的循环(      )<br>A、两种。for 循环和 while 循环。<br>B、三种。for 循环、while 循环、do…while 。<br>C、一种。for 循环。<br>28、for 循环如何开始(        )<br>A、if (i != 5)   B、for (i &lt;= 5; i++)  C、for (i = 0; i &lt;= 5; i++)  D、for i = 1 to 5<br>29、定义 JavaScript 数组的正确方法是 (      )<br>A、var txt = new Array=”George”,”John”,”Thomas”<br>B、var txt = new Array(1:”George”,2:”John”,3:”Thomas”)<br>C、var txt = new Array(“George”,”John”,”Thomas”)<br>D、var txt = new Array:1=(“George”)2=(“John”)3=(“Thomas”)<br>30、如何把 7.25 四舍五入为最接近的整数(         )<br>A、round(7.25)   B、rnd(7.25)  C、Math.rnd(7.25)  D、Math.round(7.25)<br>31、 如何求得 2 和 4 中最大的数？(      )<br>A、Math.ceil(2,4)  B、Math.max(2,4)  C、ceil(2,4)   D、top(2,4)<br>32、在jquey中，如果想要从DOM中删除所有匹配的元素，下面哪一个是正确的？（    ）<br>A、delete() B、empty() C、remove() D、removeAll()<br>33、如何在浏览器的状态栏放入一条消息(      )<br>A、statusbar = “put your message here”<br>B、window.status = “put your message here”<br>C、window.status(“put your message here”)<br>D、status(“put your message here”)<br>34如何获得客户端浏览器的名称(      )<br>A、client.navName  B、navigator.appName   C、browser.name<br>D、status(“put your message here”)<br>35、在JQUERY中以下方法，哪一个可以直接设置高度收缩展开：（      ）<br>A、show()和hide()  B、fadeIn()和fadeOut()  C、slideUp()和slideDown()<br>D、animate()<br>36、jQuery中使用cookie插件设置cookie的正确写法是（        ）<br>A、$(“cookieName”)            B、$.cookie(“name”,”value”,{path:”/”,expires:10})<br>C、$.cookie(“name”, path:”/”,expires:10})          D、setCookie(“name”)<br>37、在jquery中，想要给第一个指定的元素添加样式，下面哪一个是正确的？（        ）<br>A、first B、eq(1) C、css(name) D、css(name,value)型<br>38、在一个表单中，如果将所有的div元素都设置为绿色，实现功能是（     ）<br>A $(“div”).css(“color”,”green”)  B $(“div”).cssStyle(“color”,”green”)<br>C $(“div”).addCss(“color”,”green”) D $(“div”).css(”green”)<br>39、 下列方法可以来回切换点击事件的是（      ）<br>A toggle()  B hover()  C change()   D Click(  )<br>40、（         ） 提交按钮对象 由“<input type="submit">指定。<br>Ａ、Submit 　Ｂ、Button   C、Form　　Ｄ、object</p>
-</li>
-<li>（        ）事件发生在窗口得到焦点的时候。</li>
-<li>document.（         ）是在当前文档中写入</li>
-<li>（          ） 发生在窗口失去焦点的时候。</li>
-<li>（        ）发生在用户把鼠标放在对象上鼠标键被按下的情况下，放开鼠标键的时候。</li>
-<li>在数组对象中（          ）属性可以获取数组元素的个数。</li>
-<li>字符串对象中（          ）方法可以获取字符串在字符串中出是否出现。</li>
-<li>正则表达式中（          ） 方法检查在字符串中是否存在这个模式，如果存在则返回 true，否则就返回 false。  </li>
-<li>window对象中的（         ）方法，用以指定在一段特定的时间后重复执行某段程序。</li>
-<li>给图片<img>设置路径 src 的值为 1.gif 的jquery写法为(                      )</li>
-<li>(          ） 发生在对象被单击的时候。</li>
-<li>根据变量的作用域，可以将变量分为（        ）和（           ）。</li>
-<li>日期对象中getMonth()方法获取的取值范围是（           ）。</li>
-<li>（            ）发生在用户把鼠标放在对象上按下鼠标键的时候。</li>
-<li>可以用（           ）来创建一个新的对象，并指定对象的类型。</li>
-<li>JQUERY中可以用（         ）方法触发事件</li>
-<li>jQuery中，（          ）方法可以得到该元素的下一个兄弟节点</li>
-<li>jQuery中（           ）方法可以插入一个节点</li>
-<li><p>jQuery中（          ）方法 和 （           ）可以产生淡入淡出动画</p>
-</li>
-<li><p>Jquery的实质仍然是javascript。                （      ）</p>
-</li>
-<li>window.onload是指当文档加载的时候，在一个javascript文件中可以出现多次（      ）</li>
-<li>JavasScript不存在兼容问题                            （       ）</li>
-<li>CSS Sprite技术的应用为了达到更好的加载速度和更好的用户体验，是将多个切图应用在一张图片上利用background-position定位背景（      ）</li>
-<li>日期对象的  Month()方法可以获取月份，获取的值为1-12  （       ）</li>
-<li>正则表达式的test()方法可以使用正则表达式模式在字符串中运行查找，并返回包含该查找结果的一个数组。（   ）</li>
-<li>javascript中  “+” 只能作为算术运算符应用                        （        ）</li>
-<li>onblur()事件是指当获取光标的时候                        （         ） </li>
-<li>onmouseout 事件发生在用户把鼠标放在对象上按下鼠标键的时候。（          ）</li>
-<li>在 Link 对象的 onclick 事件处理程序中返回 false 值（return false），能阻止浏览器打开此连接。                                                              （        ）</li>
-</ol>
-</strong></h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-寻游框架" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -613,10 +430,67 @@ td,p {color:#c00;font-size: 12px;}
 
 
   
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="article-meta">
+      <a href="/2016/07/13/hello-world/" class="article-date">
+  	<time datetime="2016-07-13T01:19:57.806Z" itemprop="datePublished">2016-07-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/13/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
 </div>
       <footer id="footer">
