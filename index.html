@@ -238,6 +238,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/14/计算机网络基础之网络层部分/" itemprop="url">
+                  计算机网络基础之网络层部分
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
+              2016-08-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个标识80,外界发来数据包，我就通过这个80标识转发给你，你监听我的时候告诉我你监听的是80,我就把80的数据转发给你。一个标识只能被一个应用程序监听，要是有多个，会破坏数据的安全性。那么这个标识就是端口号PORT。<br>链路层：MAC地址、网络层：IP地址、传输层：PORT。IP地址用来定位网络上的一台主机，而PORT用来定位主机上的一个应用程序。</p>
+<h4 id="网络层提供的两种服务："><a href="#网络层提供的两种服务：" class="headerlink" title="网络层提供的两种服务："></a>网络层提供的两种服务：</h4><ul>
+<li>1.虚电路服务<br>电话机：面向连接的通信方式，使电信网络向用户提供可靠的传输服务</li>
+<li>2.数据报服务<br>因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务<br>网络层不提供服务质量的承诺。即所传送的分组可能出错、丢失、重复、失序。<h3 id="IP网际协议"><a href="#IP网际协议" class="headerlink" title="IP网际协议"></a>IP网际协议</h3>地址解析协议ARP、逆地址解析协议、网际控制报文协议ICMP、网际组管理协议IGMP、<br>网络层又叫网际层或IP层<br>没有一种单一的网络能够适应所有用户的需求<br>将网络互相连接起来要使用一些中间设备：<br>物理层使用的中间设备叫做转发器<br>数据链路层使用的中间设备叫做网桥或桥接器<br>网络层使用的中间设备叫做路由器<br>网络层以上使用的中间设备叫做网关<br>参加互连的计算机网络都使用相同的网际协议IP，因此可以把互连以后的计算机网络看成一个虚拟互连网络<br>IP协议可以使这些性能各异的网络在网络层上看起来好像是一个统一的网络<br>使用IP协议的虚拟互联网络简称为IP网<br>主机的协议栈共有5层，路由器的协议栈只有下3层<br>整个因特网就是一个单一的、抽象的网络<br>IP地址就是给因特网上的每一个主机或路由器的每一个接口，分配一个全世界范围是唯一的32位标识符。IP地址的结构可以使我们很方便的在因特网上进行寻址。<br>分类的IP地址<br>子网的划分<br>构成超网<h4 id="分类的IP地址"><a href="#分类的IP地址" class="headerlink" title="分类的IP地址"></a>分类的IP地址</h4>将IP地址划分成若干个固定类，每一个类地址都由两个固定的类字段组成。其中第一个字段是网络号，它标志主机或路由器所连接的网络，一个网络号在整个因特网范围内必须是惟一的。第二个字段是主机号，表示该主机或路由器，一个主机号在它前面网络号指明的范围内是惟一的。因此，一个IP地址在整个因特网范围内是唯一的<br>IP地址并不仅仅指明一个主机，而且还指明了主机所连的网络<br>IP地址是一种分等级的地址结构，IP地址管理机构在分配IP地址时，只分配网络号，而剩下的主机号则右得到该网络号的单位自行分配，方便了IP地址的管理。路由器仅根据目的主机所连接的网络号来转发分组，而不用考虑主机号，则路由表中的项目数大幅减少，减小了路由表所占的存储空间，以及查找路由表的时间。<br>一个路由器应当至少连接到两个网络<br>IP地址放在IP数据报的首部，而MAC地址则放在MAC帧的首部，在网络层或网络层以上使用的是IP地址，而数据链路层及其以下使用的是MAC地址。在数据链路层看不见数据报的IP地址。<br>ARP协议的用途是为了从网络层使用的IP地址解析出在数据链路层使用的MAC地址。<br>在IP层转发分组的流程：在互联网上转发分组时，是从一个路由器转发到下一个路由器。<br>路由表中的每一条路由：（目的网络地址，下一跳地址）</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/13/Js部分/" itemprop="url">
                   Js部分
                 </a>
@@ -1615,120 +1713,6 @@ Last-Modified: $now // RFC1123 format
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/09/CSS知多少-王福朋/" itemprop="url">
-                  CSS知多少-王福朋
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T23:00:22+08:00" content="2016-08-09">
-              2016-08-09
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>  刚学html时候，不会用div + css做多列布局，我就用table做多列布局。而今，你可以用table-cell，像用table一样做多列布局，做出来的效果和table做出来的效果是一模一样的。</p>
-<hr>
-<p>  在默认情况下，页面中的文字不会直接顶到浏览器的边框，这就是因为默认样式为body设置了margin的缘故。这里需要注意个问题，不同浏览器为body设置的margin值可能不一样，因此大家都知道在css中用 <em>{margin:0} 来解决这一兼容性问题。<br>“星号”选择器的级别要低于body标签选择器，但是</em>{margin:0}依然有效的原因，就是浏览器偷偷的做了优先级的手脚。如果在正常情况下，*选择器在遇到标签选择器时，是不会起作用的，即使它是“后加载”的。<br>另外注意，这里的line-height: 1.12是一个相对值，即是文字高度的1.12倍。看到这里，我们在写line-height的时候，也一定要注意使用相对值，不要使用绝对值。</p>
-<hr>
-<p>  em是什么？——em是一个浏览器识别的长度单位，但是它不是绝对的、固定的，而是相对的。大家都知道px是一个绝对的长度单位制，它永远不会改变。浏览器默认情况下令1em === 16px。现在你知道为何p默认是16px了吧。而且你还知道了h1是p高度的两倍，h2是p高度的1.5倍……（你知道的越来越多了。。。）由于font-size和margin都是通过em来定义的，当em被修改时，不管字体大小修改，margin值也会跟着修改。这就是em好用之处！<br>　从现在开始，与字体大小有关的css，全部都用em！</p>
-<hr>
-<p>　    button、input就是inline-block！这样以点播你就会一下子明白，最起码能给你一个很好的形象的概念。看看button和input的表现，你就知道inline-block是什么样子了：<br>　　能被父容器居中、能设置高度宽度和margin、不会像table或div那样占一正行……——这就是inline-block——记得这是浏览器默认样式告诉你的。</p>
-<hr>
-<p>###盒子模型<br>在盒子模型中，我们设置的宽度都是内容宽度，不是整个盒子的宽度。而整个盒子的宽度是：（内容宽度 + border宽度 + padding宽度 + margin宽度）之和。<br>div设置了box-sizing:border-box之后，300px的宽度是内容 + border + 边框的宽度（不包括margin），这样就比较符合我们的实际要求了。<br><img src="http://images.cnitblog.com/blog/138012/201502/120830507768619.png" alt="enter image description here"><br>　<br>　这里提到margin，不得不提一下margin的这一特性——纵向重叠。如下图，</p><p>的纵向margin是16px，那么两个’</p><p>‘之间纵向的距离是多少？<br>　　按常理来说应该是 16 + 16 = 32px，但是答案仍然是 16px。因为纵向的margin是会重叠的，大的会把小的“吃掉”（可以自己去实验）。</p>
-<p>###清除浮动的四种方式<br>-为父元素添加overflow:hidden<br>-浮动父元素<br>-通过在所有浮动元素下方添加一个clear:both的元素，可以消除float的破坏性。<img src="http://images.cnitblog.com/blog2015/138012/201503/050820381338575.png" alt="enter image description here"><br>-<strong>最重要</strong>清楚浮动的方法bootstrap正在用的——clearfix；<img src="http://images.cnitblog.com/blog2015/138012/201503/050820563529176.png" alt="enter image description here"><br>定义一个.clearfix类，然后对float元素的父元素应用这一样式即可，非常简单吧？注意，你可能会搜出不同版本的clearfix，有的代码比上图中的代码多，你不用理会它，就按照我的贴图的代码写就行。</p>
-<p>　　究其原理，其实就是通过伪元素选择器，在div后面增加了一个clear:both的元素，跟第三种方法是一个道理。</p>
-<p>###如何把inline元素转换成“块”元素？<br>相信绝大部分人的回答是display:block，但是你应该知道这不是一个唯一的答案。至少我设置display:table也是可以的吧？<br> 第一，对inline元素设置float</p>
-<pre><code>还是刚才那个例子，我们对span元素添加一个float:left，运行看看效果，你就会大吃一惊。从显示的效果和监控的结果上看来，span元素已经“块”化。注意，上一节刚刚讲完float，不要忘记float的“破坏性”、“包裹性”，在这里同样适用。
-</code></pre><p><img src="http://images.cnitblog.com/blog2015/138012/201503/060816212111595.png" alt="enter image description here"><br>第二，对inline元素设置position:absolute/fixed</p>
-<pre><code>还是有同一个例子做演示，这次在span元素上加上absolute/fixed，效果大家应该能猜到，和加上float的效果相同。至于absolute/fixed有什么特性，会在下一节介绍position时提到。
-</code></pre><p><img src="http://images.cnitblog.com/blog2015/138012/201503/060816439775782.png" alt="enter image description here"></p>
-<h3 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h3><p>　　这个话题还得从《浏览器默认样式》这一节开始。浏览器默认样式中规定了几个html元素为display:inline-block，回顾一下。</p>
-<p>　　</p>
-<p>　　初学者对于inline-block可能比较陌生，没关系，一步一步来。首先，你应该知道inline是什么样子的，就是一般的文字、图片；其次，你应该知道block是什么样子的，一般的div就是；最后，inline-block顾名思义，它既有inline的特性，又有block的特性，大家可以想想一般的button、input是什么样子的。<br><img src="http://images.cnitblog.com/blog2015/138012/201503/060817421642526.png" alt="enter image description here"><br>　　那button举例子。我们在页面中输入若干个<button>，发现它们是“流”式排列的（可以对比一下若干个<div>的排列方式）。但是针对一个button，我们还可以自定义修改它的形状，这样就有“块”的特征。</div></button></p>
-<p> <img src="http://images.cnitblog.com/blog2015/138012/201503/060818033521199.png" alt="enter image description here"></p>
-<p>　　因此，inline-block的特点可以总结为：<strong>外部看来是“流”，但是自身确实一个“块”</strong>。不知道大家理解也无？<br><em>**</em>几个小知识点。<br>设置absolute会使得inline元素被“块”化，这在上一节将display时已经说过；<br>设置absolute会使得元素已有的float失效。不过float和absolute同时使用的情况不多；<br>上文提到了absolute会使元素悬浮在页面之上，如果有多个悬浮元素，层级如何确定？答案是“后来者居上”</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1774,7 +1758,7 @@ Last-Modified: $now // RFC1123 format
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
