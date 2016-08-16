@@ -238,6 +238,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/11/http基础知识/" itemprop="url">
+                  http基础知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T22:39:14+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="HTTP协议的特点"><a href="#HTTP协议的特点" class="headerlink" title="HTTP协议的特点"></a>HTTP协议的特点</h4><p>HTTP协议的主要特点可概括如下：<br>1.支持客户/服务器模式。<br>2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。<br>3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。<br>4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。<br>5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
+<h4 id="HTTP协议的请求方法"><a href="#HTTP协议的请求方法" class="headerlink" title="HTTP协议的请求方法"></a>HTTP协议的请求方法</h4><p>请求方法（所有方法全为大写）有多种，各个方法的解释如下：<br>GET 请求获取Request-URI所标识的资源<br>POST 在Request-URI所标识的资源后附加新的数据<br>HEAD 请求获取由Request-URI所标识的资源的响应消息报头<br>PUT 请求服务器存储一个资源，并用Request-URI作为其标识<br>DELETE 请求服务器删除Request-URI所标识的资源<br>TRACE 请求服务器回送收到的请求信息，主要用于测试或诊断<br>CONNECT 保留将来使用<br>OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求</p>
+<h4 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h4><p>1）GET请求的数据是放在HTTP包头中的，也就是URL之后<br>2）GET提交的数据比较少，最多1024B，因为GET数据是附在URL之后的，而URL则会受到不同环境的限制的，比如说IE对其限制为2K+35，而POST可以传送更多的数据（理论上是没有限制的，但一般也会受不同的环境，如浏览器、操作系统、服务器处理能力等限制，IIS4可支持80KB，IIS5可支持100KB）。<br>3）Post的安全性要比Get高，因为Get时，参数数据是明文传输的，而且使用GET的话，还可能造成Cross-site request forgery攻击。而POST数据则可以加密的，但GET的速度可能会快些。</p>
+<h4 id="HTTP协议的请求头"><a href="#HTTP协议的请求头" class="headerlink" title="HTTP协议的请求头"></a>HTTP协议的请求头</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#一行，描述请求方法、URL、htto协议等信息</div><div class="line">&lt;request-line&gt;</div><div class="line">#请求头信息</div><div class="line">&lt;headers&gt;</div><div class="line">&lt;CRLF&gt;</div><div class="line"></div><div class="line">#request body。&lt;headers&gt;使用/r/n占用一行来标记结束</div><div class="line">[&lt;request-body&gt;&lt;CRLF&gt;]</div></pre></td></tr></table></figure>
+<p>request-line中的url一定是使用application/x-www-form-urlencoded编码的，这个与请求方法无关。<br>Content-Type指明了request body的编码方式。<br>Content-Length指明了request body的长度，该长度务必等于request-body真正的字符数。少于会导致request-body的确实，多于服务器会等待知道超时才返回已读取的数据（功能没影响，但效率显然差）。</p>
+<h5 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">GET /hello/index.html HTTP/1.1 </div><div class="line">#【↑】request line</div><div class="line">#【↓】request headers</div><div class="line">Accept: */*</div><div class="line">Accept-Language: zh-cn</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Host: localhost:8000</div><div class="line">#发送完关闭连接 or 等待</div><div class="line">Connection: Keep-Alive</div><div class="line">Cookie: JSESSIONID=BBBA54D519F7A320A54211F0107F5EA6</div></pre></td></tr></table></figure>
+<h5 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#url的部分仍然是urlencoded</div><div class="line">POST /hello/checkUser.html?opt=xxx HTTP/1.1</div><div class="line">Referer: http://localhost:8000/hello/index.html</div><div class="line">Accept: */*</div><div class="line">Accept-Language: zh-cn</div><div class="line">#纯文本的编码：不编码</div><div class="line">Content-Type: text/plain</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Host: localhost:8000</div><div class="line">Content-Length: 20</div><div class="line">Connection: Keep-Alive</div><div class="line">Cache-Control: no-cache</div><div class="line">Cookie: JSESSIONID=BBBA54D519F7A320A54211F0107F5EA6</div><div class="line"></div><div class="line">#【↑】/r/n</div><div class="line">#【↓】request body</div><div class="line">12345678901234567890</div></pre></td></tr></table></figure>
+<h4 id="HTTP协议的响应"><a href="#HTTP协议的响应" class="headerlink" title="HTTP协议的响应"></a>HTTP协议的响应</h4><p>HTTP响应也是由三个部分组成，分别是：状态行、消息报头、响应正文<br>状态行格式如下：<br>HTTP-Version Status-Code Reason-Phrase CRLF<br>其中，HTTP-Version表示服务器HTTP协议的版本；Status-Code表示服务器发回的响应状态代码；Reason-Phrase表示状态代码的文本描述。<br>状态代码有三位数字组成，第一个数字定义了响应的类别，且有五种可能取值：<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求<br>常见状态代码、状态描述、说明：<br>200 OK //客户端请求成功<br>400 Bad Request //客户端请求有语法错误，不能被服务器所理解<br>401 Unauthorized //请求未经授权，这个状态代码必须和WWW-Authenticate报 //头域一起使用<br>403 Forbidden //服务器收到请求，但是拒绝提供服务<br>404 Not Found //请求资源不存在，eg：输入了错误的URL<br>500 Internal Server Error //服务器发生不可预期的错误<br>503 Server Unavailable //服务器当前不能处理客户端的请求，一段时间后， //可能恢复正常<br>eg：HTTP/1.1 200 OK （CRLF）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/10/前端面试题以及答案/" itemprop="url">
                   前端面试题以及答案
                 </a>
@@ -1385,136 +1486,6 @@ Last-Modified: $now // RFC1123 format
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/寻游框架/" itemprop="url">
-                  Unbenannt
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T16:19:19+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="寻游项目整体架构"><a href="#寻游项目整体架构" class="headerlink" title="寻游项目整体架构"></a>寻游项目整体架构</h1><p>###公共部分</p>
-<p>公共头部，底部设计</p>
-<p>采用什么形式引入文件？<br>1：和以前一样，每个人写文件，然后引入头部和底部<br>2：一个html，每次点击菜单局部加载渲染html</p>
-<p>公共js编写</p>
-<p>1：Util.js什么的，里面包含工具方法的处理（比如发送ajax，查询dom等工具）<br>2：Extend.js什么的，专门用于扩展各种js原生对象的。比如自己写的MyArray在Array基础上扩展各种函数和属性什么的（可用于学习）</p>
-<p>公共资源</p>
-<p> 1：公共图片，比如logo。<br> 2：公共的框架js，css什么的</p>
-<p>功能</p>
-<p>说明，此处是后台管理的界面，正常情况下不需要太美化而不是简洁实用的功能。但是我们主要用于锻炼技术，所以采用更加复杂的页面。</p>
-<h4 id="1：景点管理"><a href="#1：景点管理" class="headerlink" title="1：景点管理"></a>1：景点管理</h4><p>需要实现增删改查以及和蓝牙信标的关联<br>总体页面纵向瀑布流加横向瀑布流？</p>
-<h5 id="1-1：查询功能"><a href="#1-1：查询功能" class="headerlink" title="1.1：查询功能"></a>1.1：查询功能</h5><p>页面<br>以什么方式展现，有两部分，一部分展示景点信息（包含景点评价等级），另一部分可以通过点击景点页面查询景点的html网页介绍。<br>此处可以链接到景点的评价页面<br>按楼层展示景点。<br>技术<br>发送ajax加载数据，前端渲染。</p>
-<h5 id="1-2：添加功能"><a href="#1-2：添加功能" class="headerlink" title="1.2：添加功能"></a>1.2：添加功能</h5><p>页面<br>景点名称（输入框）、景点所属楼层（下拉框，后台数据）、景点主图（文件）、景点音频介绍（文件）、-景点视频介绍（文件）、景点详细说明介绍（ueditor,打的输入框）。<br>使用弹框还是新开页面？<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因<br>51.3：编辑功能</p>
-<p>页面<br>弹出添加功能相同的页面，此处需要加载原有景点信息<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因</p>
-<h5 id="1-4：删除功能"><a href="#1-4：删除功能" class="headerlink" title="1.4：删除功能"></a>1.4：删除功能</h5><p>页面<br>在查询结果页面显示删除按钮？或者编辑页面显示删除按钮。<br>技术<br>Ajax删除，成功刷新页面，否则提示后台传入的失败原因</p>
-<h5 id="1-5：蓝牙关联"><a href="#1-5：蓝牙关联" class="headerlink" title="1.5：蓝牙关联"></a>1.5：蓝牙关联</h5><p>页面<br>弹出当前景点已有蓝牙信标的列表，可以对该列表进行删除、添加操作。<br>技术<br>使用ajax处理删除和添加操作，同时需要自己更新蓝牙列表数据。</p>
-<h4 id="2-景点评论管理"><a href="#2-景点评论管理" class="headerlink" title="2:景点评论管理"></a>2:景点评论管理</h4><p>需要实现删除、查询功能。<br>总体页面纵向瀑布流卡片形式？</p>
-<h5 id="2-1：查询功能"><a href="#2-1：查询功能" class="headerlink" title="2.1：查询功能"></a>2.1：查询功能</h5><p>页面<br>需要提供选择景点，然后展示景点评价的功能。展示景点评价，按评价时间倒序排序。需要显示，评价等级，时间和评价内容。<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="2-2：删除功能"><a href="#2-2：删除功能" class="headerlink" title="2.2：删除功能"></a>2.2：删除功能</h5><p>页面<br>在查询结果页面如何显示删除按钮？鼠标一上去出现？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="3：留言管理"><a href="#3：留言管理" class="headerlink" title="3：留言管理"></a>3：留言管理</h4><p>需要实现删除、查询功能。<br>总体页面纵向瀑布流卡片形式？</p>
-<h5 id="3-1：查询功能"><a href="#3-1：查询功能" class="headerlink" title="3.1：查询功能"></a>3.1：查询功能</h5><p>页面<br>直接展示游客留言信息。包含留言内容，留言时间。<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="3-2：删除功能"><a href="#3-2：删除功能" class="headerlink" title="3.2：删除功能"></a>3.2：删除功能</h5><p>页面<br>在查询结果页面如何显示删除按钮？鼠标一上去出现？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="4：新闻管理"><a href="#4：新闻管理" class="headerlink" title="4：新闻管理"></a>4：新闻管理</h4><p>需要实现添加、删除、查询功能。<br>总体页面纵向时间轴形式？</p>
-<h5 id="4-1：查询功能"><a href="#4-1：查询功能" class="headerlink" title="4.1：查询功能"></a>4.1：查询功能</h5><p>页面<br>左边以时间加日期展示。每个日期下面的新闻列表在右边展示，只展示部分新闻。点击展开可以实现全屏查看该新闻详细信息。动画展开效果？<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置加载更多。</p>
-<h5 id="4-2：添加功能"><a href="#4-2：添加功能" class="headerlink" title="4.2：添加功能"></a>4.2：添加功能</h5><p>页面<br>新闻标题（输入框）、作者（输入框）、新闻详情（ueditor,大的输入框）。<br>使用弹框还是新开页面？<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因。</p>
-<h5 id="4-3：删除功能"><a href="#4-3：删除功能" class="headerlink" title="4.3：删除功能"></a>4.3：删除功能</h5><p>页面<br>删除按钮出现在哪里，新闻卡片的右上角？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="5：照片墙"><a href="#5：照片墙" class="headerlink" title="5：照片墙"></a>5：照片墙</h4><p>需要实现添加、删除、查询功能。<br>总体页面纵向瀑布流形式？</p>
-<h5 id="5-1：查询功能"><a href="#5-1：查询功能" class="headerlink" title="5.1：查询功能"></a>5.1：查询功能</h5><p>页面<br>直接展示照片，照片说明，拍摄时间信息。以瀑布流方式加载，滚动到底部自动加载更多<br>技术<br>发送ajax加载评价数据，前端渲染，下拉到指定位置发送ajax加载更多。</p>
-<h5 id="5-2：添加功能"><a href="#5-2：添加功能" class="headerlink" title="5.2：添加功能"></a>5.2：添加功能</h5><p>页面<br>图片说明（输入框）、图片（ueditor,大的输入框）。<br>技术<br>得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因。</p>
-<h5 id="5-3：删除功能"><a href="#5-3：删除功能" class="headerlink" title="5.3：删除功能"></a>5.3：删除功能</h5><p>页面<br>删除按钮出现在哪里，照片的右上角？<br>技术<br>Ajax删除，成功移除dom，否则提示后台传入的失败原因。</p>
-<h4 id="6：数据"><a href="#6：数据" class="headerlink" title="6：数据"></a>6：数据</h4><p>需要实现查询功能。<br>总体页面缩略图展示，点击全屏展示？可以左右切换表格？</p>
-<h5 id="6-1：查询功能"><a href="#6-1：查询功能" class="headerlink" title="6.1：查询功能"></a>6.1：查询功能</h5><p>页面<br>显示哪些数据统计页面？<br>技术<br>发送ajax加载数据，前端渲染。<br>文件结构层次<br>-webapp<br>—libs<br>———jquery..<br>—app<br>—system<br>———pages<br>—————tour<br>—————news<br>—————feedback<br>—————comments<br>—————photo<br>—————data<br>———src<br>—————css<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>—————less<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>—————js<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data<br>————images<br>———————common<br>———————tour<br>———————news<br>———————feedback<br>———————comments<br>———————photo<br>———————data</p>
-<p>后端</p>
-<p>使用技术</p>
-<p>Springmvc、Spring、mybatis。使用maven管理项目。</p>
-<p>文件目录</p>
-<p>Controller、domain、service、service.impl、mapper、mapping、util</p>
-<p>注意：为了后期扩展，需要考虑后期加入多个页面的情况             </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1560,7 +1531,7 @@ Last-Modified: $now // RFC1123 format
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
