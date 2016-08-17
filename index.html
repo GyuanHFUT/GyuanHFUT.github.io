@@ -120,8 +120,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-
-
+  
 
 
 
@@ -217,6 +216,127 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/H5-cache缓存/" itemprop="url">
+                  H5 cache缓存
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Cache-Manifest-基础"><a href="#Cache-Manifest-基础" class="headerlink" title="Cache Manifest 基础"></a>Cache Manifest 基础</h2><p>如需启用应用程序缓存，请在文档的 <code>&lt;html&gt;</code> 标签中包含 manifest 属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html manifest=&quot;demo.appcache&quot;&gt;</div><div class="line">...</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存（除非在 manifest 文件中直接指定了该页面）。<br>manifest 文件的建议的文件扩展名是：”.appcache”。<br>请注意，manifest 文件需要配置正确的 MIME-type，即 “text/cache-manifest”。必须在 web 服务器上进行配置。<br>Manifest 文件<br>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。<br>manifest 文件可分为三个部分：</p>
+<ul>
+<li>CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存</li>
+<li>FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）<h4 id="CACHE-MANIFEST"><a href="#CACHE-MANIFEST" class="headerlink" title="CACHE MANIFEST"></a>CACHE MANIFEST</h4>第一行，CACHE MANIFEST，是必需的：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line">/theme.css</div><div class="line">/logo.gif</div><div class="line">/main.js</div></pre></td></tr></table></figure>
+<p>上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
+<h4 id="NETWORK"><a href="#NETWORK" class="headerlink" title="NETWORK"></a>NETWORK</h4><p>下面的 NETWORK 小节规定文件 “login.asp” 永远不会被缓存，且离线时是不可用的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NETWORK:</div><div class="line">login.asp</div></pre></td></tr></table></figure>
+<p>可以使用星号来指示所有其他资源/文件都需要因特网连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> NETWORK:</div><div class="line">*</div><div class="line">FALLBACK</div></pre></td></tr></table></figure>
+<p>下面的 FALLBACK 小节规定如果无法建立因特网连接，则用 “offline.html” 替代 /html5/ 目录中的所有文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FALLBACK:</div><div class="line">/html5/ /404.html</div></pre></td></tr></table></figure>
+<p>注释：第一个 URI 是资源，第二个是替补。</p>
+<h4 id="更新缓存"><a href="#更新缓存" class="headerlink" title="更新缓存"></a>更新缓存</h4><p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
+<ul>
+<li>用户清空浏览器缓存</li>
+<li>manifest 文件被修改（参阅下面的提示）</li>
+<li>由程序来更新应用缓存<h3 id="实例-完整的-Manifest-文件"><a href="#实例-完整的-Manifest-文件" class="headerlink" title="实例 - 完整的 Manifest 文件"></a>实例 - 完整的 Manifest 文件</h3>CACHE MANIFEST</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 2012-02-21 v1.0.0</div><div class="line">/theme.css</div><div class="line">/logo.gif</div><div class="line">/main.js</div><div class="line"></div><div class="line">NETWORK:</div><div class="line">login.asp</div><div class="line"></div><div class="line">FALLBACK:</div><div class="line">/html5/ /404.html</div></pre></td></tr></table></figure>
+<p>重要的提示：以 “#” 开头的是注释行，但也可满足其他用途。应用的缓存会在其 manifest 文件更改时被更新。如果您编辑了一幅图片，或者修改了一个 JavaScript 函数，这些改变都不会被重新缓存。更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法。<br>关于应用程序缓存的注释<br>请留心缓存的内容。<br>一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。</p>
+<blockquote>
+<p>注释：浏览器对缓存数据的容量限制可能不太一样（某些浏览器设置的限制是每个站点 5MB）。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -692,286 +812,6 @@ camry.sell();
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/12/面试/" itemprop="url">
-                  面试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
-              2016-08-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Doctype作用？标准模式与兼容模式各有什么区别?</p>
-<blockquote>
-<p>（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 <code>&lt;html&gt;</code> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。</p>
-</blockquote>
-<p>HTML5 为什么只需要写 <code>&lt;!DOCTYPE HTML&gt;</code>？</p>
-<blockquote>
-<p>HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；<br>而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-</blockquote>
-<p>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</p>
-<blockquote>
-<p>首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。<br>（1）行内元素有：a b span img input select strong（强调的语气）<br>（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p<br>（3）常见的空元素：<code>&lt;br&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</code><br>  鲜为人知的是：<code>&lt;area&gt; &lt;base&gt; &lt;col&gt; &lt;command&gt; &lt;embed&gt; &lt;keygen&gt; &lt;param&gt; &lt;source&gt; &lt;track&gt; &lt;wbr&gt;</code></p>
-</blockquote>
-<p>页面导入样式时，使用link和@import有什么区别？</p>
-<blockquote>
-<p>（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;<br>（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;<br>（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;</p>
-</blockquote>
-<p>介绍一下你对浏览器内核的理解？</p>
-<blockquote>
-<p>主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JS引擎。<br>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。<br>JS引擎则：解析和执行javascript来实现网页的动态效果。<br>最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
-</blockquote>
-<p>常见的浏览器内核有哪些？</p>
-<blockquote>
-<p>Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]<br>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等<br>Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]<br>Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]</p>
-</blockquote>
-<p>html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</p>
-<blockquote>
-<p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。<br>      绘画 canvas;<br>      用于媒介回放的 video 和 audio 元素;<br>      本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;<br>      sessionStorage 的数据在浏览器关闭后自动删除;<br>      语意化更好的内容元素，比如 article、footer、header、nav、section;<br>      表单控件，calendar、date、time、email、url、search;<br>      新的技术webworker, websocket, Geolocation;<br>  移除的元素：<br>      纯表现的元素：basefont，big，center，font, s，strike，tt，u;<br>      对可用性产生负面影响的元素：frame，frameset，noframes；</p>
-<ul>
-<li>支持HTML5新标签：<br>   IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>   可以利用这一特性让这些浏览器支持HTML5新标签，<br>   浏览器支持新标签后，还需要添加标签默认的样式。<br>   当然也可以直接使用成熟的框架、比如html5shim;</li>
-<li>如何区分HTML5： DOCTYPE声明\新增的结构元素\功能元素</li>
-</ul>
-</blockquote>
-<hr>
-<p>简述一下你对HTML语义化的理解？</p>
-<blockquote>
-<p>用正确的标签做正确的事情。<br>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;<br>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;<br>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。<br>HTML5的离线储存怎么使用，工作原理能不能解释一下？<br>在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。<br>原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。<br>如何使用：<br>1、页面头部像下面一样加入一个manifest的属性；<br>2、在cache.manifest文件的编写离线存储的资源；<br>    CACHE MANIFEST</p>
-<pre><code>#v0.11
-CACHE:
-js/app.js
-css/style.css
-NETWORK:
-resourse/logo.png
-FALLBACK:
-/ /offline.html
-</code></pre><p>3、在离线状态时，操作window.applicationCache进行需求实现。<br>详细的使用请参考：有趣的HTML5：<a href="https://segmentfault.com/a/1190000000732617" target="_blank" rel="external">离线储存</a></p>
-</blockquote>
-<p>浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</p>
-<blockquote>
-<p>在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。<br>离线的情况下，浏览器就直接使用离线存储的资源。<br>详细的使用请参考：有趣的HTML5：离线存储</p>
-</blockquote>
-<p>请描述一下 cookies，sessionStorage 和 localStorage 的区别？</p>
-<blockquote>
-<p>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。<br>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。<br>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。<br>存储大小：<br>    cookie数据大小不能超过4k。<br>    sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。<br>有期时间：<br>    localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；<br>    sessionStorage  数据在当前浏览器窗口关闭后自动删除。<br>    cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</p>
-</blockquote>
-<p>iframe有那些缺点？</p>
-<blockquote>
-<p><em>iframe会阻塞主页面的Onload事件；
-</em>搜索引擎的检索程序无法解读这种页面，不利于SEO;<br>*iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。<br>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript<br>动态给iframe添加src属性值，这样可以绕开以上两个问题。</p>
-</blockquote>
-<p>Label的作用是什么？是怎么用的？</p>
-<blockquote>
-<p>label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;label for=&quot;Name&quot;&gt;Number:&lt;/label&gt;</div><div class="line">&lt;input type=“text“name=&quot;Name&quot; id=&quot;Name&quot;/&gt;</div><div class="line">&lt;label&gt;Date:&lt;input type=&quot;text&quot; name=&quot;B&quot;/&gt;&lt;/label&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>HTML5的form如何关闭自动完成功能？</p>
-<blockquote>
-<p>给不想要提示的 form 或某个 input 设置为 autocomplete=off。</p>
-</blockquote>
-<p>如何实现浏览器内多个标签页之间的通信? (阿里)</p>
-<blockquote>
-<p>WebSocket、SharedWorker；<br>也可以调用localstorge、cookies等本地存储方式；<br>localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，<br>我们通过监听事件，控制它的值来进行页面信息通信；<br>注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常；</p>
-</blockquote>
-<p>webSocket如何兼容低浏览器？(阿里)</p>
-<blockquote>
-<p>Adobe Flash Socket 、<br>ActiveX HTMLFile (IE) 、<br>基于 multipart 编码发送 XHR 、<br>基于长轮询的 XHR</p>
-</blockquote>
-<p>页面可见性（Page Visibility API） 可以有哪些用途？</p>
-<blockquote>
-<p>通过 visibilityState 的值检测页面当前是否可见，以及打开网页的时间等;<br>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放；<br>在其他页面登陆，刚未登录的页面也登陆了；<br>用户回来，闪个log提示下；</p>
-</blockquote>
-<p>如何在页面上实现一个圆形的可点击区域？</p>
-<blockquote>
-<p>1、map+area或者svg<br>2、border-radius<br>3、纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等</p>
-</blockquote>
-<p>网页验证码是干嘛的，是为了解决什么安全问题。</p>
-<blockquote>
-<p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；<br>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
-</blockquote>
-<p>title与h1的区别、b与strong的区别、i与em的区别？</p>
-<blockquote>
-<p>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；<br>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<code>&lt;strong&gt;</code>会重读，而<code>&lt;B&gt;</code>是展示强调内容。<br>i内容展示为斜体，em表示强调的文本；<br>Physical Style Elements – 自然样式标签<br>b, i, u, s, pre<br>Semantic Style Elements – 语义样式标签<br>strong, em, ins, del, code<br>应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签。</p>
-</blockquote>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h5 id="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><a href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？" class="headerlink" title="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"></a>介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</h5><blockquote>
-<p>（1）有两种， IE 盒子模型、W3C 盒子模型；<br>（2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；<br>（3）区  别： IE的content部分把 border 和 padding计算了进去;</p>
-</blockquote>
-<h5 id="CSS选择符有哪些？哪些属性可以继承？"><a href="#CSS选择符有哪些？哪些属性可以继承？" class="headerlink" title="CSS选择符有哪些？哪些属性可以继承？"></a>CSS选择符有哪些？哪些属性可以继承？</h5><blockquote>
-<p>  1.id选择器（ # myid）<br>    2.类选择器（.myclassname）<br>    3.标签选择器（div, h1, p）<br>    4.相邻选择器（h1 + p）<br>    5.子选择器（ul &gt; li）<br>    6.后代选择器（li a）<br>    7.通配符选择器（ * ）<br>    8.属性选择器（a[rel = “external”]）<br>    9.伪类选择器（a:hover, li:nth-child）</p>
-<ul>
-<li>可继承的样式： font-size font-family color, UL LI DL DD DT;</li>
-<li>不可继承的样式：border padding margin width height ;</li>
-</ul>
-</blockquote>
-<h5 id="CSS优先级算法如何计算？"><a href="#CSS优先级算法如何计算？" class="headerlink" title="CSS优先级算法如何计算？"></a>CSS优先级算法如何计算？</h5><blockquote>
-<p>优先级就近原则，同权重情况下样式定义最近者为准;<br>   载入样式以最后载入的定位为准;<br>优先级为:<br>   !important &gt;  id &gt; class &gt; tag<br>    important 比 内联优先级高</p>
-</blockquote>
-<p>CSS3新增伪类有那些？</p>
-<blockquote>
-<p>举例：<br>    p:first-of-type 选择属于其父元素的首个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:last-of-type  选择属于其父元素的最后 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:only-of-type  选择属于其父元素唯一的 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:only-child        选择属于其父元素的唯一子元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <code>&lt;p&gt;</code> 元素。<br>    :after          在元素之前添加内容,也可以用来做清除浮动。<br>    :before         在元素之后添加内容<br>    :enabled<br>    :disabled       控制表单控件的禁用状态。<br>    :checked        单选框或复选框被选中。</p>
-</blockquote>
-<h4 id="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><a href="#如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？" class="headerlink" title="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"></a>如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</h4><p>给div设置一个宽度，然后添加margin:0 auto属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">    width:200px;</div><div class="line">    margin:0 auto;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>居中一个浮动元素</p>
-<p>  确定容器的宽高 宽500 高 300 的层<br>  设置层的外边距</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.div &#123;</div><div class="line">     width:500px ; height:300px;//高度可以不设</div><div class="line">     margin: -150px 0 0 -250px;</div><div class="line">     position:relative;         //相对定位</div><div class="line">     background-color:pink;     //方便看效果</div><div class="line">     left:50%;</div><div class="line">     top:50%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>让绝对定位的div居中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">width: 1200px;</div><div class="line">background: none;</div><div class="line">margin: 0 auto;</div><div class="line">top: 0;</div><div class="line">left: 0;</div><div class="line">bottom: 0;</div><div class="line">right: 0;</div></pre></td></tr></table></figure>
-<p>position的值relative和absolute定位原点是？</p>
-<blockquote>
-<p> absolute<br>    生成绝对定位的元素，相对于值不为 static的第一个父元素进行定位。<br>  fixed （老IE不支持）<br>    生成绝对定位的元素，相对于浏览器窗口进行定位。<br>  relative<br>    生成相对定位的元素，相对于其正常位置进行定位。<br>  static<br>    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right z-index 声明）。<br>  inherit<br>    规定从父元素继承 position 属性的值</p>
-</blockquote>
-<p>CSS3有哪些新特性？</p>
-<blockquote>
-<p>新增各种CSS选择器  （: not(.input)：所有 class 不是“input”的节点）<br>  圆角           （border-radius:8px）<br>  多列布局        （multi-column layout）<br>  阴影和反射        （Shadow\Reflect）<br>  文字特效      （text-shadow、）<br>  文字渲染      （Text-decoration）<br>  线性渐变      （gradient）<br>  旋转          （transform）<br>  增加了旋转,缩放,定位,倾斜,动画，多背景<br>  transform:\scale(0.85,0.90)\ translate(0px,-30px)\ skew(-9deg,0deg)\Animation:</p>
-</blockquote>
-<p>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</p>
-<blockquote>
-<p>主要适用于移动端，个人理解</p>
-</blockquote>
-<p> 一个满屏 品 字布局 如何设计?</p>
-<blockquote>
-<p>简单的方式：<br>    上面的div宽100%，<br>    下面的两个div分别宽50%，<br>    然后用float或者inline使其不换行即可</p>
-</blockquote>
-<p>经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？</p>
-<blockquote>
-<ul>
-<li>png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.</li>
-<li>浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。</li>
-<li>IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。<br>浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;}<br>这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——<em>display:inline;将其转化为行内属性。(</em>这个符号只有ie6会识别)<br>渐进识别的方式，从总体中逐渐排除局部。<br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。<br>css<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.bb&#123;</div><div class="line">    background-color:#f1ee18;/*所有识别*/</div><div class="line">    .background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">    +background-color:#a200ff;/*IE6、7识别*/</div><div class="line">    _background-color:#1e0bd1;/*IE6识别*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>IE下,可以使用获取常规属性的方法来获取自定义属性,<br>   也可以使用getAttribute()获取自定义属性;<br>   Firefox下,只能使用getAttribute()获取自定义属性。<br>   解决方法:统一通过getAttribute()获取自定义属性。</p>
-<ul>
-<li>IE下,even对象有x,y属性,但是没有pageX,pageY属性;<br>Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。</li>
-<li>解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。</li>
-<li>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,<br> 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。<br>超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:<br>L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}</li>
-</ul>
-</blockquote>
-<h5 id="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"><a href="#li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？" class="headerlink" title="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"></a>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</h5><blockquote>
-<p>行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。</p>
-</blockquote>
-<h5 id="为什么要初始化CSS样式。"><a href="#为什么要初始化CSS样式。" class="headerlink" title="为什么要初始化CSS样式。"></a>为什么要初始化CSS样式。</h5><blockquote>
-<ul>
-<li><p>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</p>
-</li>
-<li><p>当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。<br>最简单的初始化方法： <em> {padding: 0; margin: 0;} （强烈不建议,因为性能问题。</em>全部遍历了一遍）<br>淘宝的样式初始化代码：<br>body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }<br>body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }<br>h1, h2, h3, h4, h5, h6{ font-size:100%; }<br>address, cite, dfn, em, var { font-style:normal; }<br>code, kbd, pre, samp { font-family:couriernew, courier, monospace; }<br>small{ font-size:12px; }<br>ul, ol { list-style:none; }<br>a { text-decoration:none; }<br>a:hover { text-decoration:underline; }<br>sup { vertical-align:text-top; }<br>sub{ vertical-align:text-bottom; }<br>legend { color:#000; }<br>fieldset, img { border:0; }<br>button, input, select, textarea { font-size:100%; }<br>table { border-collapse:collapse; border-spacing:0; }</p>
-<h4 id="absolute的containing-block-容器块-计算方式跟正常流有什么不同？"><a href="#absolute的containing-block-容器块-计算方式跟正常流有什么不同？" class="headerlink" title="absolute的containing block(容器块)计算方式跟正常流有什么不同？"></a>absolute的containing block(容器块)计算方式跟正常流有什么不同？</h4></li>
-</ul>
-<p>无论属于哪种，都要先找到其祖先元素中最近的 position 值不为 static 的元素，然后再判断：<br>1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的 padding box (除 margin, border 外的区域) 的最小矩形；<br>2、否则,则由这个祖先元素的 padding box 构成。<br>如果都找不到，则为 initial containing block。</p>
-<p>补充：</p>
-<ol>
-<li>static(默认的)/relative：简单说就是它的父元素的内容框（即去掉padding的部分）</li>
-<li>absolute: 向上找最近的定位为absolute/relative的元素</li>
-<li>fixed: 它的containing block一律为根元素(html/body)，根元素也是initial containing block<h4 id="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><a href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？" class="headerlink" title="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"></a>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</h4>对于CSS里的visibility属性，相信你用过不下几百次。大多时候，你会把它的值设置成visible(这是所有页面元素的缺省值)，或者是hidden。后者相当于display: none，但仍然占用页面空间。</li>
-</ol>
-<p>其实visibility可以有第三种值，就是collapse。当一个元素的visibility属性被设置成collapse值后，对于一般的元素，它的表现跟hidden是一样的。但例外的是，如果这个元素是table相关的元素，例如table行，table group，table列，table column group，它的表现却跟display: none一样，也就是说，它们占用的空间也会释放。</p>
-<p>在谷歌浏览器里，使用collapse值和使用hidden值没有什么区别。<br>在火狐浏览器、Opera和IE11里，使用collapse值的效果就如它的字面意思：table的行会消失，它的下面一行会补充它的位置。</p>
-</blockquote>
-<h4 id="对BFC规范-块级格式化上下文：block-formatting-context-的理解？"><a href="#对BFC规范-块级格式化上下文：block-formatting-context-的理解？" class="headerlink" title="对BFC规范(块级格式化上下文：block formatting context)的理解？"></a>对BFC规范(块级格式化上下文：block formatting context)的理解？</h4><blockquote>
-<p>（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）<br> 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。<br> 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响。</p>
-<h4 id="css定义的权重"><a href="#css定义的权重" class="headerlink" title="css定义的权重"></a>css定义的权重</h4><p>以下是权重的规则：标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值：</p>
-<p>/<em>权重为1</em>/<br>div{<br>}<br>/<em>权重为10</em>/<br>.class1{<br>}<br>/<em>权重为100</em>/<br><code>#</code>id1{<br>}<br>/<em>权重为100+1=101</em>/<br><code>#</code>id1 div{<br>}<br>/<em>权重为10+1=11</em>/<br>.class1 div{<br>}<br>/<em>权重为10+10+1=21</em>/<br>.class1 .class2 div{<br>}<br>如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
-</blockquote>
-<h4 id="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"><a href="#请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式" class="headerlink" title="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"></a>请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式</h4><blockquote>
-<ul>
-<li>overflow:hidden</li>
-<li>让父元素也浮动</li>
-<li>通过在所有浮动元素下方添加一个clear:both的元素，可以消除float的破坏性。</li>
-<li>通过<code>after</code>伪元素选择器，在div后面增加了一个clear:both的元素,</li>
-</ul>
-</blockquote>
-<h4 id="移动端的布局用过媒体查询吗？"><a href="#移动端的布局用过媒体查询吗？" class="headerlink" title="移动端的布局用过媒体查询吗？"></a>移动端的布局用过媒体查询吗？</h4><blockquote>
-<p><code>@</code>media screen and (max-width: 960px){<br>    body{<br>        background: #000;<br>    }<br>}</p>
-</blockquote>
-<h4 id="before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。"><a href="#before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。" class="headerlink" title="::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。"></a>::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。</h4><blockquote>
-<p>单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。</p>
-<p>首先，阅读 w3c 对两者的定义：<br>CSS  伪类用于向某些选择器添加特殊的效果。<br>CSS  伪元素用于将特殊的效果添加到某些选择器</p>
-<p>伪元素由双冒号和伪元素名称组成。双冒号是在当前规范中引入的，用于区分伪类和伪元素。但是伪类兼容现存样式，浏览器需要同时支持旧的伪类，比如:first-line、:first-letter、:before、:after等。<br>那么现在就可以完整的回答标题中的问题了，对于CSS2之前已有的伪元素，比如:before，单冒号和双冒号的写法::before作用是一样的。<br>所以，如果你的网站只需要兼容webkit、firefox、opera等浏览器，建议对于伪元素采用双冒号的写法，如果不得不兼容IE浏览器，还是用CSS2的单冒号写法比较安全。<br>简而言之，只有after ，before是单或者双都可以、<br>其他的双冒号是伪元素</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1017,7 +857,7 @@ FALLBACK:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
