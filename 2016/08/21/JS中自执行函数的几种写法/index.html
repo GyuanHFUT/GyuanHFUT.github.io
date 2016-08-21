@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个">
+<meta name="description" content="经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
+1function()&amp;#123;alert(1);&amp;#125;();
+原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
+按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。复制代码 代码如下:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络基础之网络层部分">
-<meta property="og:url" content="http://yoursite.com/2016/08/14/计算机网络基础之网络层部分/index.html">
+<meta property="og:title" content="JS中自执行函数的几种写法">
+<meta property="og:url" content="http://yoursite.com/2016/08/21/JS中自执行函数的几种写法/index.html">
 <meta property="og:site_name" content="memory">
-<meta property="og:description" content="网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个">
-<meta property="og:updated_time" content="2016-08-14T14:49:57.502Z">
+<meta property="og:description" content="经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
+1function()&amp;#123;alert(1);&amp;#125;();
+原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
+按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。复制代码 代码如下:">
+<meta property="og:updated_time" content="2016-08-21T14:13:36.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络基础之网络层部分">
-<meta name="twitter:description" content="网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个">
+<meta name="twitter:title" content="JS中自执行函数的几种写法">
+<meta name="twitter:description" content="经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
+1function()&amp;#123;alert(1);&amp;#125;();
+原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
+按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。复制代码 代码如下:">
 
 
 
@@ -114,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/14/计算机网络基础之网络层部分/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/21/JS中自执行函数的几种写法/"/>
 
-  <title> 计算机网络基础之网络层部分 | memory </title>
+  <title> JS中自执行函数的几种写法 | memory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -236,7 +245,7 @@
             
             
               
-                计算机网络基础之网络层部分
+                JS中自执行函数的几种写法
               
             
           </h1>
@@ -248,8 +257,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
-              2016-08-14
+            <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
+              2016-08-21
             </time>
           </span>
 
@@ -276,11 +285,22 @@
       
 
       
-        <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个标识80,外界发来数据包，我就通过这个80标识转发给你，你监听我的时候告诉我你监听的是80,我就把80的数据转发给你。一个标识只能被一个应用程序监听，要是有多个，会破坏数据的安全性。那么这个标识就是端口号PORT。<br>链路层：MAC地址、网络层：IP地址、传输层：PORT。IP地址用来定位网络上的一台主机，而PORT用来定位主机上的一个应用程序。</p>
-<h4 id="网络层提供的两种服务："><a href="#网络层提供的两种服务：" class="headerlink" title="网络层提供的两种服务："></a>网络层提供的两种服务：</h4><ul>
-<li>1.虚电路服务<br>电话机：面向连接的通信方式，使电信网络向用户提供可靠的传输服务</li>
-<li>2.数据报服务<br>因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务<br>网络层不提供服务质量的承诺。即所传送的分组可能出错、丢失、重复、失序。<h3 id="IP网际协议"><a href="#IP网际协议" class="headerlink" title="IP网际协议"></a>IP网际协议</h3>地址解析协议ARP、逆地址解析协议、网际控制报文协议ICMP、网际组管理协议IGMP、<br>网络层又叫网际层或IP层<br>没有一种单一的网络能够适应所有用户的需求<br>将网络互相连接起来要使用一些中间设备：<br>物理层使用的中间设备叫做转发器<br>数据链路层使用的中间设备叫做网桥或桥接器<br>网络层使用的中间设备叫做路由器<br>网络层以上使用的中间设备叫做网关<br>参加互连的计算机网络都使用相同的网际协议IP，因此可以把互连以后的计算机网络看成一个虚拟互连网络<br>IP协议可以使这些性能各异的网络在网络层上看起来好像是一个统一的网络<br>使用IP协议的虚拟互联网络简称为IP网<br>主机的协议栈共有5层，路由器的协议栈只有下3层<br>整个因特网就是一个单一的、抽象的网络<br>IP地址就是给因特网上的每一个主机或路由器的每一个接口，分配一个全世界范围是唯一的32位标识符。IP地址的结构可以使我们很方便的在因特网上进行寻址。<br>分类的IP地址<br>子网的划分<br>构成超网<h4 id="分类的IP地址"><a href="#分类的IP地址" class="headerlink" title="分类的IP地址"></a>分类的IP地址</h4>将IP地址划分成若干个固定类，每一个类地址都由两个固定的类字段组成。其中第一个字段是网络号，它标志主机或路由器所连接的网络，一个网络号在整个因特网范围内必须是惟一的。第二个字段是主机号，表示该主机或路由器，一个主机号在它前面网络号指明的范围内是惟一的。因此，一个IP地址在整个因特网范围内是唯一的<br>IP地址并不仅仅指明一个主机，而且还指明了主机所连的网络<br>IP地址是一种分等级的地址结构，IP地址管理机构在分配IP地址时，只分配网络号，而剩下的主机号则右得到该网络号的单位自行分配，方便了IP地址的管理。路由器仅根据目的主机所连接的网络号来转发分组，而不用考虑主机号，则路由表中的项目数大幅减少，减小了路由表所占的存储空间，以及查找路由表的时间。<br>一个路由器应当至少连接到两个网络<br>IP地址放在IP数据报的首部，而MAC地址则放在MAC帧的首部，在网络层或网络层以上使用的是IP地址，而数据链路层及其以下使用的是MAC地址。在数据链路层看不见数据报的IP地址。<br>ARP协议的用途是为了从网络层使用的IP地址解析出在数据链路层使用的MAC地址。<br>在IP层转发分组的流程：在互联网上转发分组时，是从一个路由器转发到下一个路由器。<br>路由表中的每一条路由：（目的网络地址，下一跳地址）</li>
-</ul>
+        <p>经常需要一个函数自执行，可惜这一种写法是错的：<br>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function()&#123;alert(1);&#125;();</div></pre></td></tr></table></figure>
+<p>原因是前半段<code>“function(){alert(1);}”</code>被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 </p>
+<p>按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。<br>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function()&#123;alert(1);&#125;(1);</div></pre></td></tr></table></figure>
+<p>综上，症结在于，如何明确代码描述的是一个函数表达式，而不是函数声明语句。<br>正确的写法多种多样，也各有利弊： </p>
+<h3 id="方法1：最前最后加括号"><a href="#方法1：最前最后加括号" class="headerlink" title="方法1：最前最后加括号"></a>方法1：最前最后加括号</h3><p>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function()&#123;alert(1);&#125;());</div></pre></td></tr></table></figure>
+<p>这是jslint推荐的写法，好处是，能提醒阅读代码的人，这段代码是一个整体。<br>例如，在有语法高亮匹配功能的编辑器里，光标在第一个左括号后时，最后一个右括号也会高亮，看代码的人一眼就可以看到这个整体。<br>不过，对于某些写代码不喜欢在行后加分号的同学，也会形成一些坑坑，例如以下代码会报运行错：<br>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=1 </div><div class="line">(function()&#123;alert(1);&#125;());</div></pre></td></tr></table></figure>
+<h3 id="方法2：function外面加括号"><a href="#方法2：function外面加括号" class="headerlink" title="方法2：function外面加括号"></a>方法2：function外面加括号</h3><p>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function()&#123;alert(1);&#125;)();</div></pre></td></tr></table></figure>
+<p>这种做法比方法1少了一个代码整体性的好处。 </p>
+<h3 id="方法3：function前面加运算符，常见的是-与void-。"><a href="#方法3：function前面加运算符，常见的是-与void-。" class="headerlink" title="方法3：function前面加运算符，常见的是!与void 。"></a>方法3：function前面加运算符，常见的是!与void 。</h3><p>复制代码 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">!function()&#123;alert(1);&#125;(); </div><div class="line">void function()&#123;alert(2);&#125;();</div></pre></td></tr></table></figure>
+<p>显然，加上“!”或“+”等运算符，写起来是最简单的。<br>加上“void ”要敲五下键盘，但是听说有一个好处是，比加”!”少一次逻辑运算。</p>
 
       
     </div>
@@ -306,17 +326,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/13/Js部分/" rel="next" title="Js部分">
-                <i class="fa fa-chevron-left"></i> Js部分
+              <a href="/2016/08/20/JS中call和apply的区别/" rel="next" title="JS中call和apply的区别">
+                <i class="fa fa-chevron-left"></i> JS中call和apply的区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/15/8-15/" rel="prev" title="8.15">
-                8.15 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -416,7 +432,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层"><span class="nav-number">1.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络层提供的两种服务："><span class="nav-number">1.1.</span> <span class="nav-text">网络层提供的两种服务：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP网际协议"><span class="nav-number">2.</span> <span class="nav-text">IP网际协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的IP地址"><span class="nav-number">2.1.</span> <span class="nav-text">分类的IP地址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：最前最后加括号"><span class="nav-number">1.</span> <span class="nav-text">方法1：最前最后加括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：function外面加括号"><span class="nav-number">2.</span> <span class="nav-text">方法2：function外面加括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法3：function前面加运算符，常见的是-与void-。"><span class="nav-number">3.</span> <span class="nav-text">方法3：function前面加运算符，常见的是!与void 。</span></a></li></ol></div>
             
           </div>
         </section>
