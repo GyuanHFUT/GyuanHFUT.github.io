@@ -238,6 +238,173 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/13/Js部分/" itemprop="url">
+                  Js部分
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
+              2016-08-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h1><h4 id="介绍js的基本数据类型。"><a href="#介绍js的基本数据类型。" class="headerlink" title="介绍js的基本数据类型。"></a>介绍js的基本数据类型。</h4><blockquote>
+<p>Undefined、Null、Boolean、Number、String<br>介绍js有哪些内置对象？</p>
+</blockquote>
+<h4 id="Object-是-JavaScript-中所有对象的父对象"><a href="#Object-是-JavaScript-中所有对象的父对象" class="headerlink" title="Object 是 JavaScript 中所有对象的父对象"></a>Object 是 JavaScript 中所有对象的父对象</h4><blockquote>
+<p>数据封装类对象：Object、Array、Boolean、Number 和 String<br>其他对象：Function、Arguments、Math、Date、RegExp、Error</p>
+<h4 id="说几条写JavaScript的基本规范？"><a href="#说几条写JavaScript的基本规范？" class="headerlink" title="说几条写JavaScript的基本规范？"></a>说几条写JavaScript的基本规范？</h4><p>1.不要在同一行声明多个变量。<br>2.请使用 ===/!==来比较true/false或者数值<br>3.使用对象字面量替代new Array这种形式<br>4.不要使用全局函数。<br>5.Switch语句必须带有default分支<br>6.函数不应该有时候有返回值，有时候没有返回值。<br>7.For循环必须使用大括号<br>8.If语句必须使用大括号<br>9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。</p>
+</blockquote>
+<h4 id="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"><a href="#JavaScript有几种类型的值？，你能画一下他们的内存图吗？" class="headerlink" title="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"></a>JavaScript有几种类型的值？，你能画一下他们的内存图吗？</h4><p>栈：原始数据类型（Undefined，Null，Boolean，Number、String）<br>堆：引用数据类型（对象、数组和函数）</p>
+<blockquote>
+<p>两种类型的区别是：存储位置不同；<br>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；<br>引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其<br>在栈中的地址，取得地址后从堆中获得实体</p>
+</blockquote>
+<h4 id="Javascript如何实现继承？"><a href="#Javascript如何实现继承？" class="headerlink" title="Javascript如何实现继承？"></a>Javascript如何实现继承？</h4><blockquote>
+<p>1、构造继承<br>2、原型继承<br>3、实例继承<br>4、拷贝继承<br>（这个地方略微复杂，回头记得重新看）<br>原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。</p>
+<p> function Parent(){<br>        this.name = ‘wang’;<br>    }</p>
+<p>  function Child(){<br>      this.age = 28;<br>  }<br>  Child.prototype = new Parent();//继承了Parent，通过原型</p>
+<p>  var demo = new Child();<br>  alert(demo.age);<br>  alert(demo.name);//得到被继承的属性<br>  }</p>
+</blockquote>
+<h4 id="javascript创建对象的几种方式？"><a href="#javascript创建对象的几种方式？" class="headerlink" title="javascript创建对象的几种方式？"></a>javascript创建对象的几种方式？</h4><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
+<p>1、对象字面量的方式   </p>
+<pre><code>person={firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;};
+</code></pre><p>2、用function来模拟无参的构造函数</p>
+<pre><code>function Person(){}
+var person=new Person();//定义一个function，如果使用new&quot;实例化&quot;,该function可以看作是一个Class
+person.name=&quot;Mark&quot;;
+person.age=&quot;25&quot;;
+person.work=function(){
+alert(person.name+&quot; hello...&quot;);
+}
+person.work();
+</code></pre><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<pre><code>function Pet(name,age,hobby){
+   this.name=name;//this作用域：当前对象
+   this.age=age;
+   this.hobby=hobby;
+   this.eat=function(){
+      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);
+   }
+}
+var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象
+maidou.eat();//调用eat方法
+</code></pre><p>4、用工厂方式来创建（内置对象）</p>
+<pre><code>var wcDog =new Object();
+wcDog.name=&quot;旺财&quot;;
+wcDog.age=3;
+wcDog.work=function(){
+  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);
+}
+wcDog.work();
+</code></pre><p>5、用原型方式来创建</p>
+<pre><code>function Dog(){
+
+ }
+ Dog.prototype.name=&quot;旺财&quot;;
+ Dog.prototype.eat=function(){
+ alert(this.name+&quot;是个吃货&quot;);
+ }
+ var wangcai =new Dog();
+ wangcai.eat();
+</code></pre><p>5、用混合方式来创建</p>
+<pre><code>function Car(name,price){
+  this.name=name;
+  this.price=price; 
+}
+ Car.prototype.sell=function(){
+   alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
+  }
+var camry =new Car(&quot;凯美瑞&quot;,27);
+camry.sell(); 
+</code></pre><h4 id="Javascript作用链域"><a href="#Javascript作用链域" class="headerlink" title="Javascript作用链域?"></a>Javascript作用链域?</h4><blockquote>
+<p>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。<br>当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，<br>直至全局函数，这种组织形式就是作用域链。</p>
+<h4 id="谈谈This对象的理解。"><a href="#谈谈This对象的理解。" class="headerlink" title="谈谈This对象的理解。"></a>谈谈This对象的理解。</h4><p>this总是指向函数的直接调用者（而非间接调用者）；<br>如果有new关键字，this指向new出来的那个对象；<br>在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；</p>
+<h4 id="eval是做什么的？"><a href="#eval是做什么的？" class="headerlink" title="eval是做什么的？"></a>eval是做什么的？</h4><p>它的功能是把对应的字符串解析成JS代码并运行；<br>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。<br>由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’);</p>
+<h4 id="什么是window对象-什么是document对象"><a href="#什么是window对象-什么是document对象" class="headerlink" title="什么是window对象? 什么是document对象?"></a>什么是window对象? 什么是document对象?</h4><p>document是window的一个对象属性。<br>Window 对象表示浏览器中打开的窗口。<br>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。<br>所有的全局函数和对象都属于Window 对象的属性和方法。<br>document   对 Document 对象的只读引用。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/12/面试/" itemprop="url">
                   面试
                 </a>
@@ -1562,121 +1729,11 @@ Last-Modified: $now // RFC1123 format
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/css元素/" itemprop="url">
-                  Unbenannt
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T22:44:01+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##什么是块级元素？</p>
-<hr>
-<p>块级元素是那些视觉上会被格式化成块状的元素，通俗一点来说就是那些会换新行的元素。display 属性的：block, list-item, table, flex, grid 值都可以将一个元素设置成块级元素。</p>
-<blockquote>
-<p>举个例子来说，li 是一个 块级元素，但也有人会说它是一个 块元素。嗯，li 确实是一个块级元素，但并不是一个块元素，为什么？</p>
-</blockquote>
-<p>##什么是块元素？</p>
-<hr>
-<p>块元素是 display 属性值为 block 的元素，它应该是 块级元素 的一个子集，而不是等同的，一个 块元素 是一个 块级元素，但一个 块级元素 不一定是一个 块元素，所以不要混淆。</p>
-<p>###块级框，块容器框，块框</p>
-<hr>
-<p>##什么是块级框？</p>
-<hr>
-<p>块级元素生成块级框，这些框会参与某些 BFC。每个块级元素都会生成一个主要的块级框来包含其子框和生成的内容，同时任何定位方式都会与这个主要的块级框有关。</p>
-<blockquote>
-<p>某些块级元素还会在主要的块级框之外产生额外的框：例如 list-item 元素，它需要生成一个额外的框用于包含 list-style-type。这些额外的框会相对于主要的块级框来进行排</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1717,7 +1774,7 @@ Last-Modified: $now // RFC1123 format
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>

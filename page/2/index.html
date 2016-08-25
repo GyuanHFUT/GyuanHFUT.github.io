@@ -238,6 +238,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/20/JS中call和apply的区别/" itemprop="url">
+                  JS中call和apply的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JavaScript中call-与apply-有什么区别？"><a href="#JavaScript中call-与apply-有什么区别？" class="headerlink" title="JavaScript中call()与apply()有什么区别？"></a>JavaScript中call()与apply()有什么区别？</h2><p>今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。</p>
+<p>Javascript的每个Function对象中有一个apply方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function.apply([thisObj[,argArray]])</div></pre></td></tr></table></figure>
+<p>还有一个类似功能的call方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function.call([thisObj[,arg1[, arg2[, [,.argN]]]]])</div></pre></td></tr></table></figure>
+<h5 id="它们各自的定义："><a href="#它们各自的定义：" class="headerlink" title="它们各自的定义："></a>它们各自的定义：</h5><ul>
+<li>apply：应用某一对象的一个方法，用另一个对象替换当前对象。</li>
+<li><p>call：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
+<h5 id="它们的共同之处："><a href="#它们的共同之处：" class="headerlink" title="它们的共同之处："></a>它们的共同之处：</h5></li>
+<li><p>都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。”——摘自JScript5.5 .chm</p>
+<h5 id="它们的不同之处："><a href="#它们的不同之处：" class="headerlink" title="它们的不同之处："></a>它们的不同之处：</h5></li>
+<li><p>apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。</p>
+</li>
+<li>call：则是直接的参数列表，主要用在js对象各方法互相调用的时候，使当前this实例指针保持一致,或在特殊情况下需要改变this指针。如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。 </li>
+<li>更简单地说，apply和call功能一样，只是传入的参数列表形式不同：如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3])<h5 id="示例代码（注：注释中是call的用法，与上面apply的实现效果相同）："><a href="#示例代码（注：注释中是call的用法，与上面apply的实现效果相同）：" class="headerlink" title="示例代码（注：注释中是call的用法，与上面apply的实现效果相同）："></a>示例代码（注：注释中是call的用法，与上面apply的实现效果相同）：</h5></li>
+</ul>
+<p>（1）基本用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function add(a,b)</div><div class="line">&#123;</div><div class="line">    alert(a+b);</div><div class="line">&#125;</div><div class="line">function sub(a,b)</div><div class="line">&#123;</div><div class="line">    alert(a-b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.apply(sub,[3,1]);</div><div class="line">//add.call(sub,3,1);</div></pre></td></tr></table></figure>
+<p>（2）实现继承：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Animal(name)&#123;    </div><div class="line">    this.name = name;    </div><div class="line">    this.showName = function()&#123;    </div><div class="line">        alert(this.name);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">   </div><div class="line">function Cat(name)&#123;  </div><div class="line">    Animal.apply(this, [name]);</div><div class="line">    //Animal.call(this, name);  </div><div class="line">&#125;    </div><div class="line">   </div><div class="line">var cat = new Cat(&quot;Black Cat&quot;);   </div><div class="line">cat.showName();</div></pre></td></tr></table></figure>
+<p>（3）多重继承：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Class10()</div><div class="line">&#123;</div><div class="line">    this.showSub = function(a,b)</div><div class="line">    &#123;</div><div class="line">        alert(a-b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Class11()</div><div class="line">&#123;</div><div class="line">    this.showAdd = function(a,b)</div><div class="line">    &#123;</div><div class="line">        alert(a+b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Class2()</div><div class="line">&#123;</div><div class="line">    Class10.apply(this);</div><div class="line">    Class11.apply(this);</div><div class="line">    //Class10.call(this);</div><div class="line">    //Class11.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var c2=new Class2();</div><div class="line">c2.showSub(3,1);</div><div class="line">c2.showAdd(3,1);</div></pre></td></tr></table></figure>
+<h3 id="apply的其他巧妙用法："><a href="#apply的其他巧妙用法：" class="headerlink" title="apply的其他巧妙用法："></a>apply的其他巧妙用法：</h3><p>看到这里，我就会觉得既然apply和call的用法差不多，那么为什么还同时存在这两种方法呢？完全可以丢掉一个呀。后来才发现一篇文章中讲到apply因为它所传参数为数组这一特点还有许多其他的妙用。</p>
+<p>a) Math.max 可以实现得到数组中最大的一项：</p>
+<p>因为Math.max 参数里面不支持Math.max([param1,param2]) 也就是数组，但是它支持Math.max(param1,param2,param3…)，所以可以根据apply的特点来解决 var max=Math.max.apply(null,array)，这样轻易的可以得到一个数组中最大的一项。(apply会将一个数组转换为一个参数接一个参数的传递给方法)</p>
+<p>这块在调用的时候第一个参数给了一个null，这个是因为没有对象去调用这个方法，只需要用这个方法帮助运算，得到返回的结果就行，所以直接传递了一个null过去。</p>
+<p>b) Math.min  可以实现得到数组中最小的一项：</p>
+<p>同样和 max是一个思想 var min=Math.min.apply(null,array)。</p>
+<p>c) Array.prototype.push 可以实现两个数组合并：</p>
+<p>同样push方法没有提供push一个数组，但是它提供了push(param1,param,…paramN) 所以同样也可以通过apply来转换一下这个数组，即:</p>
+<p>var arr1=new Array(“1”,”2”,”3”);</p>
+<p>var arr2=new Array(“4”,”5”,”6”);</p>
+<p>Array.prototype.push.apply(arr1,arr2); </p>
+<p>也可以这样理解，arr1调用了push方法，参数是通过apply将数组装换为参数列表的集合。</p>
+<p>d) 小结：通常在什么情况下,可以使用apply类似Math.min等之类的特殊用法:</p>
+<p>一般在目标函数只需要n个参数列表,而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]），可以通过apply的方式巧妙地解决这个问题。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/17/H5-cache缓存/" itemprop="url">
                   H5 cache缓存
                 </a>
@@ -645,178 +774,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/13/Js部分/" itemprop="url">
-                  Js部分
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
-              2016-08-13
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h1><h4 id="介绍js的基本数据类型。"><a href="#介绍js的基本数据类型。" class="headerlink" title="介绍js的基本数据类型。"></a>介绍js的基本数据类型。</h4><blockquote>
-<p>Undefined、Null、Boolean、Number、String<br>介绍js有哪些内置对象？</p>
-</blockquote>
-<h4 id="Object-是-JavaScript-中所有对象的父对象"><a href="#Object-是-JavaScript-中所有对象的父对象" class="headerlink" title="Object 是 JavaScript 中所有对象的父对象"></a>Object 是 JavaScript 中所有对象的父对象</h4><blockquote>
-<p>数据封装类对象：Object、Array、Boolean、Number 和 String<br>其他对象：Function、Arguments、Math、Date、RegExp、Error</p>
-<h4 id="说几条写JavaScript的基本规范？"><a href="#说几条写JavaScript的基本规范？" class="headerlink" title="说几条写JavaScript的基本规范？"></a>说几条写JavaScript的基本规范？</h4><p>1.不要在同一行声明多个变量。<br>2.请使用 ===/!==来比较true/false或者数值<br>3.使用对象字面量替代new Array这种形式<br>4.不要使用全局函数。<br>5.Switch语句必须带有default分支<br>6.函数不应该有时候有返回值，有时候没有返回值。<br>7.For循环必须使用大括号<br>8.If语句必须使用大括号<br>9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。</p>
-</blockquote>
-<h4 id="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"><a href="#JavaScript有几种类型的值？，你能画一下他们的内存图吗？" class="headerlink" title="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"></a>JavaScript有几种类型的值？，你能画一下他们的内存图吗？</h4><p>栈：原始数据类型（Undefined，Null，Boolean，Number、String）<br>堆：引用数据类型（对象、数组和函数）</p>
-<blockquote>
-<p>两种类型的区别是：存储位置不同；<br>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；<br>引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其<br>在栈中的地址，取得地址后从堆中获得实体</p>
-</blockquote>
-<h4 id="Javascript如何实现继承？"><a href="#Javascript如何实现继承？" class="headerlink" title="Javascript如何实现继承？"></a>Javascript如何实现继承？</h4><blockquote>
-<p>1、构造继承<br>2、原型继承<br>3、实例继承<br>4、拷贝继承<br>（这个地方略微复杂，回头记得重新看）<br>原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。</p>
-<p> function Parent(){<br>        this.name = ‘wang’;<br>    }</p>
-<p>  function Child(){<br>      this.age = 28;<br>  }<br>  Child.prototype = new Parent();//继承了Parent，通过原型</p>
-<p>  var demo = new Child();<br>  alert(demo.age);<br>  alert(demo.name);//得到被继承的属性<br>  }</p>
-</blockquote>
-<h4 id="javascript创建对象的几种方式？"><a href="#javascript创建对象的几种方式？" class="headerlink" title="javascript创建对象的几种方式？"></a>javascript创建对象的几种方式？</h4><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
-<p>1、对象字面量的方式   </p>
-<pre><code>person={firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;};
-</code></pre><p>2、用function来模拟无参的构造函数</p>
-<pre><code>function Person(){}
-var person=new Person();//定义一个function，如果使用new&quot;实例化&quot;,该function可以看作是一个Class
-person.name=&quot;Mark&quot;;
-person.age=&quot;25&quot;;
-person.work=function(){
-alert(person.name+&quot; hello...&quot;);
-}
-person.work();
-</code></pre><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<pre><code>function Pet(name,age,hobby){
-   this.name=name;//this作用域：当前对象
-   this.age=age;
-   this.hobby=hobby;
-   this.eat=function(){
-      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);
-   }
-}
-var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象
-maidou.eat();//调用eat方法
-</code></pre><p>4、用工厂方式来创建（内置对象）</p>
-<pre><code>var wcDog =new Object();
-wcDog.name=&quot;旺财&quot;;
-wcDog.age=3;
-wcDog.work=function(){
-  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);
-}
-wcDog.work();
-</code></pre><p>5、用原型方式来创建</p>
-<pre><code>function Dog(){
-
- }
- Dog.prototype.name=&quot;旺财&quot;;
- Dog.prototype.eat=function(){
- alert(this.name+&quot;是个吃货&quot;);
- }
- var wangcai =new Dog();
- wangcai.eat();
-</code></pre><p>5、用混合方式来创建</p>
-<pre><code>function Car(name,price){
-  this.name=name;
-  this.price=price; 
-}
- Car.prototype.sell=function(){
-   alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
-  }
-var camry =new Car(&quot;凯美瑞&quot;,27);
-camry.sell(); 
-</code></pre><h4 id="Javascript作用链域"><a href="#Javascript作用链域" class="headerlink" title="Javascript作用链域?"></a>Javascript作用链域?</h4><blockquote>
-<p>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。<br>当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，<br>直至全局函数，这种组织形式就是作用域链。</p>
-<h4 id="谈谈This对象的理解。"><a href="#谈谈This对象的理解。" class="headerlink" title="谈谈This对象的理解。"></a>谈谈This对象的理解。</h4><p>this总是指向函数的直接调用者（而非间接调用者）；<br>如果有new关键字，this指向new出来的那个对象；<br>在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；</p>
-<h4 id="eval是做什么的？"><a href="#eval是做什么的？" class="headerlink" title="eval是做什么的？"></a>eval是做什么的？</h4><p>它的功能是把对应的字符串解析成JS代码并运行；<br>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。<br>由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’);</p>
-<h4 id="什么是window对象-什么是document对象"><a href="#什么是window对象-什么是document对象" class="headerlink" title="什么是window对象? 什么是document对象?"></a>什么是window对象? 什么是document对象?</h4><p>document是window的一个对象属性。<br>Window 对象表示浏览器中打开的窗口。<br>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。<br>所有的全局函数和对象都属于Window 对象的属性和方法。<br>document   对 Document 对象的只读引用。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -857,7 +819,7 @@ camry.sell();
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>

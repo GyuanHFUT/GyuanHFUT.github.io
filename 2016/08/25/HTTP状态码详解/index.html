@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="Find css to my html!">
+<meta name="description" content="http 状态码
+记录在RFC2616上的HTTP状态码就达40种，再加上webDAV（基于万维网的分布式创作和版本控制）和附加的HTTP状态码等扩展，数量就达60种。而实际应用中大概只有14种。
+
+2XX 成功 2XX的响应结果表明请求被正常的处理了。
+
+200 OK 表示在客户端发来的请求在服务器端被正常处理了。
+204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node学习心得">
-<meta property="og:url" content="http://yoursite.com/2016/07/13/node学习心得/index.html">
+<meta property="og:title" content="HTTP状态码">
+<meta property="og:url" content="http://yoursite.com/2016/08/25/HTTP状态码详解/index.html">
 <meta property="og:site_name" content="memory">
-<meta property="og:description" content="Find css to my html!">
-<meta property="og:updated_time" content="2016-07-13T11:49:40.010Z">
+<meta property="og:description" content="http 状态码
+记录在RFC2616上的HTTP状态码就达40种，再加上webDAV（基于万维网的分布式创作和版本控制）和附加的HTTP状态码等扩展，数量就达60种。而实际应用中大概只有14种。
+
+2XX 成功 2XX的响应结果表明请求被正常的处理了。
+
+200 OK 表示在客户端发来的请求在服务器端被正常处理了。
+204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分">
+<meta property="og:updated_time" content="2016-08-25T07:31:28.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node学习心得">
-<meta name="twitter:description" content="Find css to my html!">
+<meta name="twitter:title" content="HTTP状态码">
+<meta name="twitter:description" content="http 状态码
+记录在RFC2616上的HTTP状态码就达40种，再加上webDAV（基于万维网的分布式创作和版本控制）和附加的HTTP状态码等扩展，数量就达60种。而实际应用中大概只有14种。
+
+2XX 成功 2XX的响应结果表明请求被正常的处理了。
+
+200 OK 表示在客户端发来的请求在服务器端被正常处理了。
+204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分">
 
 
 
@@ -114,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/13/node学习心得/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/25/HTTP状态码详解/"/>
 
-  <title> node学习心得 | memory </title>
+  <title> HTTP状态码 | memory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -236,7 +254,7 @@
             
             
               
-                node学习心得
+                HTTP状态码
               
             
           </h1>
@@ -248,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T19:49:39+08:00" content="2016-07-13">
-              2016-07-13
+            <time itemprop="dateCreated" datetime="2016-08-25T15:30:20+08:00" content="2016-08-25">
+              2016-08-25
             </time>
           </span>
 
@@ -276,7 +294,34 @@
       
 
       
-        
+        <h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><blockquote>
+<p>记录在RFC2616上的HTTP状态码就达40种，再加上webDAV（基于万维网的分布式创作和版本控制）和附加的HTTP状态码等扩展，数量就达60种。而实际应用中大概只有14种。</p>
+</blockquote>
+<h2 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h2><p> <strong>2XX的响应结果表明请求被正常的处理了。</strong></p>
+<ul>
+<li>200 OK 表示在客户端发来的请求在服务器端被正常处理了。</li>
+<li>204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分。一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息的情况下使用。</li>
+<li>206 Partial Content 表示客户端进行了范围请求（想要其中的一部分内容），而服务器成功进行了这部分的GET请求。响应报文中Content-Range指定范围的实体内容。<h2 id="3XX-重定向"><a href="#3XX-重定向" class="headerlink" title="3XX 重定向"></a>3XX 重定向</h2><strong>3XX的响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。</strong></li>
+<li>301 Moved Permanently 永久性重定向  该状态码表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI 。浏览器会记住新资源的地址，形象理解书签的更新。（感觉是发了2次http请求，优化时减少重定向）</li>
+<li>302 Found 临时性重定向 该状态码表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问。书签不会更新。</li>
+<li><p>303 See Other  该状态码表示请求的资源存在着另一个URI，应使用GET方法定向获取请求的资源。（和302有着相同的功能，303明确表示客户端应当采用get方法获取资源）</p>
+<blockquote>
+<p>当301 302 303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文的主体，之后请求会自动再次发送。</p>
+</blockquote>
+</li>
+<li><p>304 Not Modified 表示附带条件的请求，服务器允许请求但未有符合条件的请求。（他和重定向没有关系）</p>
+</li>
+<li>307 Temporary Redirect 同302，但是307遵守浏览器标准，不会从POST变成GET。每种浏览器的响应行为可能出现不同的情况。<h2 id="4XX客户端错误"><a href="#4XX客户端错误" class="headerlink" title="4XX客户端错误"></a>4XX客户端错误</h2><strong>4XX的响应结果表明客户端是发生错误的原因所在。</strong><ul>
+<li>300 Bad Request 该状态表示请求报文中存在语法错误。当错误发生时，需修改请求的内容后再次发送请求。另外，浏览器会像 200 OK一样对待该状态码。</li>
+<li>401 Unauthorized 该状态码表示请求要有通过HTTP认证的认证信息。若之前已进行过1次请求，则表示用户认真失败。第一次会弹出认证用的对话窗口。</li>
+<li>403 Forbidden  该状态码表示请求资源的访问被服务器拒绝了。可以在实体的主体部分对原因进行描述，这样用户就能看见了。</li>
+<li>404 Not Found 该状态码表明服务器上无法找到请求的资源。还有可能服务器拒绝请求且不想说明理由时使用。<h2 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h2><strong>5XX 的响应结果表明服务器本身发送错误。</strong></li>
+<li>500 Internal Server Error 服务器执行请求时发生错误。</li>
+<li>503 Service Unavailable 服务器暂时处于超负载和正在进行停机维护，现在无法处理请求。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -301,17 +346,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/13/postName/" rel="next" title="postName">
-                <i class="fa fa-chevron-left"></i> postName
+              <a href="/2016/08/24/Title与H1，你真的明白了么？/" rel="next" title="Title与title，你真的明白了么？">
+                <i class="fa fa-chevron-left"></i> Title与title，你真的明白了么？
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/03/寻游框架/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,7 +452,7 @@
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-状态码"><span class="nav-number">1.</span> <span class="nav-text">http 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2XX-成功"><span class="nav-number">2.</span> <span class="nav-text">2XX 成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3XX-重定向"><span class="nav-number">3.</span> <span class="nav-text">3XX 重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4XX客户端错误"><span class="nav-number">4.</span> <span class="nav-text">4XX客户端错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5XX-服务器错误"><span class="nav-number">5.</span> <span class="nav-text">5XX 服务器错误</span></a></li></ol></div>
             
           </div>
         </section>
