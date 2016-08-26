@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="8.5">
+<meta name="description" content="let命令基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+1234567&amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="memory">
-<meta property="og:url" content="http://yoursite.com/2016/08/05/CSS小结/index.html">
+<meta property="og:title" content="let">
+<meta property="og:url" content="http://yoursite.com/2016/08/26/let/index.html">
 <meta property="og:site_name" content="memory">
-<meta property="og:description" content="8.5">
-<meta property="og:updated_time" content="2016-08-05T14:58:06.216Z">
+<meta property="og:description" content="let命令基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+1234567&amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，">
+<meta property="og:updated_time" content="2016-08-26T14:47:48.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memory">
-<meta name="twitter:description" content="8.5">
+<meta name="twitter:title" content="let">
+<meta name="twitter:description" content="let命令基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+1234567&amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，">
 
 
 
@@ -114,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/05/CSS小结/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/26/let/"/>
 
-  <title>  | memory </title>
+  <title> let | memory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -236,7 +242,7 @@
             
             
               
-                
+                let
               
             
           </h1>
@@ -248,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T22:59:30+08:00" content="2016-08-05">
-              2016-08-05
+            <time itemprop="dateCreated" datetime="2016-08-26T22:47:37+08:00" content="2016-08-26">
+              2016-08-26
             </time>
           </span>
 
@@ -276,7 +282,18 @@
       
 
       
-        <p>8.5</p>
+        <h2 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a = 10;</div><div class="line">  var b = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">a // ReferenceError: a is not defined.</div><div class="line">b // 1</div></pre></td></tr></table></figure>
+<p>上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明的变量只在它所在的代码块有效。</p>
+<p>for循环的计数器，就很合适使用let命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for (let i = 0; i &lt; arr.length; i++) &#123;&#125;</div><div class="line"></div><div class="line">console.log(i);</div><div class="line">//ReferenceError: i is not defined</div></pre></td></tr></table></figure>
+<p>上面代码的计数器i，只在for循环体内有效。</p>
+<p>下面的代码如果使用var，最后输出的是10。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 10</div></pre></td></tr></table></figure>
+<p>上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。</p>
+<p>如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 6</div></pre></td></tr></table></figure>
+<p>上面代码中，变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6。</p>
 
       
     </div>
@@ -302,17 +319,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/03/寻游框架/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/08/25/HTTP状态码详解/" rel="next" title="HTTP状态码">
+                <i class="fa fa-chevron-left"></i> HTTP状态码
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/08/css元素/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,7 +425,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#let命令"><span class="nav-number">1.</span> <span class="nav-text">let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
