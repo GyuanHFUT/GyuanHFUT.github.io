@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
               2016-08-23
             </time>
@@ -282,50 +282,14 @@
       
         
           
-            <h2 id="lt-DOCTYPE-gt-标签的定义与用法"><a href="#lt-DOCTYPE-gt-标签的定义与用法" class="headerlink" title="&lt;!DOCTYPE&gt;标签的定义与用法"></a><code>&lt;!DOCTYPE&gt;</code>标签的定义与用法</h2><h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><pre><code>今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越懒了，很多东西都被潜意识地当成了理所当然。既然已经被问及，就去找了找资料，总结了一下，权当做笔记吧~~
-</code></pre><h3 id="lt-DOCTYPE-gt-的定义："><a href="#lt-DOCTYPE-gt-的定义：" class="headerlink" title="&lt;!DOCTYPE&gt;的定义："></a><code>&lt;!DOCTYPE&gt;</code>的定义：</h3><pre><code>&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。
-</code></pre><p>该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML版本。（假如文档中的标记不遵循doctype声明所指定的DTD，这个文档除了不能通过代码校验之外，还有可能无法在浏览器中正确显示。）</p>
-<h3 id="lt-DOCTYPE-gt-的用法："><a href="#lt-DOCTYPE-gt-的用法：" class="headerlink" title="&lt;!DOCTYPE&gt;的用法："></a><code>&lt;!DOCTYPE&gt;</code>的用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-<p>解析：在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。浏览器将明白如何寻找匹配此公共标识符的 DTD。如果找不到，浏览器将使用公共标识符后面的 URL 作为寻找 DTD 的位置。</p>
-<p><code>-</code>  :   表示组织名称未注册。Internet 工程任务组(IETF)和万维网协会(W3C)并非注册的 ISO 组织。 <code>+</code>为默认,表示组织名称已注册。</p>
-<ul>
-<li><p>DTD  :   指定公开文本类，即所引用的对象类型。 默认为DTD。</p>
-</li>
-<li><p>HTML :   指定公开文本描述，即对所引用的公开文本的唯一描述性名称。后面可附带版本号。默认为HTML。</p>
-</li>
-<li><p>URL  ：  指定所引用对象的位置。</p>
-</li>
-<li><p>Strict：排除所有 W3C 专家希望逐步淘汰的代表性属性和元素。</p>
-</li>
-</ul>
-<h2 id="三种HTML文档类型"><a href="#三种HTML文档类型" class="headerlink" title="三种HTML文档类型:"></a>三种HTML文档类型:</h2><p>HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。</p>
-<p>a ) 如果需要干净的标记，免于表现层的混乱，用HTML Strict DTD类型：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot; http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
-</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot; http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
-</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot; http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
-</code></pre><h2 id="三种-XML-文档类型："><a href="#三种-XML-文档类型：" class="headerlink" title="三种 XML 文档类型："></a>三种 XML 文档类型：</h2><p>XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。</p>
-<p>a ) 如果需要干净的标记，免于表现层的混乱，用XHTML Strict DTD类型：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
-</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
-</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;
-</code></pre><h3 id="选择正确的doctype："><a href="#选择正确的doctype：" class="headerlink" title="选择正确的doctype："></a>选择正确的doctype：</h3><p>为了获得正确的doctype声明，关键就是让dtd与文档所遵循的标准对应。</p>
-<p>例如，假定文档遵循的是xhtml 1.0 strict标准，文档的doctype声明就应该引用相应的dtd。</p>
-<p>另一方面，如果doctype声明指定的是xhtml dtd，但文档包含的是旧式风格的html标记，就是不恰当的；类似地，如果doctype声明指定的是html dtd，但文档包含的是</p>
-<p>xhtml 1.0 strict标记，同样是不恰当的。</p>
-<p>如果没有指定有效的doctype声明，大多数浏览器都会使用一个内建的默认dtd。在这种情况下， 浏览器会用内建的dtd来试着显示你所指定的标记(不过这是页面写得太糟糕的时候的做法)。</p>
-<p>看了一下京东、淘宝、还有博客园，用的都是这个（本人也一直都是用的这个）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-<p>但是发现百度跟谷歌用的是“&lt;!doctype html&gt;”，就再仔细查了一下资料，发现HTML5也是直接用的这个，不过是因为 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。</p>
-<p><strong>建议在以后都直接用“<code>&lt;!doctype html&gt;</code>”，用&lt;!doctype html&gt;的话就会开启浏览器的标准兼容模式，在标准兼容模式下，不能保证与其它版本（IE6之前的，直接忽略吧），的 Internet Explorer 保持兼容，文档的渲染行为也许与将来的 Internet Explorer 不同，但也请大家放心地使用吧~~</strong></p>
-<h4 id="小贴士："><a href="#小贴士：" class="headerlink" title="小贴士："></a>小贴士：</h4><p>XHTML 1就是HTML 4.01的XML化，是一种不向前兼容的格式。</p>
-<p>HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。</p>
-<p>SGML规定了在文档中嵌入描述标记的标准格式，指定了描述文档结构的标准方法，目前在WEB上使用的HTML格式便是使用固定标签集的一种 SGML文档。</p>
+          &lt;!DOCTYPE&gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XH
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/23/DOCTYPE标签的定义与用法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -386,7 +350,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
               2016-08-22
             </time>
@@ -417,44 +381,15 @@
       
         
           
-            <h2 id="一行神奇的代码javascript"><a href="#一行神奇的代码javascript" class="headerlink" title="一行神奇的代码javascript"></a>一行神奇的代码javascript</h2><p>现如今，javascript无处不在，因此关于javascript的新知识也是层出不穷。javascript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。</p>
-<p>来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[].forEach.call($$(&quot;*&quot;),function(a)&#123;</div><div class="line">  a.style.outline=&quot;1px solid #&quot;+(~~(Math.random()*(1&lt;&lt;24))).toString(16)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>现在，在你的Chrome浏览器的控制台中输入这段代码，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1ps的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容中，我们将一起一步一步学习如何理解上面的这段代码。</p>
-<h4 id="选择页面中所有的元素"><a href="#选择页面中所有的元素" class="headerlink" title="选择页面中所有的元素"></a>选择页面中所有的元素</h4><p>我们需要做的第一件事情是获取页面中所有的元素，在上面的代码中，Addy使用了一个Chrome浏览器中特有的函数<code>$$</code>。你可以在你的Chrome浏览器控制台中输入$$(‘a’)，然后你就能得到一个当前页面中所有锚元素的列表。</p>
-<p><code>$$</code>函数是许多现代浏览器命令行API中的一个部分，它等价于document.querySelectorAll,你可以将一个CSS选择器作为这个函数的参数，然后你就能够获得当前页面中所有匹配这个CSS选择器的元素列表。如果你在浏览器控制台以外的地方，你可以使用document.querySelectorAll(‘<em>‘)来代替<code>$$</code>(‘</em>‘)。更多关于$$函数的详细内容可以查看Chrome开发者工具的文档。</p>
-<p>当然，除了使用$$函数之外，我们还有一种更简单的方法，document.all，虽然这并不是一种很规范的使用方法，但是它几乎在每一个浏览器中都能运行成功。</p>
-<h4 id="迭代所有的元素"><a href="#迭代所有的元素" class="headerlink" title="迭代所有的元素"></a>迭代所有的元素</h4><p>经过第一步，我们已经获得了页面内所有的元素，现在我们想做的事情是遍历每一个元素，然后为它们添加一个彩色边边框。但是上面的代码究竟是怎么一回事呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[].forEach.call( $$(&apos;*&apos;), function( element ) &#123; /* 在这里修改颜色 */ &#125;);</div></pre></td></tr></table></figure>
-<p>首先，我们通过选择器获得的列表是一个NodeLists对象，它和javascript中的数组有点像，你可以使用方括号来获取其中的节点，你也可以检查它其中包含多少个元素，但是它并没有实现数组包含的所有方法，因此我们并不能使用$$(‘*’).forEach()来进行迭代。在javascript中，有好几个类似于数组但是并不是数组的对象，除了前面的NodeLists，还有函数的参数集合arguments，在这里我们可以使用call或apply函数将函数的方法运用到这些对象上。例如下面的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function say(name) &#123;</div><div class="line"> console.log( this + &apos; &apos; + name );</div><div class="line">&#125;</div><div class="line"></div><div class="line">say.call( &apos;hola&apos;, &apos;Mike&apos; ); // 打印 &apos;hola Mike&apos;</div></pre></td></tr></table></figure>
-<p>// 你也可以将这种方法有用在arguments对象上 function example( arg1, arg2, arg3 ) { return <code>Array.prototype.slice.call(arguments, 1); // Returns [arg2, arg3] }</code></p>
-<p>在Addy的代码中，使用了[].forEach.call而不是Array.prototype.forEach.call，二者等价，但是前者可以节省几个字节。</p>
-<h4 id="为元素添加颜色"><a href="#为元素添加颜色" class="headerlink" title="为元素添加颜色"></a>为元素添加颜色</h4><p>为了让元素都有一个漂亮的边框，我们在上面的代码中使用了CSS属性outline。outline属性位于CSS盒模型之外，因此它并不影响元素的属性或者元素在布局中的位置，这对于我们来说非常有用。这个属性和修改border属性非常类似，因此下面的代码应该不会很难理解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.style.outline=&quot;1px solid #&quot; + color</div></pre></td></tr></table></figure>
-<p>真正有趣的地方在于定义颜色部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~(Math.random()*(1&lt;&lt;24))).toString(16)</div></pre></td></tr></table></figure>
-<p>天呐，上面的代码是什么意思？在javascript中，比特操作符并不是经常被使用，因此这里可能会让很多程序员感到很疑惑。</p>
-<p>我们想达到的目的是活的一个十六进制格式的颜色例如白色对应的是FFFFFF，蓝色对应的是0000FF，或者随便一个颜色37f9ac。虽然我们人类喜欢十进制，但是我们的代码常常会需要十六进制的东西。</p>
-<p>我们首先要学会如何使用toString函数将一个十进制的数组转换为一个十六进制整数。这个函数可以接受一个参数，如果参数缺省，默认为十进制，但是你完全可以使用别的数组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(30).toString(); // &quot;30&quot;</div><div class="line">(30).toString(10); // &quot;30&quot;</div><div class="line">(30).toString(16); // &quot;1e&quot; 十六进制</div><div class="line">(30).toString(2); // &quot;11110&quot; 二进制</div><div class="line">(30).toString(36); // &quot;u&quot; 36是允许的最大参数值</div></pre></td></tr></table></figure>
-<p>除此之外，你可以使用parseInt函数将十六进制数字转换为十进制。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">parseInt(&quot;30&quot;); // &quot;30&quot;</div><div class="line">parseInt(&quot;30&quot;, 10); // &quot;30&quot;</div><div class="line">parseInt(&quot;1e&quot;, 16); // &quot;30&quot;</div><div class="line">parseInt(&quot;11110&quot;, 2); // &quot;30&quot;</div><div class="line">parseInt(&quot;u&quot;, 36); // &quot;30&quot;</div></pre></td></tr></table></figure>
-<p>因此，我们现在只需要一个位于0和ffffff之间的十六进制数，由于:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">parseInt(&quot;ffffff&quot;, 16) == 16777215</div></pre></td></tr></table></figure>
-<p>而这里的16777215实际上是2^24-1。</p>
-<p>如果你对二进制数学熟悉的话，你可能会知道1&lt;&lt;24 == 16777216。</p>
-<p>再进一步，你每在1后面添加一个0，你就相当于多做了一次2的乘方：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1 // 1 == 2^0</div><div class="line">100 // 4 == 2^2</div><div class="line">10000 // 16 == 2^4</div><div class="line">1000000000000000000000000 // 16777216 == 2^24</div></pre></td></tr></table></figure>
-<p>因此，在这里我们可以知道Math.random()*(1&lt;&lt;24)表示一个位于0和16777216之间的数。</p>
-<p>但是这里并没有结束，因为Math.random返回的是一个浮点数，但是我们只想要整数部分。我们的代码中使用波浪号操作符来完成这件事。波浪操作符在javascript中被用来对一个变量进行取反。</p>
-<p>但是我们在这里并不关心取反，我们指向获取整数部分。因此我们还可以知道两次取反可以去掉一个浮点数的小数部分，因此~~的作用相当于parseInt：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 12.34, // ~~a = 12</div><div class="line">    b = -1231.8754, // ~~b = -1231</div><div class="line">    c = 3213.000001 // ~~c = 3213</div><div class="line">;</div><div class="line"></div><div class="line">~~a == parseInt(a, 10); // true</div><div class="line">~~b == parseInt(b, 10); // true</div><div class="line">~~c == parseInt(c, 10); // true</div></pre></td></tr></table></figure>
-<p>当然，我们还有一种更加简洁的方法，使用OR操作符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~~a == 0|a == parseInt(a, 10)</div><div class="line">~~b == 0|b == parseInt(b, 10)</div><div class="line">~~c == 0|c == parseInt(c, 10)</div></pre></td></tr></table></figure>
-<p>最终，我们获得了一个位于0和16777216之间的随机整数，也就是我们想要的随机颜色。此时我们只需要使用toString(16)将它转化为十六进制数即可。</p>
+          一行神奇的代码javascript现如今，javascript无处不在，因此关于javascript的新知识也是层出不穷。javascript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。
+来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -515,7 +450,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
               2016-08-21
             </time>
@@ -546,24 +481,17 @@
       
         
           
-            <p>经常需要一个函数自执行，可惜这一种写法是错的：<br>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function()&#123;alert(1);&#125;();</div></pre></td></tr></table></figure>
-<p>原因是前半段<code>“function(){alert(1);}”</code>被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 </p>
-<p>按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。<br>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function()&#123;alert(1);&#125;(1);</div></pre></td></tr></table></figure>
-<p>综上，症结在于，如何明确代码描述的是一个函数表达式，而不是函数声明语句。<br>正确的写法多种多样，也各有利弊： </p>
-<h3 id="方法1：最前最后加括号"><a href="#方法1：最前最后加括号" class="headerlink" title="方法1：最前最后加括号"></a>方法1：最前最后加括号</h3><p>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function()&#123;alert(1);&#125;());</div></pre></td></tr></table></figure>
-<p>这是jslint推荐的写法，好处是，能提醒阅读代码的人，这段代码是一个整体。<br>例如，在有语法高亮匹配功能的编辑器里，光标在第一个左括号后时，最后一个右括号也会高亮，看代码的人一眼就可以看到这个整体。<br>不过，对于某些写代码不喜欢在行后加分号的同学，也会形成一些坑坑，例如以下代码会报运行错：<br>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=1 </div><div class="line">(function()&#123;alert(1);&#125;());</div></pre></td></tr></table></figure>
-<h3 id="方法2：function外面加括号"><a href="#方法2：function外面加括号" class="headerlink" title="方法2：function外面加括号"></a>方法2：function外面加括号</h3><p>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function()&#123;alert(1);&#125;)();</div></pre></td></tr></table></figure>
-<p>这种做法比方法1少了一个代码整体性的好处。 </p>
-<h3 id="方法3：function前面加运算符，常见的是-与void-。"><a href="#方法3：function前面加运算符，常见的是-与void-。" class="headerlink" title="方法3：function前面加运算符，常见的是!与void 。"></a>方法3：function前面加运算符，常见的是!与void 。</h3><p>复制代码 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">!function()&#123;alert(1);&#125;(); </div><div class="line">void function()&#123;alert(2);&#125;();</div></pre></td></tr></table></figure>
-<p>显然，加上“!”或“+”等运算符，写起来是最简单的。<br>加上“void ”要敲五下键盘，但是听说有一个好处是，比加”!”少一次逻辑运算。</p>
+          经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
+1function()&#123;alert(1);&#125;();
+原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
+按上面的分析，
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/21/JS中自执行函数的几种写法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -624,7 +552,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
               2016-08-20
             </time>
@@ -655,44 +583,16 @@
       
         
           
-            <h2 id="JavaScript中call-与apply-有什么区别？"><a href="#JavaScript中call-与apply-有什么区别？" class="headerlink" title="JavaScript中call()与apply()有什么区别？"></a>JavaScript中call()与apply()有什么区别？</h2><p>今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。</p>
-<p>Javascript的每个Function对象中有一个apply方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function.apply([thisObj[,argArray]])</div></pre></td></tr></table></figure>
-<p>还有一个类似功能的call方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function.call([thisObj[,arg1[, arg2[, [,.argN]]]]])</div></pre></td></tr></table></figure>
-<h5 id="它们各自的定义："><a href="#它们各自的定义：" class="headerlink" title="它们各自的定义："></a>它们各自的定义：</h5><ul>
-<li>apply：应用某一对象的一个方法，用另一个对象替换当前对象。</li>
-<li><p>call：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
-<h5 id="它们的共同之处："><a href="#它们的共同之处：" class="headerlink" title="它们的共同之处："></a>它们的共同之处：</h5></li>
-<li><p>都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。”——摘自JScript5.5 .chm</p>
-<h5 id="它们的不同之处："><a href="#它们的不同之处：" class="headerlink" title="它们的不同之处："></a>它们的不同之处：</h5></li>
-<li><p>apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。</p>
-</li>
-<li>call：则是直接的参数列表，主要用在js对象各方法互相调用的时候，使当前this实例指针保持一致,或在特殊情况下需要改变this指针。如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。 </li>
-<li>更简单地说，apply和call功能一样，只是传入的参数列表形式不同：如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3])<h5 id="示例代码（注：注释中是call的用法，与上面apply的实现效果相同）："><a href="#示例代码（注：注释中是call的用法，与上面apply的实现效果相同）：" class="headerlink" title="示例代码（注：注释中是call的用法，与上面apply的实现效果相同）："></a>示例代码（注：注释中是call的用法，与上面apply的实现效果相同）：</h5></li>
-</ul>
-<p>（1）基本用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function add(a,b)</div><div class="line">&#123;</div><div class="line">    alert(a+b);</div><div class="line">&#125;</div><div class="line">function sub(a,b)</div><div class="line">&#123;</div><div class="line">    alert(a-b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.apply(sub,[3,1]);</div><div class="line">//add.call(sub,3,1);</div></pre></td></tr></table></figure>
-<p>（2）实现继承：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Animal(name)&#123;    </div><div class="line">    this.name = name;    </div><div class="line">    this.showName = function()&#123;    </div><div class="line">        alert(this.name);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">   </div><div class="line">function Cat(name)&#123;  </div><div class="line">    Animal.apply(this, [name]);</div><div class="line">    //Animal.call(this, name);  </div><div class="line">&#125;    </div><div class="line">   </div><div class="line">var cat = new Cat(&quot;Black Cat&quot;);   </div><div class="line">cat.showName();</div></pre></td></tr></table></figure>
-<p>（3）多重继承：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Class10()</div><div class="line">&#123;</div><div class="line">    this.showSub = function(a,b)</div><div class="line">    &#123;</div><div class="line">        alert(a-b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Class11()</div><div class="line">&#123;</div><div class="line">    this.showAdd = function(a,b)</div><div class="line">    &#123;</div><div class="line">        alert(a+b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Class2()</div><div class="line">&#123;</div><div class="line">    Class10.apply(this);</div><div class="line">    Class11.apply(this);</div><div class="line">    //Class10.call(this);</div><div class="line">    //Class11.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var c2=new Class2();</div><div class="line">c2.showSub(3,1);</div><div class="line">c2.showAdd(3,1);</div></pre></td></tr></table></figure>
-<h3 id="apply的其他巧妙用法："><a href="#apply的其他巧妙用法：" class="headerlink" title="apply的其他巧妙用法："></a>apply的其他巧妙用法：</h3><p>看到这里，我就会觉得既然apply和call的用法差不多，那么为什么还同时存在这两种方法呢？完全可以丢掉一个呀。后来才发现一篇文章中讲到apply因为它所传参数为数组这一特点还有许多其他的妙用。</p>
-<p>a) Math.max 可以实现得到数组中最大的一项：</p>
-<p>因为Math.max 参数里面不支持Math.max([param1,param2]) 也就是数组，但是它支持Math.max(param1,param2,param3…)，所以可以根据apply的特点来解决 var max=Math.max.apply(null,array)，这样轻易的可以得到一个数组中最大的一项。(apply会将一个数组转换为一个参数接一个参数的传递给方法)</p>
-<p>这块在调用的时候第一个参数给了一个null，这个是因为没有对象去调用这个方法，只需要用这个方法帮助运算，得到返回的结果就行，所以直接传递了一个null过去。</p>
-<p>b) Math.min  可以实现得到数组中最小的一项：</p>
-<p>同样和 max是一个思想 var min=Math.min.apply(null,array)。</p>
-<p>c) Array.prototype.push 可以实现两个数组合并：</p>
-<p>同样push方法没有提供push一个数组，但是它提供了push(param1,param,…paramN) 所以同样也可以通过apply来转换一下这个数组，即:</p>
-<p>var arr1=new Array(“1”,”2”,”3”);</p>
-<p>var arr2=new Array(“4”,”5”,”6”);</p>
-<p>Array.prototype.push.apply(arr1,arr2); </p>
-<p>也可以这样理解，arr1调用了push方法，参数是通过apply将数组装换为参数列表的集合。</p>
-<p>d) 小结：通常在什么情况下,可以使用apply类似Math.min等之类的特殊用法:</p>
-<p>一般在目标函数只需要n个参数列表,而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]），可以通过apply的方式巧妙地解决这个问题。</p>
+          JavaScript中call()与apply()有什么区别？今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。
+Javascript的每个Function对象中有一个apply方法：
+1fun
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/20/JS中call和apply的区别/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -753,7 +653,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
               2016-08-17
             </time>
@@ -784,36 +684,15 @@
       
         
           
-            <h2 id="Cache-Manifest-基础"><a href="#Cache-Manifest-基础" class="headerlink" title="Cache Manifest 基础"></a>Cache Manifest 基础</h2><p>如需启用应用程序缓存，请在文档的 <code>&lt;html&gt;</code> 标签中包含 manifest 属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html manifest=&quot;demo.appcache&quot;&gt;</div><div class="line">...</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存（除非在 manifest 文件中直接指定了该页面）。<br>manifest 文件的建议的文件扩展名是：”.appcache”。<br>请注意，manifest 文件需要配置正确的 MIME-type，即 “text/cache-manifest”。必须在 web 服务器上进行配置。<br>Manifest 文件<br>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。<br>manifest 文件可分为三个部分：</p>
-<ul>
-<li>CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存</li>
-<li>NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存</li>
-<li>FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）<h4 id="CACHE-MANIFEST"><a href="#CACHE-MANIFEST" class="headerlink" title="CACHE MANIFEST"></a>CACHE MANIFEST</h4>第一行，CACHE MANIFEST，是必需的：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line">/theme.css</div><div class="line">/logo.gif</div><div class="line">/main.js</div></pre></td></tr></table></figure>
-<p>上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
-<h4 id="NETWORK"><a href="#NETWORK" class="headerlink" title="NETWORK"></a>NETWORK</h4><p>下面的 NETWORK 小节规定文件 “login.asp” 永远不会被缓存，且离线时是不可用的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NETWORK:</div><div class="line">login.asp</div></pre></td></tr></table></figure>
-<p>可以使用星号来指示所有其他资源/文件都需要因特网连接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> NETWORK:</div><div class="line">*</div><div class="line">FALLBACK</div></pre></td></tr></table></figure>
-<p>下面的 FALLBACK 小节规定如果无法建立因特网连接，则用 “offline.html” 替代 /html5/ 目录中的所有文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FALLBACK:</div><div class="line">/html5/ /404.html</div></pre></td></tr></table></figure>
-<p>注释：第一个 URI 是资源，第二个是替补。</p>
-<h4 id="更新缓存"><a href="#更新缓存" class="headerlink" title="更新缓存"></a>更新缓存</h4><p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
-<ul>
-<li>用户清空浏览器缓存</li>
-<li>manifest 文件被修改（参阅下面的提示）</li>
-<li>由程序来更新应用缓存<h3 id="实例-完整的-Manifest-文件"><a href="#实例-完整的-Manifest-文件" class="headerlink" title="实例 - 完整的 Manifest 文件"></a>实例 - 完整的 Manifest 文件</h3>CACHE MANIFEST</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 2012-02-21 v1.0.0</div><div class="line">/theme.css</div><div class="line">/logo.gif</div><div class="line">/main.js</div><div class="line"></div><div class="line">NETWORK:</div><div class="line">login.asp</div><div class="line"></div><div class="line">FALLBACK:</div><div class="line">/html5/ /404.html</div></pre></td></tr></table></figure>
-<p>重要的提示：以 “#” 开头的是注释行，但也可满足其他用途。应用的缓存会在其 manifest 文件更改时被更新。如果您编辑了一幅图片，或者修改了一个 JavaScript 函数，这些改变都不会被重新缓存。更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法。<br>关于应用程序缓存的注释<br>请留心缓存的内容。<br>一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。</p>
-<blockquote>
-<p>注释：浏览器对缓存数据的容量限制可能不太一样（某些浏览器设置的限制是每个站点 5MB）。</p>
-</blockquote>
+          Cache Manifest 基础如需启用应用程序缓存，请在文档的 &lt;html&gt; 标签中包含 manifest 属性：
+1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/17/H5-cache缓存/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -886,7 +765,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -933,7 +812,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

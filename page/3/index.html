@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
               2016-08-16
             </time>
@@ -282,31 +282,14 @@
       
         
           
-            <h3 id="Zepto-使用中的一些注意点-转"><a href="#Zepto-使用中的一些注意点-转" class="headerlink" title="Zepto 使用中的一些注意点(转)"></a>Zepto 使用中的一些注意点(转)</h3><p>前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。<br>为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。<br>而 Zepto 只针对移动端浏览器编写，因此体积更小、效率更高，更重要的是，它的 API 完全仿照 jQuery ，所以学习成本也很低。</p>
-<p>但是在开发过程中，我发现 Zepto 还远未成熟，其中包含了一些或大或小的“坑”，与 jQuery 的差距还是很明显的，所以写篇文章记录下，希望对后来者有帮助<br>注意，本文撰写时 Zepto 版本为 1.0 正式版</p>
-<p>从哪里下载 Zepto<br>这个问题看起来很蠢，从官网下载不就行了嘛！可是你有没有发现下载链接上面有行小字呢？</p>
-<blockquote>
-<p>There are more modules; a list of all modules is available in the README.</p>
-</blockquote>
-<p>在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！而且居然不包含对移动端开发非常重要的 touch 模块（提供对触摸事件的支持）！<br>所以我的建议是，不要从官网下载，而是从 Github 下载了源代码之后自己 Build 一个版本，这样你可以自行挑选适合的模块。比如我挑选的模块是这么几个：</p>
-<p>polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包含的模块<br>fx_methods 有了这个模块之后，.show() .hide() 等几个方法才能支持动画了，比如 .show(‘fast’)<br>data 提供对 .data() 方法的完整支持，像 jQuery 一样用内存对象存储<br>assets 移除 img 元素后做一些特殊处理，用来清理内存<br>selector 更多的选择器的支持，后面会提到<br>touch 对触摸事件的支持，比如 tap 事件<br>如果你对 Node 不了解不知道如何 Build 的话，可以下载我的版本</p>
-<p>不要用 click 事件，用 tap 代替<br>这个估计已经广为人知了，因为 click 事件有 200~300 ms 的延迟，为了更快的响应，最好用 Zepto 提供的 tap 事件<br>不相信的话，可以用以下代码测试一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var t1,t2;</div><div class="line">$(&apos;#id&apos;).tap(function () &#123;</div><div class="line">    t1 = Date.now();</div><div class="line">&#125;);</div><div class="line">$(&apos;#id&apos;).click(function () &#123;</div><div class="line">    t2 = Date.now();</div><div class="line">    alert(t2 - t1);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>Zepto 对 CSS 选择器的支持<br>郑重提醒，:text :checkbox :first 等等在 jQuery 里面很常用的选择器，Zepto 不支持！<br>原因很简单，jQuery 通过自己编写的 sizzle 引擎来支持 CSS 选择器，而 Zepto 是直接通过浏览器提供的 document.querySelectorAll 接口。<br>这个接口只支持标准的 CSS 选择器，而上面提到的那些属于 jQuery 选择器扩展，所以仔细看看这个网页，注意一下这些选择器。</p>
-<p>当然也有好消息，就是上面提到的 selector 模块，如果有这个模块的话，能够支持 部分 的 jQuery 选择器扩展，列举如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:visible :hidden</div><div class="line">:selected :checked</div><div class="line">:parent</div><div class="line">:first :last :eq</div><div class="line">:contains :has</div></pre></td></tr></table></figure>
-<p>元素的尺寸计算<br>首先 Zepto 没有 .innerHeight() .outerWidth() 等四个方法，其次，它的 .height()/.width() 方法也不完善，对于 display:none 的元素，计算出的高宽都是 0<br>而这在 jQuery 里面是没有问题的，因为 jQuery 针对这种元素，会先设置其 css 样式设置为position: “absolute”, visibility: “hidden”, display: “block”<br>计算完高宽后再恢复，参见 <a href="https://github.com/jquery/jquery/blob/master/src/css.js#L460" target="_blank" rel="external">https://github.com/jquery/jquery/blob/master/src/css.js#L460</a><br>如果遇到这种特殊情况，可以参考 jQuery 写一个类似的方法</p>
-<p>.prop() 方法的陷阱<br>有次我要把一个文本框置为只读，写了这么一行 $(‘#text’).prop(‘readonly’, true) 结果死活不工作<br>找了半天才发现，正确的写法是这样 $(‘#text’).prop(‘readOnly’, true) ，如果你居然看不出两者的差别，那么悄悄提示你：注意大小写！<br>翻了一下相关的文档，原来只读属性的正确拼法确实是 readOnly，可是在 jQuery 里面上一段代码却能正常工作<br>于是到 jQuery 源码里面一找才发现，还有这么一段 <a href="https://github.com/jquery/jquery/blob/master/src/attributes.js#L466" target="_blank" rel="external">https://github.com/jquery/jquery/blob/master/src/attributes.js#L466</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">jQuery.each([</div><div class="line">    &quot;tabIndex&quot;,</div><div class="line">    &quot;readOnly&quot;,</div><div class="line">    &quot;maxLength&quot;,</div><div class="line">    &quot;cellSpacing&quot;,</div><div class="line">    &quot;cellPadding&quot;,</div><div class="line">    &quot;rowSpan&quot;,</div><div class="line">    &quot;colSpan&quot;,</div><div class="line">    &quot;useMap&quot;,</div><div class="line">    &quot;frameBorder&quot;,</div><div class="line">    &quot;contentEditable&quot;</div><div class="line">], function() &#123;</div><div class="line">    jQuery.propFix[ this.toLowerCase() ] = this;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>从这里也能看到，jQuery 的成熟度真是难以超越，因为他把我们都惯坏了……<br>考虑到这段代码比较简单，我厚颜无耻地抄袭了一下然后给 Zepto 提了一个 pull request ，如果你们喜欢这种无脑的用法，可以去评论表达支持（记得用英文）</p>
-<p>.show() 的动画效果<br>如果没有 fx_mehods 模块的话，.show() 方法是不支持动画的，不过有了这模块后，动画的支持还是有点小问题，比如这么一段 HTML</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;background:black;opacity:0.7;display:none&quot;&gt;</div><div class="line">    test</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>如果你调用 $(‘div’).show(‘fast’) ，那么动画完成后你看到的不会是一个半透明的元素，而是全黑不透明的<br>因为 Zepto 的 .show() 动画实现的很简单，没有高宽的变化，而是将透明度从 0 逐渐变为 1，所以元素上原来设置的透明度就被替代了。<br>这种情况下，可以用 .fadeIn() 方法来替代 .show()</p>
-<blockquote>
-<p>结语<br>看到这里相信你已经了解为什么我说” Zepto 还远未成熟“，目前它其实还仅仅处于“能用”，远未达到 jQuery “好用”的地步<br>最后，关于整个 HTML5 触屏版的前端开发，我有篇 Slide 做了总结，本文只是其中关于 Zepto 部分的详细阐述，感兴趣的可以去看看</p>
-</blockquote>
+          Zepto 使用中的一些注意点(转)前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。而 Zepto 只针对移动
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/16/zepto使用中的大坑/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -367,7 +350,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
               2016-08-15
             </time>
@@ -398,8 +381,14 @@
       
         
           
-            
           
+          
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/15/8-15/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -460,7 +449,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
               2016-08-14
             </time>
@@ -491,13 +480,14 @@
       
         
           
-            <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个标识80,外界发来数据包，我就通过这个80标识转发给你，你监听我的时候告诉我你监听的是80,我就把80的数据转发给你。一个标识只能被一个应用程序监听，要是有多个，会破坏数据的安全性。那么这个标识就是端口号PORT。<br>链路层：MAC地址、网络层：IP地址、传输层：PORT。IP地址用来定位网络上的一台主机，而PORT用来定位主机上的一个应用程序。</p>
-<h4 id="网络层提供的两种服务："><a href="#网络层提供的两种服务：" class="headerlink" title="网络层提供的两种服务："></a>网络层提供的两种服务：</h4><ul>
-<li>1.虚电路服务<br>电话机：面向连接的通信方式，使电信网络向用户提供可靠的传输服务</li>
-<li>2.数据报服务<br>因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务<br>网络层不提供服务质量的承诺。即所传送的分组可能出错、丢失、重复、失序。<h3 id="IP网际协议"><a href="#IP网际协议" class="headerlink" title="IP网际协议"></a>IP网际协议</h3>地址解析协议ARP、逆地址解析协议、网际控制报文协议ICMP、网际组管理协议IGMP、<br>网络层又叫网际层或IP层<br>没有一种单一的网络能够适应所有用户的需求<br>将网络互相连接起来要使用一些中间设备：<br>物理层使用的中间设备叫做转发器<br>数据链路层使用的中间设备叫做网桥或桥接器<br>网络层使用的中间设备叫做路由器<br>网络层以上使用的中间设备叫做网关<br>参加互连的计算机网络都使用相同的网际协议IP，因此可以把互连以后的计算机网络看成一个虚拟互连网络<br>IP协议可以使这些性能各异的网络在网络层上看起来好像是一个统一的网络<br>使用IP协议的虚拟互联网络简称为IP网<br>主机的协议栈共有5层，路由器的协议栈只有下3层<br>整个因特网就是一个单一的、抽象的网络<br>IP地址就是给因特网上的每一个主机或路由器的每一个接口，分配一个全世界范围是唯一的32位标识符。IP地址的结构可以使我们很方便的在因特网上进行寻址。<br>分类的IP地址<br>子网的划分<br>构成超网<h4 id="分类的IP地址"><a href="#分类的IP地址" class="headerlink" title="分类的IP地址"></a>分类的IP地址</h4>将IP地址划分成若干个固定类，每一个类地址都由两个固定的类字段组成。其中第一个字段是网络号，它标志主机或路由器所连接的网络，一个网络号在整个因特网范围内必须是惟一的。第二个字段是主机号，表示该主机或路由器，一个主机号在它前面网络号指明的范围内是惟一的。因此，一个IP地址在整个因特网范围内是唯一的<br>IP地址并不仅仅指明一个主机，而且还指明了主机所连的网络<br>IP地址是一种分等级的地址结构，IP地址管理机构在分配IP地址时，只分配网络号，而剩下的主机号则右得到该网络号的单位自行分配，方便了IP地址的管理。路由器仅根据目的主机所连接的网络号来转发分组，而不用考虑主机号，则路由表中的项目数大幅减少，减小了路由表所占的存储空间，以及查找路由表的时间。<br>一个路由器应当至少连接到两个网络<br>IP地址放在IP数据报的首部，而MAC地址则放在MAC帧的首部，在网络层或网络层以上使用的是IP地址，而数据链路层及其以下使用的是MAC地址。在数据链路层看不见数据报的IP地址。<br>ARP协议的用途是为了从网络层使用的IP地址解析出在数据链路层使用的MAC地址。<br>在IP层转发分组的流程：在互联网上转发分组时，是从一个路由器转发到下一个路由器。<br>路由表中的每一条路由：（目的网络地址，下一跳地址）</li>
-</ul>
+          网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/14/计算机网络基础之网络层部分/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -558,7 +548,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
               2016-08-13
             </time>
@@ -589,82 +579,18 @@
       
         
           
-            <h1 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h1><h4 id="介绍js的基本数据类型。"><a href="#介绍js的基本数据类型。" class="headerlink" title="介绍js的基本数据类型。"></a>介绍js的基本数据类型。</h4><blockquote>
-<p>Undefined、Null、Boolean、Number、String<br>介绍js有哪些内置对象？</p>
-</blockquote>
-<h4 id="Object-是-JavaScript-中所有对象的父对象"><a href="#Object-是-JavaScript-中所有对象的父对象" class="headerlink" title="Object 是 JavaScript 中所有对象的父对象"></a>Object 是 JavaScript 中所有对象的父对象</h4><blockquote>
-<p>数据封装类对象：Object、Array、Boolean、Number 和 String<br>其他对象：Function、Arguments、Math、Date、RegExp、Error</p>
-<h4 id="说几条写JavaScript的基本规范？"><a href="#说几条写JavaScript的基本规范？" class="headerlink" title="说几条写JavaScript的基本规范？"></a>说几条写JavaScript的基本规范？</h4><p>1.不要在同一行声明多个变量。<br>2.请使用 ===/!==来比较true/false或者数值<br>3.使用对象字面量替代new Array这种形式<br>4.不要使用全局函数。<br>5.Switch语句必须带有default分支<br>6.函数不应该有时候有返回值，有时候没有返回值。<br>7.For循环必须使用大括号<br>8.If语句必须使用大括号<br>9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。</p>
-</blockquote>
-<h4 id="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"><a href="#JavaScript有几种类型的值？，你能画一下他们的内存图吗？" class="headerlink" title="JavaScript有几种类型的值？，你能画一下他们的内存图吗？"></a>JavaScript有几种类型的值？，你能画一下他们的内存图吗？</h4><p>栈：原始数据类型（Undefined，Null，Boolean，Number、String）<br>堆：引用数据类型（对象、数组和函数）</p>
-<blockquote>
-<p>两种类型的区别是：存储位置不同；<br>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；<br>引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其<br>在栈中的地址，取得地址后从堆中获得实体</p>
-</blockquote>
-<h4 id="Javascript如何实现继承？"><a href="#Javascript如何实现继承？" class="headerlink" title="Javascript如何实现继承？"></a>Javascript如何实现继承？</h4><blockquote>
-<p>1、构造继承<br>2、原型继承<br>3、实例继承<br>4、拷贝继承<br>（这个地方略微复杂，回头记得重新看）<br>原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。</p>
-<p> function Parent(){<br>        this.name = ‘wang’;<br>    }</p>
-<p>  function Child(){<br>      this.age = 28;<br>  }<br>  Child.prototype = new Parent();//继承了Parent，通过原型</p>
-<p>  var demo = new Child();<br>  alert(demo.age);<br>  alert(demo.name);//得到被继承的属性<br>  }</p>
-</blockquote>
-<h4 id="javascript创建对象的几种方式？"><a href="#javascript创建对象的几种方式？" class="headerlink" title="javascript创建对象的几种方式？"></a>javascript创建对象的几种方式？</h4><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
-<p>1、对象字面量的方式   </p>
-<pre><code>person={firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;};
-</code></pre><p>2、用function来模拟无参的构造函数</p>
-<pre><code>function Person(){}
-var person=new Person();//定义一个function，如果使用new&quot;实例化&quot;,该function可以看作是一个Class
-person.name=&quot;Mark&quot;;
-person.age=&quot;25&quot;;
-person.work=function(){
-alert(person.name+&quot; hello...&quot;);
-}
-person.work();
-</code></pre><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<pre><code>function Pet(name,age,hobby){
-   this.name=name;//this作用域：当前对象
-   this.age=age;
-   this.hobby=hobby;
-   this.eat=function(){
-      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);
-   }
-}
-var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象
-maidou.eat();//调用eat方法
-</code></pre><p>4、用工厂方式来创建（内置对象）</p>
-<pre><code>var wcDog =new Object();
-wcDog.name=&quot;旺财&quot;;
-wcDog.age=3;
-wcDog.work=function(){
-  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);
-}
-wcDog.work();
-</code></pre><p>5、用原型方式来创建</p>
-<pre><code>function Dog(){
+          JavaScript部分介绍js的基本数据类型。
+Undefined、Null、Boolean、Number、String介绍js有哪些内置对象？
 
- }
- Dog.prototype.name=&quot;旺财&quot;;
- Dog.prototype.eat=function(){
- alert(this.name+&quot;是个吃货&quot;);
- }
- var wangcai =new Dog();
- wangcai.eat();
-</code></pre><p>5、用混合方式来创建</p>
-<pre><code>function Car(name,price){
-  this.name=name;
-  this.price=price; 
-}
- Car.prototype.sell=function(){
-   alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
-  }
-var camry =new Car(&quot;凯美瑞&quot;,27);
-camry.sell(); 
-</code></pre><h4 id="Javascript作用链域"><a href="#Javascript作用链域" class="headerlink" title="Javascript作用链域?"></a>Javascript作用链域?</h4><blockquote>
-<p>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。<br>当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，<br>直至全局函数，这种组织形式就是作用域链。</p>
-<h4 id="谈谈This对象的理解。"><a href="#谈谈This对象的理解。" class="headerlink" title="谈谈This对象的理解。"></a>谈谈This对象的理解。</h4><p>this总是指向函数的直接调用者（而非间接调用者）；<br>如果有new关键字，this指向new出来的那个对象；<br>在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；</p>
-<h4 id="eval是做什么的？"><a href="#eval是做什么的？" class="headerlink" title="eval是做什么的？"></a>eval是做什么的？</h4><p>它的功能是把对应的字符串解析成JS代码并运行；<br>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。<br>由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’);</p>
-<h4 id="什么是window对象-什么是document对象"><a href="#什么是window对象-什么是document对象" class="headerlink" title="什么是window对象? 什么是document对象?"></a>什么是window对象? 什么是document对象?</h4><p>document是window的一个对象属性。<br>Window 对象表示浏览器中打开的窗口。<br>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。<br>所有的全局函数和对象都属于Window 对象的属性和方法。<br>document   对 Document 对象的只读引用。</p>
-</blockquote>
+Object 是 JavaScript 中所有对象的父对象
+数据封装类对象：Object、Array、Boolean、Number 和 String其
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/13/Js部分/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -725,7 +651,7 @@ camry.sell();
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
               2016-08-12
             </time>
@@ -756,195 +682,16 @@ camry.sell();
       
         
           
-            <p>Doctype作用？标准模式与兼容模式各有什么区别?</p>
-<blockquote>
-<p>（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 <code>&lt;html&gt;</code> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。</p>
-</blockquote>
-<p>HTML5 为什么只需要写 <code>&lt;!DOCTYPE HTML&gt;</code>？</p>
-<blockquote>
-<p>HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；<br>而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-</blockquote>
-<p>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</p>
-<blockquote>
-<p>首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。<br>（1）行内元素有：a b span img input select strong（强调的语气）<br>（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p<br>（3）常见的空元素：<code>&lt;br&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</code><br>  鲜为人知的是：<code>&lt;area&gt; &lt;base&gt; &lt;col&gt; &lt;command&gt; &lt;embed&gt; &lt;keygen&gt; &lt;param&gt; &lt;source&gt; &lt;track&gt; &lt;wbr&gt;</code></p>
-</blockquote>
-<p>页面导入样式时，使用link和@import有什么区别？</p>
-<blockquote>
-<p>（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;<br>（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;<br>（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;</p>
-</blockquote>
-<p>介绍一下你对浏览器内核的理解？</p>
-<blockquote>
-<p>主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JS引擎。<br>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。<br>JS引擎则：解析和执行javascript来实现网页的动态效果。<br>最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
-</blockquote>
-<p>常见的浏览器内核有哪些？</p>
-<blockquote>
-<p>Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]<br>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等<br>Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]<br>Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]</p>
-</blockquote>
-<p>html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</p>
-<blockquote>
-<p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。<br>      绘画 canvas;<br>      用于媒介回放的 video 和 audio 元素;<br>      本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;<br>      sessionStorage 的数据在浏览器关闭后自动删除;<br>      语意化更好的内容元素，比如 article、footer、header、nav、section;<br>      表单控件，calendar、date、time、email、url、search;<br>      新的技术webworker, websocket, Geolocation;<br>  移除的元素：<br>      纯表现的元素：basefont，big，center，font, s，strike，tt，u;<br>      对可用性产生负面影响的元素：frame，frameset，noframes；</p>
-<ul>
-<li>支持HTML5新标签：<br>   IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>   可以利用这一特性让这些浏览器支持HTML5新标签，<br>   浏览器支持新标签后，还需要添加标签默认的样式。<br>   当然也可以直接使用成熟的框架、比如html5shim;</li>
-<li>如何区分HTML5： DOCTYPE声明\新增的结构元素\功能元素</li>
-</ul>
-</blockquote>
-<hr>
-<p>简述一下你对HTML语义化的理解？</p>
-<blockquote>
-<p>用正确的标签做正确的事情。<br>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;<br>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;<br>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。<br>HTML5的离线储存怎么使用，工作原理能不能解释一下？<br>在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。<br>原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。<br>如何使用：<br>1、页面头部像下面一样加入一个manifest的属性；<br>2、在cache.manifest文件的编写离线存储的资源；<br>    CACHE MANIFEST</p>
-<pre><code>#v0.11
-CACHE:
-js/app.js
-css/style.css
-NETWORK:
-resourse/logo.png
-FALLBACK:
-/ /offline.html
-</code></pre><p>3、在离线状态时，操作window.applicationCache进行需求实现。<br>详细的使用请参考：有趣的HTML5：<a href="https://segmentfault.com/a/1190000000732617" target="_blank" rel="external">离线储存</a></p>
-</blockquote>
-<p>浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</p>
-<blockquote>
-<p>在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。<br>离线的情况下，浏览器就直接使用离线存储的资源。<br>详细的使用请参考：有趣的HTML5：离线存储</p>
-</blockquote>
-<p>请描述一下 cookies，sessionStorage 和 localStorage 的区别？</p>
-<blockquote>
-<p>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。<br>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。<br>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。<br>存储大小：<br>    cookie数据大小不能超过4k。<br>    sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。<br>有期时间：<br>    localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；<br>    sessionStorage  数据在当前浏览器窗口关闭后自动删除。<br>    cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</p>
-</blockquote>
-<p>iframe有那些缺点？</p>
-<blockquote>
-<p><em>iframe会阻塞主页面的Onload事件；
-</em>搜索引擎的检索程序无法解读这种页面，不利于SEO;<br>*iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。<br>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript<br>动态给iframe添加src属性值，这样可以绕开以上两个问题。</p>
-</blockquote>
-<p>Label的作用是什么？是怎么用的？</p>
-<blockquote>
-<p>label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;label for=&quot;Name&quot;&gt;Number:&lt;/label&gt;</div><div class="line">&lt;input type=“text“name=&quot;Name&quot; id=&quot;Name&quot;/&gt;</div><div class="line">&lt;label&gt;Date:&lt;input type=&quot;text&quot; name=&quot;B&quot;/&gt;&lt;/label&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>HTML5的form如何关闭自动完成功能？</p>
-<blockquote>
-<p>给不想要提示的 form 或某个 input 设置为 autocomplete=off。</p>
-</blockquote>
-<p>如何实现浏览器内多个标签页之间的通信? (阿里)</p>
-<blockquote>
-<p>WebSocket、SharedWorker；<br>也可以调用localstorge、cookies等本地存储方式；<br>localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，<br>我们通过监听事件，控制它的值来进行页面信息通信；<br>注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常；</p>
-</blockquote>
-<p>webSocket如何兼容低浏览器？(阿里)</p>
-<blockquote>
-<p>Adobe Flash Socket 、<br>ActiveX HTMLFile (IE) 、<br>基于 multipart 编码发送 XHR 、<br>基于长轮询的 XHR</p>
-</blockquote>
-<p>页面可见性（Page Visibility API） 可以有哪些用途？</p>
-<blockquote>
-<p>通过 visibilityState 的值检测页面当前是否可见，以及打开网页的时间等;<br>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放；<br>在其他页面登陆，刚未登录的页面也登陆了；<br>用户回来，闪个log提示下；</p>
-</blockquote>
-<p>如何在页面上实现一个圆形的可点击区域？</p>
-<blockquote>
-<p>1、map+area或者svg<br>2、border-radius<br>3、纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等</p>
-</blockquote>
-<p>网页验证码是干嘛的，是为了解决什么安全问题。</p>
-<blockquote>
-<p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；<br>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
-</blockquote>
-<p>title与h1的区别、b与strong的区别、i与em的区别？</p>
-<blockquote>
-<p>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；<br>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<code>&lt;strong&gt;</code>会重读，而<code>&lt;B&gt;</code>是展示强调内容。<br>i内容展示为斜体，em表示强调的文本；<br>Physical Style Elements – 自然样式标签<br>b, i, u, s, pre<br>Semantic Style Elements – 语义样式标签<br>strong, em, ins, del, code<br>应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签。</p>
-</blockquote>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h5 id="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><a href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？" class="headerlink" title="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"></a>介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</h5><blockquote>
-<p>（1）有两种， IE 盒子模型、W3C 盒子模型；<br>（2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；<br>（3）区  别： IE的content部分把 border 和 padding计算了进去;</p>
-</blockquote>
-<h5 id="CSS选择符有哪些？哪些属性可以继承？"><a href="#CSS选择符有哪些？哪些属性可以继承？" class="headerlink" title="CSS选择符有哪些？哪些属性可以继承？"></a>CSS选择符有哪些？哪些属性可以继承？</h5><blockquote>
-<p>  1.id选择器（ # myid）<br>    2.类选择器（.myclassname）<br>    3.标签选择器（div, h1, p）<br>    4.相邻选择器（h1 + p）<br>    5.子选择器（ul &gt; li）<br>    6.后代选择器（li a）<br>    7.通配符选择器（ * ）<br>    8.属性选择器（a[rel = “external”]）<br>    9.伪类选择器（a:hover, li:nth-child）</p>
-<ul>
-<li>可继承的样式： font-size font-family color, UL LI DL DD DT;</li>
-<li>不可继承的样式：border padding margin width height ;</li>
-</ul>
-</blockquote>
-<h5 id="CSS优先级算法如何计算？"><a href="#CSS优先级算法如何计算？" class="headerlink" title="CSS优先级算法如何计算？"></a>CSS优先级算法如何计算？</h5><blockquote>
-<p>优先级就近原则，同权重情况下样式定义最近者为准;<br>   载入样式以最后载入的定位为准;<br>优先级为:<br>   !important &gt;  id &gt; class &gt; tag<br>    important 比 内联优先级高</p>
-</blockquote>
-<p>CSS3新增伪类有那些？</p>
-<blockquote>
-<p>举例：<br>    p:first-of-type 选择属于其父元素的首个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:last-of-type  选择属于其父元素的最后 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:only-of-type  选择属于其父元素唯一的 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:only-child        选择属于其父元素的唯一子元素的每个 <code>&lt;p&gt;</code> 元素。<br>    p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <code>&lt;p&gt;</code> 元素。<br>    :after          在元素之前添加内容,也可以用来做清除浮动。<br>    :before         在元素之后添加内容<br>    :enabled<br>    :disabled       控制表单控件的禁用状态。<br>    :checked        单选框或复选框被选中。</p>
-</blockquote>
-<h4 id="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><a href="#如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？" class="headerlink" title="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"></a>如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</h4><p>给div设置一个宽度，然后添加margin:0 auto属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">    width:200px;</div><div class="line">    margin:0 auto;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>居中一个浮动元素</p>
-<p>  确定容器的宽高 宽500 高 300 的层<br>  设置层的外边距</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.div &#123;</div><div class="line">     width:500px ; height:300px;//高度可以不设</div><div class="line">     margin: -150px 0 0 -250px;</div><div class="line">     position:relative;         //相对定位</div><div class="line">     background-color:pink;     //方便看效果</div><div class="line">     left:50%;</div><div class="line">     top:50%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>让绝对定位的div居中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">width: 1200px;</div><div class="line">background: none;</div><div class="line">margin: 0 auto;</div><div class="line">top: 0;</div><div class="line">left: 0;</div><div class="line">bottom: 0;</div><div class="line">right: 0;</div></pre></td></tr></table></figure>
-<p>position的值relative和absolute定位原点是？</p>
-<blockquote>
-<p> absolute<br>    生成绝对定位的元素，相对于值不为 static的第一个父元素进行定位。<br>  fixed （老IE不支持）<br>    生成绝对定位的元素，相对于浏览器窗口进行定位。<br>  relative<br>    生成相对定位的元素，相对于其正常位置进行定位。<br>  static<br>    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right z-index 声明）。<br>  inherit<br>    规定从父元素继承 position 属性的值</p>
-</blockquote>
-<p>CSS3有哪些新特性？</p>
-<blockquote>
-<p>新增各种CSS选择器  （: not(.input)：所有 class 不是“input”的节点）<br>  圆角           （border-radius:8px）<br>  多列布局        （multi-column layout）<br>  阴影和反射        （Shadow\Reflect）<br>  文字特效      （text-shadow、）<br>  文字渲染      （Text-decoration）<br>  线性渐变      （gradient）<br>  旋转          （transform）<br>  增加了旋转,缩放,定位,倾斜,动画，多背景<br>  transform:\scale(0.85,0.90)\ translate(0px,-30px)\ skew(-9deg,0deg)\Animation:</p>
-</blockquote>
-<p>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</p>
-<blockquote>
-<p>主要适用于移动端，个人理解</p>
-</blockquote>
-<p> 一个满屏 品 字布局 如何设计?</p>
-<blockquote>
-<p>简单的方式：<br>    上面的div宽100%，<br>    下面的两个div分别宽50%，<br>    然后用float或者inline使其不换行即可</p>
-</blockquote>
-<p>经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？</p>
-<blockquote>
-<ul>
-<li>png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.</li>
-<li>浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。</li>
-<li>IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。<br>浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;}<br>这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——<em>display:inline;将其转化为行内属性。(</em>这个符号只有ie6会识别)<br>渐进识别的方式，从总体中逐渐排除局部。<br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。<br>css<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.bb&#123;</div><div class="line">    background-color:#f1ee18;/*所有识别*/</div><div class="line">    .background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">    +background-color:#a200ff;/*IE6、7识别*/</div><div class="line">    _background-color:#1e0bd1;/*IE6识别*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>IE下,可以使用获取常规属性的方法来获取自定义属性,<br>   也可以使用getAttribute()获取自定义属性;<br>   Firefox下,只能使用getAttribute()获取自定义属性。<br>   解决方法:统一通过getAttribute()获取自定义属性。</p>
-<ul>
-<li>IE下,even对象有x,y属性,但是没有pageX,pageY属性;<br>Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。</li>
-<li>解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。</li>
-<li>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,<br> 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。<br>超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:<br>L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}</li>
-</ul>
-</blockquote>
-<h5 id="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"><a href="#li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？" class="headerlink" title="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"></a>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</h5><blockquote>
-<p>行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。</p>
-</blockquote>
-<h5 id="为什么要初始化CSS样式。"><a href="#为什么要初始化CSS样式。" class="headerlink" title="为什么要初始化CSS样式。"></a>为什么要初始化CSS样式。</h5><blockquote>
-<ul>
-<li><p>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</p>
-</li>
-<li><p>当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。<br>最简单的初始化方法： <em> {padding: 0; margin: 0;} （强烈不建议,因为性能问题。</em>全部遍历了一遍）<br>淘宝的样式初始化代码：<br>body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }<br>body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }<br>h1, h2, h3, h4, h5, h6{ font-size:100%; }<br>address, cite, dfn, em, var { font-style:normal; }<br>code, kbd, pre, samp { font-family:couriernew, courier, monospace; }<br>small{ font-size:12px; }<br>ul, ol { list-style:none; }<br>a { text-decoration:none; }<br>a:hover { text-decoration:underline; }<br>sup { vertical-align:text-top; }<br>sub{ vertical-align:text-bottom; }<br>legend { color:#000; }<br>fieldset, img { border:0; }<br>button, input, select, textarea { font-size:100%; }<br>table { border-collapse:collapse; border-spacing:0; }</p>
-<h4 id="absolute的containing-block-容器块-计算方式跟正常流有什么不同？"><a href="#absolute的containing-block-容器块-计算方式跟正常流有什么不同？" class="headerlink" title="absolute的containing block(容器块)计算方式跟正常流有什么不同？"></a>absolute的containing block(容器块)计算方式跟正常流有什么不同？</h4></li>
-</ul>
-<p>无论属于哪种，都要先找到其祖先元素中最近的 position 值不为 static 的元素，然后再判断：<br>1、若此元素为 inline 元素，则 containing block 为能够包含这个元素生成的第一个和最后一个 inline box 的 padding box (除 margin, border 外的区域) 的最小矩形；<br>2、否则,则由这个祖先元素的 padding box 构成。<br>如果都找不到，则为 initial containing block。</p>
-<p>补充：</p>
-<ol>
-<li>static(默认的)/relative：简单说就是它的父元素的内容框（即去掉padding的部分）</li>
-<li>absolute: 向上找最近的定位为absolute/relative的元素</li>
-<li>fixed: 它的containing block一律为根元素(html/body)，根元素也是initial containing block<h4 id="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><a href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？" class="headerlink" title="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"></a>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</h4>对于CSS里的visibility属性，相信你用过不下几百次。大多时候，你会把它的值设置成visible(这是所有页面元素的缺省值)，或者是hidden。后者相当于display: none，但仍然占用页面空间。</li>
-</ol>
-<p>其实visibility可以有第三种值，就是collapse。当一个元素的visibility属性被设置成collapse值后，对于一般的元素，它的表现跟hidden是一样的。但例外的是，如果这个元素是table相关的元素，例如table行，table group，table列，table column group，它的表现却跟display: none一样，也就是说，它们占用的空间也会释放。</p>
-<p>在谷歌浏览器里，使用collapse值和使用hidden值没有什么区别。<br>在火狐浏览器、Opera和IE11里，使用collapse值的效果就如它的字面意思：table的行会消失，它的下面一行会补充它的位置。</p>
-</blockquote>
-<h4 id="对BFC规范-块级格式化上下文：block-formatting-context-的理解？"><a href="#对BFC规范-块级格式化上下文：block-formatting-context-的理解？" class="headerlink" title="对BFC规范(块级格式化上下文：block formatting context)的理解？"></a>对BFC规范(块级格式化上下文：block formatting context)的理解？</h4><blockquote>
-<p>（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）<br> 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。<br> 不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的元素和外部的元素不会互相影响。</p>
-<h4 id="css定义的权重"><a href="#css定义的权重" class="headerlink" title="css定义的权重"></a>css定义的权重</h4><p>以下是权重的规则：标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值：</p>
-<p>/<em>权重为1</em>/<br>div{<br>}<br>/<em>权重为10</em>/<br>.class1{<br>}<br>/<em>权重为100</em>/<br><code>#</code>id1{<br>}<br>/<em>权重为100+1=101</em>/<br><code>#</code>id1 div{<br>}<br>/<em>权重为10+1=11</em>/<br>.class1 div{<br>}<br>/<em>权重为10+10+1=21</em>/<br>.class1 .class2 div{<br>}<br>如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
-</blockquote>
-<h4 id="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"><a href="#请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式" class="headerlink" title="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"></a>请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式</h4><blockquote>
-<ul>
-<li>overflow:hidden</li>
-<li>让父元素也浮动</li>
-<li>通过在所有浮动元素下方添加一个clear:both的元素，可以消除float的破坏性。</li>
-<li>通过<code>after</code>伪元素选择器，在div后面增加了一个clear:both的元素,</li>
-</ul>
-</blockquote>
-<h4 id="移动端的布局用过媒体查询吗？"><a href="#移动端的布局用过媒体查询吗？" class="headerlink" title="移动端的布局用过媒体查询吗？"></a>移动端的布局用过媒体查询吗？</h4><blockquote>
-<p><code>@</code>media screen and (max-width: 960px){<br>    body{<br>        background: #000;<br>    }<br>}</p>
-</blockquote>
-<h4 id="before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。"><a href="#before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。" class="headerlink" title="::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。"></a>::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。</h4><blockquote>
-<p>单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。</p>
-<p>首先，阅读 w3c 对两者的定义：<br>CSS  伪类用于向某些选择器添加特殊的效果。<br>CSS  伪元素用于将特殊的效果添加到某些选择器</p>
-<p>伪元素由双冒号和伪元素名称组成。双冒号是在当前规范中引入的，用于区分伪类和伪元素。但是伪类兼容现存样式，浏览器需要同时支持旧的伪类，比如:first-line、:first-letter、:before、:after等。<br>那么现在就可以完整的回答标题中的问题了，对于CSS2之前已有的伪元素，比如:before，单冒号和双冒号的写法::before作用是一样的。<br>所以，如果你的网站只需要兼容webkit、firefox、opera等浏览器，建议对于伪元素采用双冒号的写法，如果不得不兼容IE浏览器，还是用CSS2的单冒号写法比较安全。<br>简而言之，只有after ，before是单或者双都可以、<br>其他的双冒号是伪元素</p>
-</blockquote>
+          Doctype作用？标准模式与兼容模式各有什么区别?
 
-          
+（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/12/面试/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1017,7 +764,7 @@ FALLBACK:
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1064,7 +811,7 @@ FALLBACK:
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
