@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,6 +238,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/28/HTML5-Canvas制作一个简单的游戏/" itemprop="url">
+                  HTML5 Canvas制作一个简单的游戏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-28T22:31:53+08:00" content="2016-08-28">
+              2016-08-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTML5-Canvas制作一个简单的游戏"><a href="#HTML5-Canvas制作一个简单的游戏" class="headerlink" title="HTML5 Canvas制作一个简单的游戏"></a>HTML5 Canvas制作一个简单的游戏</h1><p>原文地址：<a href="http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/" target="_blank" rel="external">How To Make A Simple HTML5 Canvas Game</a></p>
+<h4 id="1-创建一个Canvas对象"><a href="#1-创建一个Canvas对象" class="headerlink" title="1. 创建一个Canvas对象"></a>1. 创建一个Canvas对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// Create the canvas  </div><div class="line">var canvas = document.createElement(&quot;canvas&quot;);  </div><div class="line">var ctx = canvas.getContext(&quot;2d&quot;);  </div><div class="line">canvas.width = 512;  </div><div class="line">canvas.height = 480;  </div><div class="line">document.body.appendChild(canvas);</div></pre></td></tr></table></figure>
+<p>我们首先要做的是创建一个canvas对象。可以用JavaScript或HTML来做，都非常简单。此处我用的是JS。当创建了canvas之后，我们就可以获取它的上下文对象（context）、设置尺寸，并且把它加到当前文档中。</p>
+<h4 id="2-载入图片"><a href="#2-载入图片" class="headerlink" title="2. 载入图片"></a>2. 载入图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// Background image  </div><div class="line">var bgReady = false;  </div><div class="line">var bgImage = new Image();  </div><div class="line">bgImage.onload = function () &#123;  </div><div class="line">    bgReady = true;  </div><div class="line">&#125;;  </div><div class="line">bgImage.src = &quot;images/background.png&quot;;</div></pre></td></tr></table></figure>
+<p>游戏需要图像，所以让我们载入一些图片吧。我想尽量简单化，所以只用了Image对象来做，当然，还可以将载入图像的功能封装成一个类或别的任何形式。代码中的bgReady用来标识图片是否已完全载入，只有当图片载入完成后，我们才能使用它，如果在载入完成前就对其进行绘制或渲染，JS将会报一个DOM error的错误。</p>
+<p>我们会用到三张图片（背景、英雄、怪物），每张图片都需要这样处理。</p>
+<h4 id="3-定义游戏要使用的对象"><a href="#3-定义游戏要使用的对象" class="headerlink" title="3. 定义游戏要使用的对象"></a>3. 定义游戏要使用的对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Game objects  </div><div class="line">var hero = &#123;  </div><div class="line">    speed: 256, // movement in pixels per second  </div><div class="line">    x: 0,  </div><div class="line">    y: 0  </div><div class="line">&#125;;  </div><div class="line">var monster = &#123;  </div><div class="line">    x: 0,  </div><div class="line">    y: 0  </div><div class="line">&#125;;  </div><div class="line">var monstersCaught = 0;</div></pre></td></tr></table></figure>
+<p>定义一些变量，稍后会用到。hero对象的speed属性表示英雄的移动速度（像素/秒）；monster对象不会移动，所以仅仅具有一对坐标；monstersCaught表示玩家抓住的怪物数量。</p>
+<h4 id="4-处理玩家输入"><a href="#4-处理玩家输入" class="headerlink" title="4. 处理玩家输入"></a>4. 处理玩家输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// Handle keyboard controls  </div><div class="line">var keysDown = &#123;&#125;;  </div><div class="line">addEventListener(&quot;keydown&quot;, function (e) &#123;  </div><div class="line">     keysDown[e.keyCode] = true;  </div><div class="line">&#125;, false);  </div><div class="line">addEventListener(&quot;keyup&quot;, function (e) &#123;  </div><div class="line">     delete keysDown[e.keyCode];  </div><div class="line">&#125;, false);</div></pre></td></tr></table></figure>
+<p>现在进行输入的处理。（对具有web开发背景的人来说，这是目前为止第一个具有挑战性的部分）对一般的网页来说，当用户开始输入时，可能需要马上开始播放动画或请求数据。但在这里，我们想让游戏逻辑在一个单独的地方对游戏中发生的事情进行处理。为此我们需要将用户输入保存下来以备稍后处理，而不是立即处理。</p>
+<p>我们通过简单地将事件对应的键编码（keyCode）保存在keysDown变量中来实现。如果该变量中具有某个键编码，就表示用户目前正按下这个键。简单吧！</p>
+<h4 id="5-新游戏"><a href="#5-新游戏" class="headerlink" title="5. 新游戏"></a>5. 新游戏</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// Reset the game when the player catches a monster  </div><div class="line">var reset = function () &#123;  </div><div class="line">     hero.x = canvas.width / 2;  </div><div class="line">     hero.y = canvas.height / 2;  </div><div class="line">  </div><div class="line">     // Throw the monster somewhere on the screen randomly  </div><div class="line">     monster.x = 32 + (Math.random() * (canvas.width - 64));  </div><div class="line">     monster.y = 32 + (Math.random() * (canvas.height - 64));  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>通过调用reset函数来开始新游戏。该函数将英雄（即玩家角色）放到屏幕中间，然后随机选择一个位置来安置怪物。</p>
+<h4 id="6-更新对象"><a href="#6-更新对象" class="headerlink" title="6. 更新对象"></a>6. 更新对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// Update game objects  </div><div class="line">var update = function (modifier) &#123;  </div><div class="line">    if (38 in keysDown) &#123; // Player holding up  </div><div class="line">        hero.y -= hero.speed * modifier;  </div><div class="line">    &#125;  </div><div class="line">    if (40 in keysDown) &#123; // Player holding down  </div><div class="line">        hero.y += hero.speed * modifier;  </div><div class="line">    &#125;  </div><div class="line">    if (37 in keysDown) &#123; // Player holding left  </div><div class="line">        hero.x -= hero.speed * modifier;  </div><div class="line">    &#125;  </div><div class="line">    if (39 in keysDown) &#123; // Player holding right  </div><div class="line">        hero.x += hero.speed * modifier;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    // Are they touching?  </div><div class="line">    if (  </div><div class="line">        hero.x &lt;= (monster.x + 32)  </div><div class="line">            &amp;&amp; monster.x &lt;= (hero.x + 32)  </div><div class="line">            &amp;&amp; hero.y &lt;= (monster.y + 32)  </div><div class="line">            &amp;&amp; monster.y &lt;= (hero.y + 32)  </div><div class="line">    ) &#123;  </div><div class="line">         ++monstersCaught;  </div><div class="line">         reset();  </div><div class="line">    &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这是update函数，游戏每隔一定时间会调用它一次。它所做的第一件事情是检查用户是否按下了上下左右四个箭头键。如果是，就将我们的英雄向相应的方向移动。</p>
+<p>update有一个modifier参数，这看起来好像有点奇怪。你会在游戏的主函数即main函数中看到它，不过我在这儿先解释一下。modifier参数是一个从1开始的与时间相关的数。如果间隔刚好为1秒时，它的值就会为1，英雄移动的距离即为256像素（英雄的速度为256像素/秒）；而如果间隔是0.5秒，它的值就为0.5，即英雄移动的距离为其速度的一半，以此类推。通常update函数调用的间隔很短，所以modifier的值很小，但用这种方式能够确保不管代码执行的速度怎么样，英雄的移动速度都是相同的。</p>
+<p>我们已经实现了根据用户的输入来移动英雄，但我们还可以在移动英雄时对其进行检查，以确定是否有其他事件发生。例如：英雄是否与怪物发生了碰撞——当英雄与怪物发生碰撞时，我们为玩家进行计分（monstersCaught加1）并重置游戏（调用reset函数）。</p>
+<h4 id="7-渲染对象"><a href="#7-渲染对象" class="headerlink" title="7. 渲染对象"></a>7. 渲染对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// Draw everything  </div><div class="line">var render = function () &#123;  </div><div class="line">    if (bgReady) &#123;  </div><div class="line">         ctx.drawImage(bgImage, 0, 0);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    if (heroReady) &#123;  </div><div class="line">         ctx.drawImage(heroImage, hero.x, hero.y);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    if (monsterReady) &#123;  </div><div class="line">         ctx.drawImage(monsterImage, monster.x, monster.y);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    // Score  </div><div class="line">    ctx.fillStyle = &quot;rgb(250, 250, 250)&quot;;  </div><div class="line">    ctx.font = &quot;24px Helvetica&quot;;  </div><div class="line">    ctx.textAlign = &quot;left&quot;;  </div><div class="line">    ctx.textBaseline = &quot;top&quot;;  </div><div class="line">    ctx.fillText(&quot;Goblins caught: &quot; + monstersCaught, 32, 32);  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>当你能够看到你的行动时游戏才会变得更有趣，所以让我们在屏幕上绘制吧。首先我们将背景图片绘制到canvas，然后是英雄和怪物。注意顺序很重要，因为任何位于表层的图片都会将其下面的像素覆盖掉。</p>
+<p>接下来是文字，这有些不同，我们调用fillText函数显示玩家的分数。因为不需要复杂的动画或者对文字进行移动，所以只是绘制一下就ok了。</p>
+<h4 id="8-游戏主循环"><a href="#8-游戏主循环" class="headerlink" title="8. 游戏主循环"></a>8. 游戏主循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// The main game loop  </div><div class="line">var main = function () &#123;  </div><div class="line">    var now = Date.now();  </div><div class="line">    var delta = now - then;  </div><div class="line">  </div><div class="line">    update(delta / 1000);  </div><div class="line">    render();  </div><div class="line">  </div><div class="line">    then = now;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>游戏的主循环用来控制游戏流程。首先我们要获得当前的时间，这样我们才能计算时间差（自上次循环以来经过的时间）。然后计算modifier的值并交给update（需要将delta除以1000以将其转换为毫秒）。最后调用render并更新记录的时间。</p>
+<p>更多关于游戏循环的内容见“Onslaught! Arena Case Study”。</p>
+<h4 id="9-开始游戏吧"><a href="#9-开始游戏吧" class="headerlink" title="9. 开始游戏吧"></a>9. 开始游戏吧</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// Let&apos;s play this game!  </div><div class="line">reset();  </div><div class="line">var then = Date.now();  </div><div class="line">setInterval(main, 1); // Execute as fast as possible</div></pre></td></tr></table></figure>
+<p>快完成了，这是最后一段代码。首先调用reset来开始新游戏。（还记得吗，这会将英雄置中并随机安放怪物）。然后将起始时间保存到变量then中并启动游戏的主循环。</p>
+<p><strong>OK！（但愿）你现在已经理解了在HTML5 Canvas中用JS来开发游戏的基础知识了。建议最好是能够自己亲自试一把！</strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/27/箭头函数ES6/" itemprop="url">
                   箭头函数ES6
                 </a>
@@ -251,7 +370,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-27T22:57:15+08:00" content="2016-08-27">
               2016-08-27
             </time>
@@ -369,7 +488,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-26T22:47:37+08:00" content="2016-08-26">
               2016-08-26
             </time>
@@ -474,7 +593,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-25T15:30:20+08:00" content="2016-08-25">
               2016-08-25
             </time>
@@ -594,7 +713,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-24T21:45:04+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -630,141 +749,6 @@
 <h4 id="H1与title之间的关系"><a href="#H1与title之间的关系" class="headerlink" title="　　H1与title之间的关系?"></a>　　H1与title之间的关系?</h4><p>　　从网站角度看，title网站标题能直接告诉搜索引擎和用户这个页面是关于什么主题和内容的网站。从文章的角度上看，用户进到内容页里，想看到的当然就是文章的内容，H1文章标题则是最重要的、最应该突出的。一篇文章只能有一个标题，一个页面最好采用一个H1;多个H1会造成的搜索引擎不知道这个页面哪个标题内容最重要，导致淡化这个页面标题和关键词，起不到突出主题的效果。从网站角度而言，title则重于网站信息标题;从文章角度而言，H1则概括的是文章主题。</p>
 <h4 id="H1与title有什么区别"><a href="#H1与title有什么区别" class="headerlink" title="　　H1与title有什么区别?"></a>　　H1与title有什么区别?</h4><p>　　突出文章主题，用H1，面对的用户，要突出其视觉效果。突出网站标题或关键字用title,一篇文章，一个页面最好只用一个H1，H1用得太多，会稀释主题;一个网站可以有多个title，最好一个单页用一个title以便突出网站页面主题信息。从SEO角度看，title的权重高于H1，其适用性要比H1广。</p>
 <p>　　站SEO的角度看，好网站少不了title，好文章少不了标题。俗话说：“题好一半功”。便是此意。网站SEO过程中，H1标签的作用几乎等同于TITLE标题。标记了H1的文字的页面给予的权重会比页面内其它文字的都要高很多。H1与title权重的高低比较，TITLE无疑是页面中权重最高的，其次是H1标签。一个好网站是：H1与title并存，既突出H1文章主题，又突出网站主题和关键字。达到双重优化网站的效果。以上是个人对title与H1的分析浅解，原创文章，本文出自<a href="http://www.greatekled.com,转载请保持文章出自链接。谢谢!" target="_blank" rel="external">http://www.greatekled.com,转载请保持文章出自链接。谢谢!</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/23/DOCTYPE标签的定义与用法/" itemprop="url">
-                  DOCTYPE标签的定义与用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
-              2016-08-23
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="lt-DOCTYPE-gt-标签的定义与用法"><a href="#lt-DOCTYPE-gt-标签的定义与用法" class="headerlink" title="&lt;!DOCTYPE&gt;标签的定义与用法"></a><code>&lt;!DOCTYPE&gt;</code>标签的定义与用法</h2><h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><pre><code>今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越懒了，很多东西都被潜意识地当成了理所当然。既然已经被问及，就去找了找资料，总结了一下，权当做笔记吧~~
-</code></pre><h3 id="lt-DOCTYPE-gt-的定义："><a href="#lt-DOCTYPE-gt-的定义：" class="headerlink" title="&lt;!DOCTYPE&gt;的定义："></a><code>&lt;!DOCTYPE&gt;</code>的定义：</h3><pre><code>&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。
-</code></pre><p>该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML版本。（假如文档中的标记不遵循doctype声明所指定的DTD，这个文档除了不能通过代码校验之外，还有可能无法在浏览器中正确显示。）</p>
-<h3 id="lt-DOCTYPE-gt-的用法："><a href="#lt-DOCTYPE-gt-的用法：" class="headerlink" title="&lt;!DOCTYPE&gt;的用法："></a><code>&lt;!DOCTYPE&gt;</code>的用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-<p>解析：在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。浏览器将明白如何寻找匹配此公共标识符的 DTD。如果找不到，浏览器将使用公共标识符后面的 URL 作为寻找 DTD 的位置。</p>
-<p><code>-</code>  :   表示组织名称未注册。Internet 工程任务组(IETF)和万维网协会(W3C)并非注册的 ISO 组织。 <code>+</code>为默认,表示组织名称已注册。</p>
-<ul>
-<li><p>DTD  :   指定公开文本类，即所引用的对象类型。 默认为DTD。</p>
-</li>
-<li><p>HTML :   指定公开文本描述，即对所引用的公开文本的唯一描述性名称。后面可附带版本号。默认为HTML。</p>
-</li>
-<li><p>URL  ：  指定所引用对象的位置。</p>
-</li>
-<li><p>Strict：排除所有 W3C 专家希望逐步淘汰的代表性属性和元素。</p>
-</li>
-</ul>
-<h2 id="三种HTML文档类型"><a href="#三种HTML文档类型" class="headerlink" title="三种HTML文档类型:"></a>三种HTML文档类型:</h2><p>HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。</p>
-<p>a ) 如果需要干净的标记，免于表现层的混乱，用HTML Strict DTD类型：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot; http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
-</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot; http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
-</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot; http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
-</code></pre><h2 id="三种-XML-文档类型："><a href="#三种-XML-文档类型：" class="headerlink" title="三种 XML 文档类型："></a>三种 XML 文档类型：</h2><p>XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。</p>
-<p>a ) 如果需要干净的标记，免于表现层的混乱，用XHTML Strict DTD类型：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
-</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
-</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;
-</code></pre><h3 id="选择正确的doctype："><a href="#选择正确的doctype：" class="headerlink" title="选择正确的doctype："></a>选择正确的doctype：</h3><p>为了获得正确的doctype声明，关键就是让dtd与文档所遵循的标准对应。</p>
-<p>例如，假定文档遵循的是xhtml 1.0 strict标准，文档的doctype声明就应该引用相应的dtd。</p>
-<p>另一方面，如果doctype声明指定的是xhtml dtd，但文档包含的是旧式风格的html标记，就是不恰当的；类似地，如果doctype声明指定的是html dtd，但文档包含的是</p>
-<p>xhtml 1.0 strict标记，同样是不恰当的。</p>
-<p>如果没有指定有效的doctype声明，大多数浏览器都会使用一个内建的默认dtd。在这种情况下， 浏览器会用内建的dtd来试着显示你所指定的标记(不过这是页面写得太糟糕的时候的做法)。</p>
-<p>看了一下京东、淘宝、还有博客园，用的都是这个（本人也一直都是用的这个）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-<p>但是发现百度跟谷歌用的是“&lt;!doctype html&gt;”，就再仔细查了一下资料，发现HTML5也是直接用的这个，不过是因为 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。</p>
-<p><strong>建议在以后都直接用“<code>&lt;!doctype html&gt;</code>”，用&lt;!doctype html&gt;的话就会开启浏览器的标准兼容模式，在标准兼容模式下，不能保证与其它版本（IE6之前的，直接忽略吧），的 Internet Explorer 保持兼容，文档的渲染行为也许与将来的 Internet Explorer 不同，但也请大家放心地使用吧~~</strong></p>
-<h4 id="小贴士："><a href="#小贴士：" class="headerlink" title="小贴士："></a>小贴士：</h4><p>XHTML 1就是HTML 4.01的XML化，是一种不向前兼容的格式。</p>
-<p>HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。</p>
-<p>SGML规定了在文档中嵌入描述标记的标准格式，指定了描述文档结构的标准方法，目前在WEB上使用的HTML格式便是使用固定标签集的一种 SGML文档。</p>
 
           
         
@@ -838,8 +822,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -886,11 +870,11 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

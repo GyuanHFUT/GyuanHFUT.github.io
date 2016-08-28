@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,6 +238,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/16/zepto使用中的大坑/" itemprop="url">
+                  zepto使用中的大坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
+              2016-08-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Zepto-使用中的一些注意点-转"><a href="#Zepto-使用中的一些注意点-转" class="headerlink" title="Zepto 使用中的一些注意点(转)"></a>Zepto 使用中的一些注意点(转)</h3><p>前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。<br>为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。<br>而 Zepto 只针对移动端浏览器编写，因此体积更小、效率更高，更重要的是，它的 API 完全仿照 jQuery ，所以学习成本也很低。</p>
+<p>但是在开发过程中，我发现 Zepto 还远未成熟，其中包含了一些或大或小的“坑”，与 jQuery 的差距还是很明显的，所以写篇文章记录下，希望对后来者有帮助<br>注意，本文撰写时 Zepto 版本为 1.0 正式版</p>
+<p>从哪里下载 Zepto<br>这个问题看起来很蠢，从官网下载不就行了嘛！可是你有没有发现下载链接上面有行小字呢？</p>
+<blockquote>
+<p>There are more modules; a list of all modules is available in the README.</p>
+</blockquote>
+<p>在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！而且居然不包含对移动端开发非常重要的 touch 模块（提供对触摸事件的支持）！<br>所以我的建议是，不要从官网下载，而是从 Github 下载了源代码之后自己 Build 一个版本，这样你可以自行挑选适合的模块。比如我挑选的模块是这么几个：</p>
+<p>polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包含的模块<br>fx_methods 有了这个模块之后，.show() .hide() 等几个方法才能支持动画了，比如 .show(‘fast’)<br>data 提供对 .data() 方法的完整支持，像 jQuery 一样用内存对象存储<br>assets 移除 img 元素后做一些特殊处理，用来清理内存<br>selector 更多的选择器的支持，后面会提到<br>touch 对触摸事件的支持，比如 tap 事件<br>如果你对 Node 不了解不知道如何 Build 的话，可以下载我的版本</p>
+<p>不要用 click 事件，用 tap 代替<br>这个估计已经广为人知了，因为 click 事件有 200~300 ms 的延迟，为了更快的响应，最好用 Zepto 提供的 tap 事件<br>不相信的话，可以用以下代码测试一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var t1,t2;</div><div class="line">$(&apos;#id&apos;).tap(function () &#123;</div><div class="line">    t1 = Date.now();</div><div class="line">&#125;);</div><div class="line">$(&apos;#id&apos;).click(function () &#123;</div><div class="line">    t2 = Date.now();</div><div class="line">    alert(t2 - t1);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Zepto 对 CSS 选择器的支持<br>郑重提醒，:text :checkbox :first 等等在 jQuery 里面很常用的选择器，Zepto 不支持！<br>原因很简单，jQuery 通过自己编写的 sizzle 引擎来支持 CSS 选择器，而 Zepto 是直接通过浏览器提供的 document.querySelectorAll 接口。<br>这个接口只支持标准的 CSS 选择器，而上面提到的那些属于 jQuery 选择器扩展，所以仔细看看这个网页，注意一下这些选择器。</p>
+<p>当然也有好消息，就是上面提到的 selector 模块，如果有这个模块的话，能够支持 部分 的 jQuery 选择器扩展，列举如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:visible :hidden</div><div class="line">:selected :checked</div><div class="line">:parent</div><div class="line">:first :last :eq</div><div class="line">:contains :has</div></pre></td></tr></table></figure>
+<p>元素的尺寸计算<br>首先 Zepto 没有 .innerHeight() .outerWidth() 等四个方法，其次，它的 .height()/.width() 方法也不完善，对于 display:none 的元素，计算出的高宽都是 0<br>而这在 jQuery 里面是没有问题的，因为 jQuery 针对这种元素，会先设置其 css 样式设置为position: “absolute”, visibility: “hidden”, display: “block”<br>计算完高宽后再恢复，参见 <a href="https://github.com/jquery/jquery/blob/master/src/css.js#L460" target="_blank" rel="external">https://github.com/jquery/jquery/blob/master/src/css.js#L460</a><br>如果遇到这种特殊情况，可以参考 jQuery 写一个类似的方法</p>
+<p>.prop() 方法的陷阱<br>有次我要把一个文本框置为只读，写了这么一行 $(‘#text’).prop(‘readonly’, true) 结果死活不工作<br>找了半天才发现，正确的写法是这样 $(‘#text’).prop(‘readOnly’, true) ，如果你居然看不出两者的差别，那么悄悄提示你：注意大小写！<br>翻了一下相关的文档，原来只读属性的正确拼法确实是 readOnly，可是在 jQuery 里面上一段代码却能正常工作<br>于是到 jQuery 源码里面一找才发现，还有这么一段 <a href="https://github.com/jquery/jquery/blob/master/src/attributes.js#L466" target="_blank" rel="external">https://github.com/jquery/jquery/blob/master/src/attributes.js#L466</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">jQuery.each([</div><div class="line">    &quot;tabIndex&quot;,</div><div class="line">    &quot;readOnly&quot;,</div><div class="line">    &quot;maxLength&quot;,</div><div class="line">    &quot;cellSpacing&quot;,</div><div class="line">    &quot;cellPadding&quot;,</div><div class="line">    &quot;rowSpan&quot;,</div><div class="line">    &quot;colSpan&quot;,</div><div class="line">    &quot;useMap&quot;,</div><div class="line">    &quot;frameBorder&quot;,</div><div class="line">    &quot;contentEditable&quot;</div><div class="line">], function() &#123;</div><div class="line">    jQuery.propFix[ this.toLowerCase() ] = this;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>从这里也能看到，jQuery 的成熟度真是难以超越，因为他把我们都惯坏了……<br>考虑到这段代码比较简单，我厚颜无耻地抄袭了一下然后给 Zepto 提了一个 pull request ，如果你们喜欢这种无脑的用法，可以去评论表达支持（记得用英文）</p>
+<p>.show() 的动画效果<br>如果没有 fx_mehods 模块的话，.show() 方法是不支持动画的，不过有了这模块后，动画的支持还是有点小问题，比如这么一段 HTML</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;background:black;opacity:0.7;display:none&quot;&gt;</div><div class="line">    test</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>如果你调用 $(‘div’).show(‘fast’) ，那么动画完成后你看到的不会是一个半透明的元素，而是全黑不透明的<br>因为 Zepto 的 .show() 动画实现的很简单，没有高宽的变化，而是将透明度从 0 逐渐变为 1，所以元素上原来设置的透明度就被替代了。<br>这种情况下，可以用 .fadeIn() 方法来替代 .show()</p>
+<blockquote>
+<p>结语<br>看到这里相信你已经了解为什么我说” Zepto 还远未成熟“，目前它其实还仅仅处于“能用”，远未达到 jQuery “好用”的地步<br>最后，关于整个 HTML5 触屏版的前端开发，我有篇 Slide 做了总结，本文只是其中关于 Zepto 部分的详细阐述，感兴趣的可以去看看</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/15/8-15/" itemprop="url">
                   8.15
                 </a>
@@ -251,7 +367,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
               2016-08-15
             </time>
@@ -344,7 +460,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
               2016-08-14
             </time>
@@ -442,7 +558,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
               2016-08-13
             </time>
@@ -609,7 +725,7 @@ camry.sell();
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
               2016-08-12
             </time>
@@ -855,107 +971,6 @@ FALLBACK:
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/11/http基础知识/" itemprop="url">
-                  http基础知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-11T22:39:14+08:00" content="2016-08-11">
-              2016-08-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="HTTP协议的特点"><a href="#HTTP协议的特点" class="headerlink" title="HTTP协议的特点"></a>HTTP协议的特点</h4><p>HTTP协议的主要特点可概括如下：<br>1.支持客户/服务器模式。<br>2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。<br>3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。<br>4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。<br>5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
-<h4 id="HTTP协议的请求方法"><a href="#HTTP协议的请求方法" class="headerlink" title="HTTP协议的请求方法"></a>HTTP协议的请求方法</h4><p>请求方法（所有方法全为大写）有多种，各个方法的解释如下：<br>GET 请求获取Request-URI所标识的资源<br>POST 在Request-URI所标识的资源后附加新的数据<br>HEAD 请求获取由Request-URI所标识的资源的响应消息报头<br>PUT 请求服务器存储一个资源，并用Request-URI作为其标识<br>DELETE 请求服务器删除Request-URI所标识的资源<br>TRACE 请求服务器回送收到的请求信息，主要用于测试或诊断<br>CONNECT 保留将来使用<br>OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求</p>
-<h4 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h4><p>1）GET请求的数据是放在HTTP包头中的，也就是URL之后<br>2）GET提交的数据比较少，最多1024B，因为GET数据是附在URL之后的，而URL则会受到不同环境的限制的，比如说IE对其限制为2K+35，而POST可以传送更多的数据（理论上是没有限制的，但一般也会受不同的环境，如浏览器、操作系统、服务器处理能力等限制，IIS4可支持80KB，IIS5可支持100KB）。<br>3）Post的安全性要比Get高，因为Get时，参数数据是明文传输的，而且使用GET的话，还可能造成Cross-site request forgery攻击。而POST数据则可以加密的，但GET的速度可能会快些。</p>
-<h4 id="HTTP协议的请求头"><a href="#HTTP协议的请求头" class="headerlink" title="HTTP协议的请求头"></a>HTTP协议的请求头</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#一行，描述请求方法、URL、htto协议等信息</div><div class="line">&lt;request-line&gt;</div><div class="line">#请求头信息</div><div class="line">&lt;headers&gt;</div><div class="line">&lt;CRLF&gt;</div><div class="line"></div><div class="line">#request body。&lt;headers&gt;使用/r/n占用一行来标记结束</div><div class="line">[&lt;request-body&gt;&lt;CRLF&gt;]</div></pre></td></tr></table></figure>
-<p>request-line中的url一定是使用application/x-www-form-urlencoded编码的，这个与请求方法无关。<br>Content-Type指明了request body的编码方式。<br>Content-Length指明了request body的长度，该长度务必等于request-body真正的字符数。少于会导致request-body的确实，多于服务器会等待知道超时才返回已读取的数据（功能没影响，但效率显然差）。</p>
-<h5 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">GET /hello/index.html HTTP/1.1 </div><div class="line">#【↑】request line</div><div class="line">#【↓】request headers</div><div class="line">Accept: */*</div><div class="line">Accept-Language: zh-cn</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Host: localhost:8000</div><div class="line">#发送完关闭连接 or 等待</div><div class="line">Connection: Keep-Alive</div><div class="line">Cookie: JSESSIONID=BBBA54D519F7A320A54211F0107F5EA6</div></pre></td></tr></table></figure>
-<h5 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#url的部分仍然是urlencoded</div><div class="line">POST /hello/checkUser.html?opt=xxx HTTP/1.1</div><div class="line">Referer: http://localhost:8000/hello/index.html</div><div class="line">Accept: */*</div><div class="line">Accept-Language: zh-cn</div><div class="line">#纯文本的编码：不编码</div><div class="line">Content-Type: text/plain</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Host: localhost:8000</div><div class="line">Content-Length: 20</div><div class="line">Connection: Keep-Alive</div><div class="line">Cache-Control: no-cache</div><div class="line">Cookie: JSESSIONID=BBBA54D519F7A320A54211F0107F5EA6</div><div class="line"></div><div class="line">#【↑】/r/n</div><div class="line">#【↓】request body</div><div class="line">12345678901234567890</div></pre></td></tr></table></figure>
-<h4 id="HTTP协议的响应"><a href="#HTTP协议的响应" class="headerlink" title="HTTP协议的响应"></a>HTTP协议的响应</h4><p>HTTP响应也是由三个部分组成，分别是：状态行、消息报头、响应正文<br>状态行格式如下：<br>HTTP-Version Status-Code Reason-Phrase CRLF<br>其中，HTTP-Version表示服务器HTTP协议的版本；Status-Code表示服务器发回的响应状态代码；Reason-Phrase表示状态代码的文本描述。<br>状态代码有三位数字组成，第一个数字定义了响应的类别，且有五种可能取值：<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求<br>常见状态代码、状态描述、说明：<br>200 OK //客户端请求成功<br>400 Bad Request //客户端请求有语法错误，不能被服务器所理解<br>401 Unauthorized //请求未经授权，这个状态代码必须和WWW-Authenticate报 //头域一起使用<br>403 Forbidden //服务器收到请求，但是拒绝提供服务<br>404 Not Found //请求资源不存在，eg：输入了错误的URL<br>500 Internal Server Error //服务器发生不可预期的错误<br>503 Server Unavailable //服务器当前不能处理客户端的请求，一段时间后， //可能恢复正常<br>eg：HTTP/1.1 200 OK （CRLF）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1001,8 +1016,8 @@ FALLBACK:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1049,11 +1064,11 @@ FALLBACK:
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
