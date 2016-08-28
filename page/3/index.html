@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
               2016-08-16
             </time>
@@ -282,12 +282,18 @@
       
         
           
-          Zepto 使用中的一些注意点(转)前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。而 Zepto 只针对移动
+          Zepto 使用中的一些注意点(转)前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。而 Zepto 只针对移动端浏览器编写，因此体积更小、效率更高，更重要的是，它的 API 完全仿照 jQuery ，所以学习成本也很低。
+但是在开发过程中，我发现 Zepto 还远未成熟，其中包含了一些或大或小的“坑”，与 jQuery 的差距还是很明显的，所以写篇文章记录下，希望对后来者有帮助注意，本文撰写时 Zepto 版本为 1.0 正式版
+从哪里下载 Zepto这个问题看起来很蠢，从官网下载不就行了嘛！可是你有没有发现下载链接上面有行小字呢？
+
+There are more modules; a list of all modules is available in the README.
+
+在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/16/zepto使用中的大坑/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -350,7 +356,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
               2016-08-15
             </time>
@@ -386,7 +392,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/15/8-15/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -449,7 +455,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
               2016-08-14
             </time>
@@ -480,12 +486,15 @@
       
         
           
-          网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的
+          网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个标识80,外界发来数据包，我就通过这个80标识转发给你，你监听我的时候告诉我你监听的是80,我就把80的数据转发给你。一个标识只能被一个应用程序监听，要是有多个，会破坏数据的安全性。那么这个标识就是端口号PORT。链路层：MAC地址、网络层：IP地址、传输层：PORT。IP地址用来定位网络上的一台主机，而PORT用来定位主机上的一个应用程序。
+网络层提供的两种服务：
+1.虚电路服务电话机：面向连接的通信方式，使电信网络向用户提供可靠的传输服务
+2.数据报服务因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务网络层不提供服务质量的承诺。即所传送的分组可能出错、
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/14/计算机网络基础之网络层部分/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -548,7 +557,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
               2016-08-13
             </time>
@@ -583,12 +592,15 @@
 Undefined、Null、Boolean、Number、String介绍js有哪些内置对象？
 
 Object 是 JavaScript 中所有对象的父对象
-数据封装类对象：Object、Array、Boolean、Number 和 String其
+数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error
+说几条写JavaScript的基本规范？1.不要在同一行声明多个变量。2.请使用 ===/!==来比较true/false或者数值3.使用对象字面量替代new Array这种形式4.不要使用全局函数。5.Switch语句必须带有default分支6.函数不应该有时候有返回值，有时候没有返回值。7.For循环必须使用大括号8.If语句必须使用大括号9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。
+
+JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈：原始数据类型（Undefined，Null，Boolean，Number、String）堆：引用数据类
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/13/Js部分/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -651,7 +663,7 @@ Object 是 JavaScript 中所有对象的父对象
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
               2016-08-12
             </time>
@@ -684,12 +696,20 @@ Object 是 JavaScript 中所有对象的父对象
           
           Doctype作用？标准模式与兼容模式各有什么区别?
 
-（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版
+（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+
+HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？
+
+HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
+
+行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+
+首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/12/面试/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -764,7 +784,7 @@ Object 是 JavaScript 中所有对象的父对象
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -811,7 +831,7 @@ Object 是 JavaScript 中所有对象的父对象
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

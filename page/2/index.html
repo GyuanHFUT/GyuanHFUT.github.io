@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
               2016-08-23
             </time>
@@ -282,12 +282,15 @@
       
         
           
-          &lt;!DOCTYPE&gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XH
+          &lt;!DOCTYPE&gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越懒了，很多东西都被潜意识地当成了理所当然。既然已经被问及，就去找了找资料，总结了一下，权当做笔记吧~~
+&lt;!DOCTYPE&gt;的定义：&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。
+该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML版本。（假如文档中的标记不遵循doctype声明所指定的DTD，这个文档除了不能通过代码校验之外，还有可能无法在浏览器中正确显示。）
+&lt;!DOCTYPE&gt;的用法：1&lt;!DOCTYPE html PUBLI
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/23/DOCTYPE标签的定义与用法/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -350,7 +353,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
               2016-08-22
             </time>
@@ -382,12 +385,14 @@
         
           
           一行神奇的代码javascript现如今，javascript无处不在，因此关于javascript的新知识也是层出不穷。javascript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。
-来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出
+来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：
+123[].forEach.call($$(&quot;*&quot;),function(a)&#123;  a.style.outline=&quot;1px solid #&quot;+(~~(Math.random()*(1&lt;&lt;24))).toString(16)&#125;)
+现在，在你的Chrome浏览器的控制台中输入这段代码，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1ps的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -450,7 +455,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
               2016-08-21
             </time>
@@ -484,12 +489,17 @@
           经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
 1function()&#123;alert(1);&#125;();
 原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
-按上面的分析，
+按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。复制代码 代码如下:
+1function()&#123;alert(1);&#125;(1);
+综上，症结在于，如何明确代码描述的是一个函数表达式，而不是函数声明语句。正确的写法多种多样，也各有利弊： 
+方法1：最前最后加括号复制代码 代码如下:
+1(function()&#123;alert(1);&#125;());
+这是jslint推荐的写法，好处是，能提醒阅读代码的人，这段代码是一个整体。例如，在有语法高亮匹配功能的编辑器里，光标在第一个左括号后时，最后一个右括号也会高亮，看代码的人一眼就可以看到这个整体。不过，对于某些写代码不喜欢在行后加分号的同学，也会形成一些坑坑，例如以下代码会报运行错：复制代码 代码
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/21/JS中自执行函数的几种写法/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -552,7 +562,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
               2016-08-20
             </time>
@@ -585,12 +595,21 @@
           
           JavaScript中call()与apply()有什么区别？今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。
 Javascript的每个Function对象中有一个apply方法：
-1fun
+1function.apply([thisObj[,argArray]])
+还有一个类似功能的call方法：
+1function.call([thisObj[,arg1[, arg2[, [,.argN]]]]])
+它们各自的定义：
+apply：应用某一对象的一个方法，用另一个对象替换当前对象。
+call：调用一个对象的一个方法，以另一个对象替换当前对象。
+它们的共同之处：
+都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。”——摘自JScript5.5 .chm
+它们的不同之处：
+apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/20/JS中call和apply的区别/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -653,7 +672,7 @@ Javascript的每个Function对象中有一个apply方法：
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
               2016-08-17
             </time>
@@ -685,12 +704,17 @@ Javascript的每个Function对象中有一个apply方法：
         
           
           Cache Manifest 基础如需启用应用程序缓存，请在文档的 &lt;html&gt; 标签中包含 manifest 属性：
-1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html
+1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html&gt;
+每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存（除非在 manifest 文件中直接指定了该页面）。manifest 文件的建议的文件扩展名是：”.appcache”。请注意，manifest 文件需要配置正确的 MIME-type，即 “text/cache-manifest”。必须在 web 服务器上进行配置。Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。manifest 文件可分为三个部分：
+
+CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
+NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+F
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/17/H5-cache缓存/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -765,7 +789,7 @@ Javascript的每个Function对象中有一个apply方法：
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -812,7 +836,7 @@ Javascript的每个Function对象中有一个apply方法：
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
