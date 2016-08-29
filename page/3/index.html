@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,6 +238,114 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/17/H5-cache缓存/" itemprop="url">
+                  H5 cache缓存
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Cache Manifest 基础如需启用应用程序缓存，请在文档的 &lt;html&gt; 标签中包含 manifest 属性：
+1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html&gt;
+每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存（除非在 manifest 文件中直接指定了该页面）。manifest 文件的建议的文件扩展名是：”.appcache”。请注意，manifest 文件需要配置正确的 MIME-type，即 “text/cache-manifest”。必须在 web 服务器上进行配置。Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。manifest 文件可分为三个部分：
+
+CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
+NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）CACHE MANIFEST第一行，CACHE MANIFEST，是必需的：
+
+1234CACHE MANIFEST/theme.css/logo.gif/main.js
+上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 mani
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/17/H5-cache缓存/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/16/zepto使用中的大坑/" itemprop="url">
                   zepto使用中的大坑
                 </a>
@@ -251,7 +359,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
               2016-08-16
             </time>
@@ -288,12 +396,13 @@
 
 There are more modules; a list of all modules is available in the README.
 
-在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！
+在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！而且居然不包含对移动端开发非常重要的 touch 模块（提供对触摸事件的支持）！所以我的建议是，不要从官网下载，而是从 Github 下载了源代码之后自己 Build 一个版本，这样你可以自行挑选适合的模块。比如我挑选的模块是这么几个：
+polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包含的模块fx_methods 有了这个模块之后，.show()
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/16/zepto使用中的大坑/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -356,7 +465,7 @@ There are more modules; a list of all modules is available in the README.
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
               2016-08-15
             </time>
@@ -392,7 +501,7 @@ There are more modules; a list of all modules is available in the README.
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/15/8-15/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -455,7 +564,7 @@ There are more modules; a list of all modules is available in the README.
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
               2016-08-14
             </time>
@@ -489,12 +598,12 @@ There are more modules; a list of all modules is available in the README.
           网络层TCP协议中的端口：IP地址锁定一台主机，对应一张网卡，外界发来的数据包网卡都会接收，网卡给应用程序提供了接口，应用程序通过监听就可以接收到数据。但是一台主机有多个程序都要监听网卡接发数据，网卡说我接到的数据全部都发给你们，人人有份。但是这样每个包都被发送到了每个应用程序，加重了每个应用程序的负担，不行。。。于是，网卡又说，我给你们每个应用程序加个标识，比如浏览器浏览网页这个应用程序，我加个标识80,外界发来数据包，我就通过这个80标识转发给你，你监听我的时候告诉我你监听的是80,我就把80的数据转发给你。一个标识只能被一个应用程序监听，要是有多个，会破坏数据的安全性。那么这个标识就是端口号PORT。链路层：MAC地址、网络层：IP地址、传输层：PORT。IP地址用来定位网络上的一台主机，而PORT用来定位主机上的一个应用程序。
 网络层提供的两种服务：
 1.虚电路服务电话机：面向连接的通信方式，使电信网络向用户提供可靠的传输服务
-2.数据报服务因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务网络层不提供服务质量的承诺。即所传送的分组可能出错、
+2.数据报服务因特网采用的设计思路：网络层向上只提供简单灵活的，无连接的，尽最大努力交付的数据报服务网络层不提供服务质量的承诺。即所传送的分组可能出错、丢失、重复、失序。IP网际协议地址解析协议ARP、逆地址解析协议、网际控制报文协议ICMP、网际组管理协议IGMP、网络层又叫网际层或IP层没有一种单一的网络能够适应所有用户的需求将网络互相连接起来要使用一些中间设备：物理层使用的中间设备叫做转发器数据链路层使用的中间设备叫做网桥或桥接器网络层使用的中间设备叫做路由器网络层以上使用的中间设备叫做网关参加互连的计算机网络都使用相同的网际协议IP，因此
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/14/计算机网络基础之网络层部分/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -557,7 +666,7 @@ There are more modules; a list of all modules is available in the README.
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
               2016-08-13
             </time>
@@ -595,121 +704,14 @@ Object 是 JavaScript 中所有对象的父对象
 数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error
 说几条写JavaScript的基本规范？1.不要在同一行声明多个变量。2.请使用 ===/!==来比较true/false或者数值3.使用对象字面量替代new Array这种形式4.不要使用全局函数。5.Switch语句必须带有default分支6.函数不应该有时候有返回值，有时候没有返回值。7.For循环必须使用大括号8.If语句必须使用大括号9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。
 
-JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈：原始数据类型（Undefined，Null，Boolean，Number、String）堆：引用数据类
+JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈：原始数据类型（Undefined，Null，Boolean，Number、String）堆：引用数据类型（对象、数组和函数）
+
+两种类型的区别是：存储位置不同；原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/13/Js部分/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/12/面试/" itemprop="url">
-                  面试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
-              2016-08-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Doctype作用？标准模式与兼容模式各有什么区别?
-
-（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
-
-HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？
-
-HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
-
-行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
-
-首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/12/面试/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -783,8 +785,8 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -831,7 +833,7 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

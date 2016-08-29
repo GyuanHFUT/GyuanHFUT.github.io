@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,6 +238,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/29/requestAnimationFrame初识/" itemprop="url">
+                  requestAnimationFrame初识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T22:52:58+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          requestAnimationFrame是什么？在浏览器动画程序中，我们通常使用一个定时器来循环每隔几毫秒移动目标物体一次，来让它动起来。如今有一个好消息，浏览器开发商们决定：“嗨，为什么我们不在浏览器里提供这样一个API呢，这样一来我们可以为用户优化他们的动画。”所以，这个requestAnimationFrame()函数就是针对动画效果的API，你可以把它用在DOM上的风格变化或画布动画或WebGL中。
+使用requestAnimationFrame有什么好处？浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。比如，通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。
+requestAnimationFrame的用法1234567891011121314151617181920// shim layer with setTimeout fallbackwindow.requestAnimFrame = (function()&#123;  return  window.requestAnimationFrame       ||          window.webkitRequestAnimationFrame ||          window.mozRequestAnimationFrame    || 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/29/requestAnimationFrame初识/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/28/HTML5-Canvas制作一个简单的游戏/" itemprop="url">
                   HTML5 Canvas制作一个简单的游戏
                 </a>
@@ -251,7 +352,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-28T22:31:53+08:00" content="2016-08-28">
               2016-08-28
             </time>
@@ -285,12 +386,13 @@
           HTML5 Canvas制作一个简单的游戏原文地址：How To Make A Simple HTML5 Canvas Game
 1. 创建一个Canvas对象123456// Create the canvas  var canvas = document.createElement(&quot;canvas&quot;);  var ctx = canvas.getContext(&quot;2d&quot;);  canvas.width = 512;  canvas.height = 480;  document.body.appendChild(canvas);
 我们首先要做的是创建一个canvas对象。可以用JavaScript或HTML来做，都非常简单。此处我用的是JS。当创建了canvas之后，我们就可以获取它的上下文对象（context）、设置尺寸，并且把它加到当前文档中。
-2. 载入图片1234567// Background image  var bgReady = false;  var bgImage = new Image();  bgImage.onloa
+2. 载入图片1234567// Background image  var bgReady = false;  var bgImage = new Image();  bgImage.onload = function () &#123;      bgReady = true;  &#125;;  bgImage.src = &quot;images/background.png&quot;;
+游戏需要图像，所以让我们载入一些图片吧。我想尽量简单化，所以只用了Image对象来做，当然，还可以将载入图像的功能封装成一个类或别的任何形式。代码中的bgReady用来标识图片是否已完全载入，只
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/28/HTML5-Canvas制作一个简单的游戏/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -353,7 +455,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-27T22:57:15+08:00" content="2016-08-27">
               2016-08-27
             </time>
@@ -392,12 +494,14 @@
 我们先回顾下箭头符号的一般用法：
 &lt;!-- 单行注释--&gt;  递增/减的操作符&lt;=   小于等于=&gt;   ?=&gt;是ES6中新的用法，也就是本节要讲述的内容。
 随处可见的函数式表达
-在JS中很有意思的地方是当我们
+在JS中很有意思的地方是当我们需要调用函数时，只需在运行代码中的恰当位置添加就可以了。例如要对按钮的点击做出响应，可以这样写：
+1234$(&quot;#confetti-btn&quot;).click(function (event) &#123;    playTrumpet();    fireConfettiCannon();  &#125;);
+在JS开始盛行前，这样的代码是令人奇怪的，因为很多语言当时都没有类似的
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/27/箭头函数ES6/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -460,7 +564,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-26T22:47:37+08:00" content="2016-08-26">
               2016-08-26
             </time>
@@ -498,12 +602,15 @@ for循环的计数器，就很合适使用let命令。
 1234for (let i = 0; i &lt; arr.length; i++) &#123;&#125;console.log(i);//ReferenceError: i is not defined
 上面代码的计数器i，只在for循环体内有效。
 下面的代码如果使用var，最后输出的是10。
-1234567var a = [];for (var i = 0; i &lt; 10; i++) &#123;  a[i] = functi
+1234567var a = [];for (var i = 0; i &lt; 10; i++) &#123;  a[i] = function () &#123;    console.log(i);  &#125;;&#125;a[6](); // 10
+上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。
+如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。
+1234567var a = [];for (let i = 0; i &lt; 10
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/26/let/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -566,7 +673,7 @@ for循环的计数器，就很合适使用let命令。
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-25T15:30:20+08:00" content="2016-08-25">
               2016-08-25
             </time>
@@ -606,113 +713,15 @@ for循环的计数器，就很合适使用let命令。
 204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分。一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息的情况下使用。
 206 Partial Content 表示客户端进行了范围请求（想要其中的一部分内容），而服务器成功进行了这部分的GET请求。响应报文中Content-Range指定范围的实体内容。3XX 重定向3XX的响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。
 301 Moved Permanently 永久性重定向  该状态码表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI 。浏览器会记住新资源的地址，形象理解书签的更新。（感觉是发了2次http请求，优化时减少重定向）
-302 Found 
+302 Found 临时性重定向 该状态码表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问。书签不会更新。
+303 See Other  该状态码表示请求的资源存在着另一个URI，应使用GET方法定向获取请求的资源。（和302有着相同的功能，303明确表示客户端应当采用get方法获取资源）
+
+当301 302 303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文的主
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/25/HTTP状态码详解/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/Title与H1，你真的明白了么？/" itemprop="url">
-                  Title与title，你真的明白了么？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-24T21:45:04+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Title与H1之我见 关系与区别浅析　　各位站长在建站时，都会在网站或文章前应用大标题&lt;H1&gt;属性和title网站标题属性。很多新站长在网站SEO过程中，会认为把H1等同于Title。其实两是有区别和联系的，两者不能划等号。下面主要从文章和页面角度分析title和H1。
-　　H1等同于title吗?　　H1不等于title。H1，大标题。一般出现在文章页面，作用如同一张报纸的大标题，使用读者在没看内容之前就大概了解本文的旨意，它是直接给用户看的。在SEO中，搜索引擎也非常重视H1，目的是告诉搜索引擎，这个地方的内容很重要,H1要求贴近文章内容，突出主题，言简意赅。title,面对的是搜索引擎和用户，其范围相对于H1来说要广，title中可以包含H1，在搜索引擎中tiele的权重要高于H1;一般来讲，H1做到突出主题目，title修饰主题关键字。
-　　H1与title之间的关系?　　从网站角度看，title网站标题能直接告诉搜索引擎和用户这个页面是关于什么主题和内容的网站。从文章的角度上看，用户进到内容页里，想看到的当然就是文章的内容，H1文章标题则是最重要的、最应该突出的
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/24/Title与H1，你真的明白了么？/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -786,8 +795,8 @@ for循环的计数器，就很合适使用let命令。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -834,7 +843,7 @@ for循环的计数器，就很合适使用let命令。
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

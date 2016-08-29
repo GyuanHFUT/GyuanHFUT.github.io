@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,6 +238,115 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/12/面试/" itemprop="url">
+                  面试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-12T22:56:23+08:00" content="2016-08-12">
+              2016-08-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Doctype作用？标准模式与兼容模式各有什么区别?
+
+（1）、&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于 &lt;html&gt; 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+
+HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？
+
+HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
+
+行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+
+首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。（1）行内元素有：a b span img input select strong（强调的语气）（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p（3）常见的空元素：&lt;br&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/12/面试/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/http基础知识/" itemprop="url">
                   http基础知识
                 </a>
@@ -251,7 +360,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-11T22:39:14+08:00" content="2016-08-11">
               2016-08-11
             </time>
@@ -283,12 +392,13 @@
         
           
           HTTP协议的特点HTTP协议的主要特点可概括如下：1.支持客户/服务器模式。2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。
-HTTP协议的请求方法请求方法（所有方法全为大写）有多种，各个方法的解释如下：GET 请求获取Request-URI所标识的资源POST 在Request-URI所标识的资源后附加新的数据HEAD 请求获取由Request-URI所标识的资源
+HTTP协议的请求方法请求方法（所有方法全为大写）有多种，各个方法的解释如下：GET 请求获取Request-URI所标识的资源POST 在Request-URI所标识的资源后附加新的数据HEAD 请求获取由Request-URI所标识的资源的响应消息报头PUT 请求服务器存储一个资源，并用Request-URI作为其标识DELETE 请求服务器删除Request-URI所标识的资源TRACE 请求服务器回送收到的请求信息，主要用于测试或诊断CONNECT 保留将来使用OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求
+GET和POST的区别1）GET请求的数据是放在HTTP包头中的，也就是URL之后2）GET提交的
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/11/http基础知识/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -351,7 +461,7 @@ HTTP协议的请求方法请求方法（所有方法全为大写）有多种，�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-10T21:15:09+08:00" content="2016-08-10">
               2016-08-10
             </time>
@@ -395,12 +505,16 @@ HTTP协议的请求方法请求方法（所有方法全为大写）有多种，�
 IE和Opera 会清理近期最少使用的cookie，Firefox会随机清理cookie。
 cookie的最大大约为4096字节，为了兼容性，一般不能超过4095字节。
 IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0就开始支持。每个数据最多128K，每个域名下最多1M。这个持久化数据放在缓存中，如果缓存没有清理，那么会一直存在。
-优点：极
+优点：极高的扩展性和可用性1.通过良好的编程，控制保存在cookie中的session对象的大小。
+2.通过加密和安全传输技术（SSL），减少cookie被破解的可能性。
+3.只在cookie中存放不敏感数据，即使被盗也不会有重大损失。
+4.控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。
+缺点：1.`Cookie`数量和长度的限制。每个domain最多只能有20条co
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/10/前端面试题以及答案/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -463,7 +577,7 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-09T23:00:22+08:00" content="2016-08-09">
               2016-08-09
             </time>
@@ -498,12 +612,14 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
 
   在默认情况下，页面中的文字不会直接顶到浏览器的边框，这就是因为默认样式为body设置了margin的缘故。这里需要注意个问题，不同浏览器为body设置的margin值可能不一样，因此大家都知道在css中用 {margin:0} 来解决这一兼容性问题。“星号”选择器的级别要低于body标签选择器，但是{margin:0}依然有效的原因，就是浏览器偷偷的做了优先级的手脚。如果在正常情况下，*选择器在遇到标签选择器时，是不会起作用的，即使它是“后加载”的。另外注意，这里的line-height: 1.12是一个相对值，即是文字高度的1.12倍。看到这里，我们在写line-height的时候，也一定要注意使用相对值，不要使用绝对值。
 
-  em是什么？——em是一个浏览器识别的长度单位，但是它不是绝对的、固定的，而是相对的。大家都知道px是一个绝对的长度单位制，它永远不会改变。浏览器默认
+  em是什么？——em是一个浏览器识别的长度单位，但是它不是绝对的、固定的，而是相对的。大家都知道px是一个绝对的长度单位制，它永远不会改变。浏览器默认情况下令1em === 16px。现在你知道为何p默认是16px了吧。而且你还知道了h1是p高度的两倍，h2是p高度的1.5倍……（你知道的越来越多了。。。）由于font-size和margin都是通过em来定义的，当em被修改时，不管字体大小修改，margin值也会跟着修改。这就是em好用之处！　从现在开始，与字体大小有关的css，全部都用em！
+
+　    button、input就是inli
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/09/CSS知多少-王福朋/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -554,7 +670,7 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
               
                 
                 <a class="post-title-link" href="/2016/08/08/css元素/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -566,7 +682,7 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-08T22:44:01+08:00" content="2016-08-08">
               2016-08-08
             </time>
@@ -619,107 +735,7 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/08/css元素/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/05/CSS小结/" itemprop="url">
-                  Unbenannt
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T22:59:30+08:00" content="2016-08-05">
-              2016-08-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          8.5
-
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/05/CSS小结/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -793,8 +809,8 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -841,7 +857,7 @@ IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0�
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
