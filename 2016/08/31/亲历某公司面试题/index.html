@@ -1,0 +1,632 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="亲历某公司面试题
+获取随机数的方法名称
+
+answer：Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 
+
+form表单特有的属性，举例三个
+
+answer：name:用来标识这个表单,在javascript中可以通过 document.表单名 来取得这个表单action:表示这个表单提交时的跳转路径method:表示提交方式,可以选择post和get,默认为get方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="亲历某公司面试题">
+<meta property="og:url" content="http://yoursite.com/2016/08/31/亲历某公司面试题/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="亲历某公司面试题
+获取随机数的方法名称
+
+answer：Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 
+
+form表单特有的属性，举例三个
+
+answer：name:用来标识这个表单,在javascript中可以通过 document.表单名 来取得这个表单action:表示这个表单提交时的跳转路径method:表示提交方式,可以选择post和get,默认为get方">
+<meta property="og:updated_time" content="2016-08-31T14:51:44.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="亲历某公司面试题">
+<meta name="twitter:description" content="亲历某公司面试题
+获取随机数的方法名称
+
+answer：Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 
+
+form表单特有的属性，举例三个
+
+answer：name:用来标识这个表单,在javascript中可以通过 document.表单名 来取得这个表单action:表示这个表单提交时的跳转路径method:表示提交方式,可以选择post和get,默认为get方">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/31/亲历某公司面试题/"/>
+
+  <title> 亲历某公司面试题 | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Accueil
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                亲历某公司面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T22:50:03+08:00" content="2016-08-31">
+              2016-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="亲历某公司面试题"><a href="#亲历某公司面试题" class="headerlink" title="亲历某公司面试题"></a>亲历某公司面试题</h2><blockquote>
+<p>获取随机数的方法名称</p>
+</blockquote>
+<p><strong>answer</strong>：<br>Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) </p>
+<blockquote>
+<p>form表单特有的属性，举例三个</p>
+</blockquote>
+<p><strong>answer</strong>：<br>name:用来标识这个表单,在javascript中可以通过 document.表单名 来取得这个表单<br>action:表示这个表单提交时的跳转路径<br>method:表示提交方式,可以选择post和get,默认为get方式.两种方式的区别:<br>enctype :表示表单的封装方式,只有在进行文件上传时才会使用,当执行文件上传时,必须将这个值设置为 <code>enctype=&quot;multipart/form-data&quot;</code><br>onsubmit:当表单提交时自动执行的javascript事件,一般在需要进行提交验证时使用.</p>
+<blockquote>
+<p>强制转换某个变量为浮点型的JS方法名称</p>
+</blockquote>
+<p><strong>answer</strong>：<br>parseFloat()</p>
+<blockquote>
+<p>CSS3中设置圆角属性名称</p>
+</blockquote>
+<p><strong>answer</strong>：<br>border-radius</p>
+<blockquote>
+<p>代码typeof’’123’的返回值</p>
+</blockquote>
+<p><strong>answer</strong>：<br>string</p>
+<blockquote>
+<p>谷歌浏览器私有样式的前缀是</p>
+</blockquote>
+<p><strong>answer</strong>：<br>Mozilla内核 （Firefox）　　               css前缀-moz;<br>WebKit内核（Safari、Chrome）　 　css前缀-webkit ;<br>Opera 内核 （Opera浏览器）　　      css前缀 -o ;<br>Trident内核（讨厌的IE浏览器）     　  css前缀 -ms ;   </p>
+<blockquote>
+<p>声明html5开头加上</p>
+</blockquote>
+<p><strong>answer</strong>：<br>!doctype</p>
+<blockquote>
+<p>正则表达式$代表什么(去学习正则)</p>
+</blockquote>
+<p><strong>answer</strong>：<br>字符$<br>意义：与^类似,匹配最末的字符.</p>
+<blockquote>
+<p>原生获取id</p>
+</blockquote>
+<p><strong>answer</strong>：<br>document.getelementbyid()</p>
+<blockquote>
+<p>地址栏输入一个地址后，键入回车，描述一下这时开始，浏览器做了什么。</p>
+</blockquote>
+<p><strong>answer</strong>：<br>        查找浏览器缓存<br>        DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求<br>        进行HTTP协议会话<br>        客户端发送报头(请求报头)<br>        服务器回馈报头(响应报头)<br>        html文档开始下载<br>        文档树建立，根据标记请求所需指定MIME类型的文件<br>        文件显示<br>        [<br>        浏览器这边做的工作大致分为以下几步：<br> 加载：根据请求的URL进行域名解析，向服务器发起请求，接收文件（HTML、JS、CSS、图象等）。</p>
+<p>解析：对加载到的资源（HTML、JS、CSS等）进行语法解析，建议相应的内部数据结构（比如HTML的DOM树，JS的（对象）属性表，CSS的样式规则等等）<br>        }</p>
+<blockquote>
+<p>在pc和pad端显示一行三列,在手机端显示一列三行</p>
+</blockquote>
+<p><strong>answer</strong>：<br><a href="http://blog.csdn.net/xiaoleemm/article/details/48208955" target="_blank" rel="external">兼容问题</a></p>
+<blockquote>
+<p>原生获取id</p>
+</blockquote>
+<p><strong>answer</strong>：<br>第一个区域以 ‘@media (max-width: 480px)’ 开始，为最大宽度为 480 像素的设备设置样式。<br>第二个区域以 ‘@media (max-width: 767px)’ 开始，为最大宽度为 767像素的设备设置样式。<br>响应式布局</p>
+<blockquote>
+<p>请解释jsonp的工作原理</p>
+</blockquote>
+<p><strong>answer</strong>：<br><a href="http://www.coin163.com/java/docs/201309/d_2835039102.html" target="_blank" rel="external">原理去看</a></p>
+<blockquote>
+<p>创建一个js类，模拟方法的重载</p>
+</blockquote>
+<p><strong>answer</strong>：<br>在js中，我们实现重载常用的方式有：</p>
+<p>1、根据传入参数的类型执行不同的操作。</p>
+<p>2、利用参数中特殊的参数值进行不同的操作。</p>
+<p>3、根据参数的个数进行重载。</p>
+<blockquote>
+<p>下拉框在各浏览器下的样式表现一致</p>
+</blockquote>
+<p><strong>answer</strong>：</p>
+<p>思路：<br>重置select 默认下拉框样式，用自定义的图片覆盖默认下拉三角按钮。如果低版本ie9以下的话，建议套个外层div（overflow-x: hiddden），让select超出外层宽度隐藏。</p>
+<p>关键代码：</p>
+<p>dom结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;button custom-select&quot;&gt;</div><div class="line">  &lt;select&gt;</div><div class="line">    &lt;option value=&quot;选择1&quot; selected=&quot;selected&quot;&gt;Connecticut&lt;/option&gt;</div><div class="line">    &lt;option value=&quot;选择2&quot;&gt;New York&lt;/option&gt;</div><div class="line">    &lt;option value=&quot;选择3&quot;&gt;Maryland&lt;/option&gt;</div><div class="line">    &lt;option value=&quot;选择4&quot;&gt;Virginia&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>css：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">select&#123;    </div><div class="line">  border: solid 1px #ccc;    </div><div class="line">  appearance: none;/*清除select下拉框默认样式*/    </div><div class="line">  -moz-appearance: none;    </div><div class="line">  -webkit-appearance: none;   </div><div class="line">  padding-right: 14px;/*为下拉小箭头留出一点位置，避免被文字覆盖*/    </div><div class="line">  background: url(&quot;img/arrow.png&quot;) no-repeat scroll right center transparent;/*自定义图片覆盖原有的下三角符号*/</div><div class="line">&#125;</div><div class="line">select::-ms-expand &#123;    </div><div class="line">  display: none;/*清除IE默认下拉按钮，但是测试发现IE10以上有效，IE8，9默认下拉按钮仍旧存在*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/29/requestAnimationFrame初识/" rel="next" title="requestAnimationFrame初识">
+                <i class="fa fa-chevron-left"></i> requestAnimationFrame初识
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Des Matières
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Ensemble
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">articles</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#亲历某公司面试题"><span class="nav-number">1.</span> <span class="nav-text">亲历某公司面试题</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Thème -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

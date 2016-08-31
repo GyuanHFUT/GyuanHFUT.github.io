@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -238,6 +238,118 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/20/JS中call和apply的区别/" itemprop="url">
+                  JS中call和apply的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          JavaScript中call()与apply()有什么区别？今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。
+Javascript的每个Function对象中有一个apply方法：
+1function.apply([thisObj[,argArray]])
+还有一个类似功能的call方法：
+1function.call([thisObj[,arg1[, arg2[, [,.argN]]]]])
+它们各自的定义：
+apply：应用某一对象的一个方法，用另一个对象替换当前对象。
+call：调用一个对象的一个方法，以另一个对象替换当前对象。
+它们的共同之处：
+都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。”——摘自JScript5.5 .chm
+它们的不同之处：
+apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。
+
+call：则是直接的参数列表，主要用在js对象各方法互相调用的时候，使当前this实例指针保持一致,或在特殊情况下需要改
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/20/JS中call和apply的区别/#more" rel="contents">
+              Lire la suite &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/17/H5-cache缓存/" itemprop="url">
                   H5 cache缓存
                 </a>
@@ -251,7 +363,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
               2016-08-17
             </time>
@@ -296,7 +408,7 @@ FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/17/H5-cache缓存/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -359,7 +471,7 @@ FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
               2016-08-16
             </time>
@@ -402,7 +514,7 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/16/zepto使用中的大坑/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -465,7 +577,7 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
               2016-08-15
             </time>
@@ -501,7 +613,7 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/15/8-15/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -564,7 +676,7 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-14T22:49:16+08:00" content="2016-08-14">
               2016-08-14
             </time>
@@ -603,115 +715,7 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/14/计算机网络基础之网络层部分/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/13/Js部分/" itemprop="url">
-                  Js部分
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-13T22:57:06+08:00" content="2016-08-13">
-              2016-08-13
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          JavaScript部分介绍js的基本数据类型。
-Undefined、Null、Boolean、Number、String介绍js有哪些内置对象？
-
-Object 是 JavaScript 中所有对象的父对象
-数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error
-说几条写JavaScript的基本规范？1.不要在同一行声明多个变量。2.请使用 ===/!==来比较true/false或者数值3.使用对象字面量替代new Array这种形式4.不要使用全局函数。5.Switch语句必须带有default分支6.函数不应该有时候有返回值，有时候没有返回值。7.For循环必须使用大括号8.If语句必须使用大括号9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。
-
-JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈：原始数据类型（Undefined，Null，Boolean，Number、String）堆：引用数据类型（对象、数组和函数）
-
-两种类型的区别是：存储位置不同；原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/13/Js部分/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -744,7 +748,7 @@ JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -785,8 +789,8 @@ JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -837,7 +841,7 @@ JavaScript有几种类型的值？，你能画一下他们的内存图吗？栈�
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -238,6 +238,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/25/HTTP状态码详解/" itemprop="url">
+                  HTTP状态码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2016-08-25T15:30:20+08:00" content="2016-08-25">
+              2016-08-25
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          http 状态码
+记录在RFC2616上的HTTP状态码就达40种，再加上webDAV（基于万维网的分布式创作和版本控制）和附加的HTTP状态码等扩展，数量就达60种。而实际应用中大概只有14种。
+
+2XX 成功 2XX的响应结果表明请求被正常的处理了。
+
+200 OK 表示在客户端发来的请求在服务器端被正常处理了。
+204 No Content 请求处理成功，但返回的响应报文中不含实体的主体部分。一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息的情况下使用。
+206 Partial Content 表示客户端进行了范围请求（想要其中的一部分内容），而服务器成功进行了这部分的GET请求。响应报文中Content-Range指定范围的实体内容。3XX 重定向3XX的响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。
+301 Moved Permanently 永久性重定向  该状态码表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI 。浏览器会记住新资源的地址，形象理解书签的更新。（感觉是发了2次http请求，优化时减少重定向）
+302 Found 临时性重定向 该状态码表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问。书签不会更新。
+303 See Other  该状态码表示请求的资源存在着另一个URI，应使用GET方法定向获取请求的资源。（和302有着相同的功能，303明确表示客户端应当采用get方法获取资源）
+
+当301 302 303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文的主
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/25/HTTP状态码详解/#more" rel="contents">
+              Lire la suite &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/24/Title与H1，你真的明白了么？/" itemprop="url">
                   Title与title，你真的明白了么？
                 </a>
@@ -251,7 +362,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-24T21:45:04+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -290,7 +401,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/24/Title与H1，你真的明白了么？/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -353,7 +464,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
               2016-08-23
             </time>
@@ -393,7 +504,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/23/DOCTYPE标签的定义与用法/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -456,7 +567,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
               2016-08-22
             </time>
@@ -497,7 +608,7 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -560,7 +671,7 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
               2016-08-21
             </time>
@@ -610,119 +721,7 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/21/JS中自执行函数的几种写法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/20/JS中call和apply的区别/" itemprop="url">
-                  JS中call和apply的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
-              2016-08-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          JavaScript中call()与apply()有什么区别？今天读《JavaScript权威指南》时发现其中有段代码用到了apply方法用于递归实现数组的展开。可是我不懂这个函数的用法，因此查了一下，将资料整理如下。
-Javascript的每个Function对象中有一个apply方法：
-1function.apply([thisObj[,argArray]])
-还有一个类似功能的call方法：
-1function.call([thisObj[,arg1[, arg2[, [,.argN]]]]])
-它们各自的定义：
-apply：应用某一对象的一个方法，用另一个对象替换当前对象。
-call：调用一个对象的一个方法，以另一个对象替换当前对象。
-它们的共同之处：
-都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。”——摘自JScript5.5 .chm
-它们的不同之处：
-apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。
-
-call：则是直接的参数列表，主要用在js对象各方法互相调用的时候，使当前this实例指针保持一致,或在特殊情况下需要改
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/20/JS中call和apply的区别/#more" rel="contents">
-              Read more &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -755,7 +754,7 @@ call：则是直接的参数列表，主要用在js对象各方法互相调用�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -796,8 +795,8 @@ call：则是直接的参数列表，主要用在js对象各方法互相调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -848,7 +847,7 @@ call：则是直接的参数列表，主要用在js对象各方法互相调用�
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
