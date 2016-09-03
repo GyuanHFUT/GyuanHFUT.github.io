@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,6 +238,223 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/11/http基础知识/" itemprop="url">
+                  http基础知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T22:39:14+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          HTTP协议的特点HTTP协议的主要特点可概括如下：1.支持客户/服务器模式。2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。
+HTTP协议的请求方法请求方法（所有方法全为大写）有多种，各个方法的解释如下：GET 请求获取Request-URI所标识的资源POST 在Request-URI所标识的资源后附加新的数据HEAD 请求获取由Request-URI所标识的资源的响应消息报头PUT 请求服务器存储一个资源，并用Request-URI作为其标识DELETE 请求服务器删除Request-URI所标识的资源TRACE 请求服务器回送收到的请求信息，主要用于测试或诊断CONNECT 保留将来使用OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求
+GET和POST的区别1）GET请求的数据是放在HTTP包头中的，也就是URL之后2）GET提交的
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/http基础知识/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/前端面试题以及答案/" itemprop="url">
+                  前端面试题以及答案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:15:09+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          说说你对闭包的理解使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。
+闭包有三个特性:
+
+1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收
+
+请你谈谈Cookie的弊端cookie虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。第一：每个特定的域名下最多生成20个cookie
+1.IE6或更低版本最多20个cookie
+2.IE7和之后的版本最后可以有50个cookie。
+3.Firefox最多50个cookie
+4.chrome和Safari没有做硬性限制
+IE和Opera 会清理近期最少使用的cookie，Firefox会随机清理cookie。
+cookie的最大大约为4096字节，为了兼容性，一般不能超过4095字节。
+IE 提供了一种存储可以持久化用户数据，叫做userdata，从IE5.0就开始支持。每个数据最多128K，每个域名下最多1M。这个持久化数据放在缓存中，如果缓存没有清理，那么会一直存在。
+优点：极高的扩展性和可用性1.通过良好的编程，控制保存在cookie中的session对象的大小。
+2.通过加密和安全传输技术（SSL），减少cookie被破解的可能性。
+3.只在cookie中存放不敏感数据，即使被盗也不会有重大损失。
+4.控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。
+缺点：1.`Cookie`数量和长度的限制。每个domain最多只能有20条co
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/前端面试题以及答案/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/09/CSS知多少-王福朋/" itemprop="url">
                   CSS知多少-王福朋
                 </a>
@@ -251,7 +468,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-09T23:00:22+08:00" content="2016-08-09">
               2016-08-09
             </time>
@@ -293,7 +510,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/09/CSS知多少-王福朋/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -344,7 +561,7 @@
               
                 
                 <a class="post-title-link" href="/2016/08/08/css元素/" itemprop="url">
-                  Non titré
+                  Unbenannt
                 </a>
               
             
@@ -356,7 +573,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-08T22:44:01+08:00" content="2016-08-08">
               2016-08-08
             </time>
@@ -409,7 +626,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/08/css元素/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -460,7 +677,7 @@
               
                 
                 <a class="post-title-link" href="/2016/08/05/CSS小结/" itemprop="url">
-                  Non titré
+                  Unbenannt
                 </a>
               
             
@@ -472,7 +689,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-05T22:59:30+08:00" content="2016-08-05">
               2016-08-05
             </time>
@@ -509,218 +726,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/05/CSS小结/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/寻游框架/" itemprop="url">
-                  Non titré
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T16:19:19+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          寻游项目整体架构###公共部分
-公共头部，底部设计
-采用什么形式引入文件？1：和以前一样，每个人写文件，然后引入头部和底部2：一个html，每次点击菜单局部加载渲染html
-公共js编写
-1：Util.js什么的，里面包含工具方法的处理（比如发送ajax，查询dom等工具）2：Extend.js什么的，专门用于扩展各种js原生对象的。比如自己写的MyArray在Array基础上扩展各种函数和属性什么的（可用于学习）
-公共资源
- 1：公共图片，比如logo。 2：公共的框架js，css什么的
-功能
-说明，此处是后台管理的界面，正常情况下不需要太美化而不是简洁实用的功能。但是我们主要用于锻炼技术，所以采用更加复杂的页面。
-1：景点管理需要实现增删改查以及和蓝牙信标的关联总体页面纵向瀑布流加横向瀑布流？
-1.1：查询功能页面以什么方式展现，有两部分，一部分展示景点信息（包含景点评价等级），另一部分可以通过点击景点页面查询景点的html网页介绍。此处可以链接到景点的评价页面按楼层展示景点。技术发送ajax加载数据，前端渲染。
-1.2：添加功能页面景点名称（输入框）、景点所属楼层（下拉框，后台数据）、景点主图（文件）、景点音频介绍（文件）、-景点视频介绍（文件）、景点详细说明介绍（ueditor,打的输入框）。使用弹框还是新开页面？技术得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因51.3：编辑功能
-页面弹出添加功能相同的页面，此处需要加载原有景点信息技术得到表单数据，一次性使用ajax发送。成功刷新当前页，否则提示后台传入的失败原因
-1.4：删除功能页
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/03/寻游框架/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/node学习心得/" itemprop="url">
-                  node学习心得
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T19:49:39+08:00" content="2016-07-13">
-              2016-07-13
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/13/node学习心得/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -794,8 +800,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -842,11 +848,11 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

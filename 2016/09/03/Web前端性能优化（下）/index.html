@@ -1,0 +1,590 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Web前端性能优化（下）6. 使用CDN加速（内容分发网络）基本原理：
+CDN的全称是Content Delivery Network，即内容分发网络。
+“其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前端性能优化（下）">
+<meta property="og:url" content="http://yoursite.com/2016/09/03/Web前端性能优化（下）/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="Web前端性能优化（下）6. 使用CDN加速（内容分发网络）基本原理：
+CDN的全称是Content Delivery Network，即内容分发网络。
+“其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户">
+<meta property="og:updated_time" content="2016-09-03T01:58:11.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web前端性能优化（下）">
+<meta name="twitter:description" content="Web前端性能优化（下）6. 使用CDN加速（内容分发网络）基本原理：
+CDN的全称是Content Delivery Network，即内容分发网络。
+“其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/03/Web前端性能优化（下）/"/>
+
+  <title> Web前端性能优化（下） | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Web前端性能优化（下）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T09:57:50+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Web前端性能优化（下）"><a href="#Web前端性能优化（下）" class="headerlink" title="Web前端性能优化（下）"></a>Web前端性能优化（下）</h3><h4 id="6-使用CDN加速（内容分发网络）"><a href="#6-使用CDN加速（内容分发网络）" class="headerlink" title="6. 使用CDN加速（内容分发网络）"></a>6. 使用CDN加速（内容分发网络）</h4><p>基本原理：</p>
+<p>CDN的全称是Content Delivery Network，即内容分发网络。</p>
+<p>“其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。” - 百度百科。</p>
+<p>古代打仗大家一定都知道，由于古代的交通很不发达，所以当外族进攻的时候往往不能及时的反击，等朝廷征完兵再把兵派往边境的时候那些侵略者却是早已不见了踪影，这个让古代的帝王很是郁闷。后来帝王们学聪明了，都将大量的兵员提前派往边境驻扎，让他们平时屯田，战时当兵，这样的策略起到了很显著的作用。<br>不足之处：</p>
+<p>实时性不太好是CDN的致命缺陷。随着对CDN需求的逐渐升温，这一缺陷将得到改进，使来自于远程服务器的网络内容网页与复本服务器或缓存器中的网页保持同步。解决方法是在网络内容发生变化时将新的网络内容从服务器端直接传送到缓存器，或者当对网络内容的访问增加时将数据源服务器的网络内容尽可能实时地复制到缓存服务器。 </p>
+<h4 id="7-将CSS和JS放到外部文件中引用，CSS放头，JS放尾"><a href="#7-将CSS和JS放到外部文件中引用，CSS放头，JS放尾" class="headerlink" title="7. 将CSS和JS放到外部文件中引用，CSS放头，JS放尾"></a>7. 将CSS和JS放到外部文件中引用，CSS放头，JS放尾</h4><p>基本原理：</p>
+<p>注：这个是很基础且必须遵循的知识点，可是为了文章的完整性勉为其难加进来吧，嘿嘿。</p>
+<p>引入外部文件好处是显而易见的，而且是项目稍稍复杂一点的时候就有必要了这样做了。</p>
+<p>易维护、易扩展，方便管理和重复利用。<br>正确的方式：</p>
+<p>JavaScript是浏览器中的霸主，为什么这么说，因为在浏览器在执行JavaScript代码时，不能同时做其它事情，即<script>每次出现都会让页面等待脚本的解析和执行（不论JavaScript是内嵌的还是外链的），JavaScript代码执行完成后，才继续渲染页面。这个也就是JavaScript的阻塞特性。</p>
+<p>因为这个阻塞的特点，建议把JavaScript代码放到</body>标签以前，这样既能有效的防止JavaScript的阻塞，又能使得页面的HTML结构能更快的释放。</p>
+<p>HTML规范清楚指出CSS要放包含在页面的<head>区域内，这里就不多解释了。</p>
+<h4 id="8-精简CSS和JS文件"><a href="#8-精简CSS和JS文件" class="headerlink" title="8. 精简CSS和JS文件"></a>8. 精简CSS和JS文件</h4><p>基本原理：</p>
+<p>有一条非常重要的准则一直没有提到，就是CSS和JavaScript的压缩，直接减少下载的文件体积。我个人经常使用的方式是使用 YUI Compressor，它的特点是：移除注释；移除额外的空格；细微优化；标识符替换。</p>
+<p>YUI Compressor是java程序，如果你对java很熟悉的话可快速的上手使用yuicompressor.jar；如果你对java很陌生也没关系，一样可以使用YUI Compressor，下面介绍其使用方式。<br>YUI Compressor的配置和使用：</p>
+<p>先配置使用环境：</p>
+<p>1.先确保电脑中是否安装了JDK</p>
+<p>2.再配置必要的环境变量(细节不能三两句说清，所以不知道如何设置还是搜索吧)</p>
+<p>3.在cmd界面，输入javac可测试是否安装成功</p>
+<p>使用方法可从cmd到进入yuicompressor.jar所在磁盘，我以自己的yuicompressor-2.4.2.jar为例：</p>
+<p>1.压缩JS</p>
+<p>java -jar yuicompressor-2.4.2.jar api.js &gt; api.min.js</p>
+<p>2.压缩CSS</p>
+<p>java -jar yuicompressor-2.4.2.jar style.css &gt; style.min.css</p>
+<p>Web前端性能优化</p>
+<p>当然，还有另一种更傻瓜式的使用方式，赶兴趣的朋友自己可去多尝试下。</p>
+<h4 id="9-压缩图片和使用图片Sprite技术"><a href="#9-压缩图片和使用图片Sprite技术" class="headerlink" title="9. 压缩图片和使用图片Sprite技术"></a>9. 压缩图片和使用图片Sprite技术</h4><p>基本原理:</p>
+<p>注：其实压缩图片和图片精灵是两个方面的技术，可是既然都是关于图片的优化还是放到一块吧。</p>
+<p>现在由于工作的细分，专业的前端工程师已经少有机会去切图了，可是关于图片压缩还是得略微了解，一般图片压缩的方式有：</p>
+<p>1.缩小图片分辨率；</p>
+<p>2.改变图片格式；</p>
+<p>3.降低图片保存质量。</p>
+<p>关于图片精灵(Sprite)技术就和我们工作直接相关，不管是在CSS中的图片还是在HTML结构中的图片都会产生HTTP请求，前端优化的第一条就是减少请求数，最直接有效的方法是使用图片精灵（CSS Sprite）。图片精灵就是把许多图片放到一张大图片里面，通过CSS来显示图片的一部分。</p>
+<p>至于图片精灵的操作细节就不多做介绍了，网上相关内容很多。</p>
+<h4 id="10-注意控制Cookie大小和污染"><a href="#10-注意控制Cookie大小和污染" class="headerlink" title="10. 注意控制Cookie大小和污染"></a>10. 注意控制Cookie大小和污染</h4><p>基本原理和使用方法：</p>
+<p>有关Cookie的基础和高级知识可以去看本人写过的一篇文章《JavaScript 操作 Cookie》。</p>
+<p>因为Cookie是本地的磁盘文件，每次浏览器都会去读取相应的Cookie，所以建议去除不必要的Coockie，使Coockie体积尽量小以减少对用户响应的影响；</p>
+<p>使用Cookie跨域操作时注意在适应级别的域名上设置coockie以便使子域名不受其影响；</p>
+<p>Cookie是有生命周期的，所以请注意设置合理的过期时间，合理地Expire时间和不要过早去清除coockie，都会改善用户的响应时间。</p>
+</script></p>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/Web前端性能优化（上）/" rel="next" title="Web前端性能优化（上）">
+                <i class="fa fa-chevron-left"></i> Web前端性能优化（上）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/IE盒子模型和标准W3C盒子模型/" rel="prev" title="IE盒子模型和标准W3C盒子模型">
+                IE盒子模型和标准W3C盒子模型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web前端性能优化（下）"><span class="nav-number">1.</span> <span class="nav-text">Web前端性能优化（下）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-使用CDN加速（内容分发网络）"><span class="nav-number">1.1.</span> <span class="nav-text">6. 使用CDN加速（内容分发网络）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-将CSS和JS放到外部文件中引用，CSS放头，JS放尾"><span class="nav-number">1.2.</span> <span class="nav-text">7. 将CSS和JS放到外部文件中引用，CSS放头，JS放尾</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

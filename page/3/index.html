@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,6 +238,213 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/23/DOCTYPE标签的定义与用法/" itemprop="url">
+                  DOCTYPE标签的定义与用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
+              2016-08-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          &lt;!DOCTYPE&gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越懒了，很多东西都被潜意识地当成了理所当然。既然已经被问及，就去找了找资料，总结了一下，权当做笔记吧~~
+&lt;!DOCTYPE&gt;的定义：&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。
+该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML版本。（假如文档中的标记不遵循doctype声明所指定的DTD，这个文档除了不能通过代码校验之外，还有可能无法在浏览器中正确显示。）
+&lt;!DOCTYPE&gt;的用法：1&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+解析：在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/23/DOCTYPE标签的定义与用法/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/22/一行神奇的代码/" itemprop="url">
+                  一行神奇的代码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
+              2016-08-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一行神奇的代码javascript现如今，javascript无处不在，因此关于javascript的新知识也是层出不穷。javascript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。
+来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：
+123[].forEach.call($$(&quot;*&quot;),function(a)&#123;  a.style.outline=&quot;1px solid #&quot;+(~~(Math.random()*(1&lt;&lt;24))).toString(16)&#125;)
+现在，在你的Chrome浏览器的控制台中输入这段代码，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1ps的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容中，我们将一起一步一步学习如何理解上面的这段代码。
+选择页面中所有的元素我们需要做的第一件事情是获取页面中所有的元素，在上面的代码中，Addy使用了一个Chrome浏览器中特有的函数$$。你可以在你的Chrome浏览器控制台中输入$$(‘a’)，然后你就能得到一个当前页面中所有锚元素的列表。
+$$函数是许多现代浏览器命令行API中的一个部分，它等价于document.querySelectorAl
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/21/JS中自执行函数的几种写法/" itemprop="url">
                   JS中自执行函数的几种写法
                 </a>
@@ -251,7 +458,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
               2016-08-21
             </time>
@@ -301,7 +508,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/21/JS中自执行函数的几种写法/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -364,7 +571,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-20T22:53:15+08:00" content="2016-08-20">
               2016-08-20
             </time>
@@ -413,7 +620,7 @@ call：则是直接的参数列表，主要用在js对象各方法互相调用�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/20/JS中call和apply的区别/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -476,7 +683,7 @@ call：则是直接的参数列表，主要用在js对象各方法互相调用�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-17T22:54:04+08:00" content="2016-08-17">
               2016-08-17
             </time>
@@ -521,212 +728,7 @@ FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/17/H5-cache缓存/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/zepto使用中的大坑/" itemprop="url">
-                  zepto使用中的大坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T22:55:52+08:00" content="2016-08-16">
-              2016-08-16
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Zepto 使用中的一些注意点(转)前段时间完成了公司一个产品的 HTML5 触屏版，开发中使用了 Zepto 这个著名的 DOM 操作库。为什么不是 jQuery 呢？因为 jQuery 的目标是兼容所有主流浏览器，这就意味着它的大量代码对移动端的浏览器是无用或者低效的。而 Zepto 只针对移动端浏览器编写，因此体积更小、效率更高，更重要的是，它的 API 完全仿照 jQuery ，所以学习成本也很低。
-但是在开发过程中，我发现 Zepto 还远未成熟，其中包含了一些或大或小的“坑”，与 jQuery 的差距还是很明显的，所以写篇文章记录下，希望对后来者有帮助注意，本文撰写时 Zepto 版本为 1.0 正式版
-从哪里下载 Zepto这个问题看起来很蠢，从官网下载不就行了嘛！可是你有没有发现下载链接上面有行小字呢？
-
-There are more modules; a list of all modules is available in the README.
-
-在这个 README 里面你会惊奇地发现，Zepto 源码中有 14 个模块，而官网提供的标准版里面只有 7 个模块！而且居然不包含对移动端开发非常重要的 touch 模块（提供对触摸事件的支持）！所以我的建议是，不要从官网下载，而是从 Github 下载了源代码之后自己 Build 一个版本，这样你可以自行挑选适合的模块。比如我挑选的模块是这么几个：
-polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包含的模块fx_methods 有了这个模块之后，.show()
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/16/zepto使用中的大坑/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/15/8-15/" itemprop="url">
-                  8.15
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T22:58:04+08:00" content="2016-08-15">
-              2016-08-15
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/15/8-15/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -800,8 +802,8 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -848,11 +850,11 @@ polyfill，zepto，detect，event，ajax，form，fx 这7个就是标准版包�
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
