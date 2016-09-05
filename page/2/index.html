@@ -238,6 +238,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/29/requestAnimationFrame初识/" itemprop="url">
+                  requestAnimationFrame初识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T22:52:58+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          requestAnimationFrame是什么？在浏览器动画程序中，我们通常使用一个定时器来循环每隔几毫秒移动目标物体一次，来让它动起来。如今有一个好消息，浏览器开发商们决定：“嗨，为什么我们不在浏览器里提供这样一个API呢，这样一来我们可以为用户优化他们的动画。”所以，这个requestAnimationFrame()函数就是针对动画效果的API，你可以把它用在DOM上的风格变化或画布动画或WebGL中。
+使用requestAnimationFrame有什么好处？浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。比如，通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。
+requestAnimationFrame的用法1234567891011121314151617181920// shim layer with setTimeout fallbackwindow.requestAnimFrame = (function()&#123;  return  window.requestAnimationFrame       ||          window.webkitRequestAnimationFrame ||          window.mozRequestAnimationFrame    || 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/29/requestAnimationFrame初识/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/28/HTML5-Canvas制作一个简单的游戏/" itemprop="url">
                   HTML5 Canvas制作一个简单的游戏
                 </a>
@@ -649,108 +750,6 @@ for循环的计数器，就很合适使用let命令。
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/Title与H1，你真的明白了么？/" itemprop="url">
-                  Title与title，你真的明白了么？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-24T21:45:04+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Title与H1之我见 关系与区别浅析　　各位站长在建站时，都会在网站或文章前应用大标题&lt;H1&gt;属性和title网站标题属性。很多新站长在网站SEO过程中，会认为把H1等同于Title。其实两是有区别和联系的，两者不能划等号。下面主要从文章和页面角度分析title和H1。
-　　H1等同于title吗?　　H1不等于title。H1，大标题。一般出现在文章页面，作用如同一张报纸的大标题，使用读者在没看内容之前就大概了解本文的旨意，它是直接给用户看的。在SEO中，搜索引擎也非常重视H1，目的是告诉搜索引擎，这个地方的内容很重要,H1要求贴近文章内容，突出主题，言简意赅。title,面对的是搜索引擎和用户，其范围相对于H1来说要广，title中可以包含H1，在搜索引擎中tiele的权重要高于H1;一般来讲，H1做到突出主题目，title修饰主题关键字。
-　　H1与title之间的关系?　　从网站角度看，title网站标题能直接告诉搜索引擎和用户这个页面是关于什么主题和内容的网站。从文章的角度上看，用户进到内容页里，想看到的当然就是文章的内容，H1文章标题则是最重要的、最应该突出的。一篇文章只能有一个标题，一个页面最好采用一个H1;多个H1会造成的搜索引擎不知道这个页面哪个标题内容最重要，导致淡化这个页面标题和关键词，起不到突出主题的效果。从网站角度而言，title则重于网站信息标题;从文章角度而言，H1则概括的是文章主题。
-　　H1与title有什么区别?　　突出文章主题，用H1，面对的用户，要突出其视觉效果。突出网站标题或关键字用title,一篇文章，一个页面最好只用一
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/24/Title与H1，你真的明白了么？/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -796,7 +795,7 @@ for循环的计数器，就很合适使用let命令。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
