@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,6 +238,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/防止表单重复提交/" itemprop="url">
+                  防止表单重复提交
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T22:49:59+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原文请点击
+表单重复提交是在多用户web应用中常见的，可以带来很多麻烦的问题。有很多场景会有这个问题： 1. 点击提交按钮两次； 2. 点击刷新按钮； 3. 使用浏览器后退按钮重复之前的操作，导致重复提交表单 4. 使用浏览器历史纪录提交表单 5. 浏览器重复的HTTP请求
+意图和解决
+用户提交表单时可能因为网速的原因，或者被恶意刷新，致使同一条记录重复插入数据库中。可以从客户端和服务器一起着手，设法避免统一表单的重复提交
+解决方案
+客户端
+
+js禁止提交按钮
+
+表单提交后使用javascript使提交按钮disable。可以防止心急的用户多次点击按钮。如果客户端把js禁止掉，无效
+
+boolean修改
+
+在提交的时候通过修改boolean值来控制
+12345678$(&apos;#form&apos;).submit = function()&#123;   var isCommited = false;   if(!isCommited) &#123;      isCommited = true;   &#125;else &#123;      return false;//阻止   &#125;&#125;;
+这种方式只能组织阻止重复点击提交按钮的提交，如果用户点击刷新按钮，或者点击后退按钮后再提交，还会造成表单的重复提交
+总的来说，只有客户端来解决，这样的方案是不彻底的
+服务器端
+
+利用session来阻止
+
+在服务器端生成一个唯一的标识，将它存入session，同事将它写入表单的隐藏字段中，容纳后将表单页面发给浏览器，用户录入信息点击提交，在服务器端，获取表单中隐
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/07/防止表单重复提交/#more" rel="contents">
+              Lire la suite &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/05/CSS-样式引入的方法-link-与import的区别/" itemprop="url">
                   CSS 样式引入的方法 link 与import的区别
                 </a>
@@ -251,7 +371,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-05T22:08:46+08:00" content="2016-09-05">
               2016-09-05
             </time>
@@ -295,7 +415,7 @@ link元素HTML和XHTML都有一个结构，它使网页作者可以增加于HTML
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/05/CSS-样式引入的方法-link-与import的区别/#more" rel="contents">
-              Weiterlesen &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -358,7 +478,7 @@ link元素HTML和XHTML都有一个结构，它使网页作者可以增加于HTML
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-03T10:01:51+08:00" content="2016-09-03">
               2016-09-03
             </time>
@@ -395,7 +515,7 @@ link元素HTML和XHTML都有一个结构，它使网页作者可以增加于HTML
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/03/IE盒子模型和标准W3C盒子模型/#more" rel="contents">
-              Weiterlesen &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -458,7 +578,7 @@ link元素HTML和XHTML都有一个结构，它使网页作者可以增加于HTML
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-03T09:57:50+08:00" content="2016-09-03">
               2016-09-03
             </time>
@@ -503,7 +623,7 @@ JavaScript是
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/03/Web前端性能优化（下）/#more" rel="contents">
-              Weiterlesen &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -566,7 +686,7 @@ JavaScript是
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-01T22:45:34+08:00" content="2016-09-01">
               2016-09-01
             </time>
@@ -612,135 +732,7 @@ Reflow(重排)就是DOM的变化影响到了元素的几何属性（宽和高）
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/01/Web前端性能优化（上）/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/31/亲历某公司面试题/" itemprop="url">
-                  亲历某公司面试题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-31T22:50:03+08:00" content="2016-08-31">
-              2016-08-31
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          亲历某公司面试题
-获取随机数的方法名称
-
-answer：Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 
-
-form表单特有的属性，举例三个
-
-answer：name:用来标识这个表单,在javascript中可以通过 document.表单名 来取得这个表单action:表示这个表单提交时的跳转路径method:表示提交方式,可以选择post和get,默认为get方式.两种方式的区别:enctype :表示表单的封装方式,只有在进行文件上传时才会使用,当执行文件上传时,必须将这个值设置为 enctype=&quot;multipart/form-data&quot;onsubmit:当表单提交时自动执行的javascript事件,一般在需要进行提交验证时使用.
-
-强制转换某个变量为浮点型的JS方法名称
-
-answer：parseFloat()
-
-CSS3中设置圆角属性名称
-
-answer：border-radius
-
-代码typeof’’123’的返回值
-
-answer：string
-
-谷歌浏览器私有样式的前缀是
-
-answer：Mozilla内核 （Firefox）　　               css前缀-moz;WebKit内核（Safari、Chrome）　 　css前缀-webkit ;Opera 内核 （Opera浏览器）　　      css前缀 -o ;Trident内核（讨厌的IE浏览器）     　  css前缀 -ms ;   
-
-声明html5开头加上
-
-answer：!doctype
-
-正则表达式$代表什么(去学习正则
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/31/亲历某公司面试题/#more" rel="contents">
-              Weiterlesen &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
         
@@ -773,7 +765,7 @@ answer：!doctype
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -814,8 +806,8 @@ answer：!doctype
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -862,11 +854,11 @@ answer：!doctype
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
