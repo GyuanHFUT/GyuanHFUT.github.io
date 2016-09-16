@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -238,6 +238,115 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/26/let/" itemprop="url">
+                  let
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T22:47:37+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          let命令基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明的变量只在它所在的代码块有效。
+for循环的计数器，就很合适使用let命令。
+1234for (let i = 0; i &lt; arr.length; i++) &#123;&#125;console.log(i);//ReferenceError: i is not defined
+上面代码的计数器i，只在for循环体内有效。
+下面的代码如果使用var，最后输出的是10。
+1234567var a = [];for (var i = 0; i &lt; 10; i++) &#123;  a[i] = function () &#123;    console.log(i);  &#125;;&#125;a[6](); // 10
+上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。
+如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。
+1234567var a = [];for (let i = 0; i &lt; 10
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/26/let/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/25/HTTP状态码详解/" itemprop="url">
                   HTTP状态码
                 </a>
@@ -251,7 +360,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-25T15:30:20+08:00" content="2016-08-25">
               2016-08-25
             </time>
@@ -299,7 +408,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/25/HTTP状态码详解/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -362,7 +471,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-24T21:45:04+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -401,7 +510,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/24/Title与H1，你真的明白了么？/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -464,7 +573,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
               2016-08-23
             </time>
@@ -504,7 +613,7 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/23/DOCTYPE标签的定义与用法/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -567,7 +676,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
               2016-08-22
             </time>
@@ -608,120 +717,7 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/21/JS中自执行函数的几种写法/" itemprop="url">
-                  JS中自执行函数的几种写法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T22:11:35+08:00" content="2016-08-21">
-              2016-08-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          经常需要一个函数自执行，可惜这一种写法是错的：复制代码 代码如下:
-1function()&#123;alert(1);&#125;();
-原因是前半段“function(){alert(1);}”被当成了函数声明，而不是一个函数表达式，从而让后面的“();”变得孤立，产生语法错。 
-按上面的分析，这一段代码虽说没有语法错，但也是不符合我们的预期的，因为这个函数并没有自执行。复制代码 代码如下:
-1function()&#123;alert(1);&#125;(1);
-综上，症结在于，如何明确代码描述的是一个函数表达式，而不是函数声明语句。正确的写法多种多样，也各有利弊： 
-方法1：最前最后加括号复制代码 代码如下:
-1(function()&#123;alert(1);&#125;());
-这是jslint推荐的写法，好处是，能提醒阅读代码的人，这段代码是一个整体。例如，在有语法高亮匹配功能的编辑器里，光标在第一个左括号后时，最后一个右括号也会高亮，看代码的人一眼就可以看到这个整体。不过，对于某些写代码不喜欢在行后加分号的同学，也会形成一些坑坑，例如以下代码会报运行错：复制代码 代码如下:
-12var a=1 (function()&#123;alert(1);&#125;());
-方法2：function外面加括号复制代码 代码如下:
-1(function()&#123;alert(1);&#125;)();
-这种做法比方法1少了一个代码整体性的好处。 
-方法3：function前面加运算符，常见的是!与void 。复制代码 代码如下:
-12!function()&#123
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/JS中自执行函数的几种写法/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -795,8 +791,8 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -843,11 +839,11 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
