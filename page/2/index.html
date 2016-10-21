@@ -238,6 +238,114 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/03/Web前端性能优化（下）/" itemprop="url">
+                  Web前端性能优化（下）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T09:57:50+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Web前端性能优化（下）6. 使用CDN加速（内容分发网络）基本原理：
+CDN的全称是Content Delivery Network，即内容分发网络。
+“其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。” - 百度百科。
+古代打仗大家一定都知道，由于古代的交通很不发达，所以当外族进攻的时候往往不能及时的反击，等朝廷征完兵再把兵派往边境的时候那些侵略者却是早已不见了踪影，这个让古代的帝王很是郁闷。后来帝王们学聪明了，都将大量的兵员提前派往边境驻扎，让他们平时屯田，战时当兵，这样的策略起到了很显著的作用。不足之处：
+实时性不太好是CDN的致命缺陷。随着对CDN需求的逐渐升温，这一缺陷将得到改进，使来自于远程服务器的网络内容网页与复本服务器或缓存器中的网页保持同步。解决方法是在网络内容发生变化时将新的网络内容从服务器端直接传送到缓存器，或者当对网络内容的访问增加时将数据源服务器的网络内容尽可能实时地复制到缓存服务器。 
+7. 将CSS和JS放到外部文件中引用，CSS放头，JS放尾基本原理：
+注：这个是很基础且必须遵循的知识点，可是为了文章的完整性勉为其难加进来吧，嘿嘿。
+引入外部文件好处是显而易见的，而且是项目稍稍复杂一点的时候就有必要了这样做了。
+易维护、易扩展，方便管理和重复利用。正确的方式：
+JavaScript是
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/03/Web前端性能优化（下）/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/01/Web前端性能优化（上）/" itemprop="url">
                   Web前端性能优化（上）
                 </a>
@@ -658,115 +766,6 @@ requestAnimationFrame的用法1234567891011121314151617181920// shim layer with 
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/箭头函数ES6/" itemprop="url">
-                  箭头函数ES6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T22:57:15+08:00" content="2016-08-27">
-              2016-08-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ES6箭头函数（Arrow functions）的使用。热身
-箭头符号在JS中一直扮演着重要的角色。在JS教程里，一开始都会介绍如何使用箭头括号来加注释。例如：
-123456&lt;script language=&quot;javascript&quot;&gt;  &lt;!--    document.bgColor = &quot;brown&quot;;  // red  // --&gt;  &lt;/script&gt;
-旧版浏览器接收的是两个不支持的标签和一句注释，只有新版浏览器才会识别这是JS代码。
-为了处理这种奇怪的表达方式，浏览器的JS引擎会把&lt;!—识别为一行注释的开始位置。这种处理机制一直沿用至今，现在于Node中也适用。除此之外，–&gt;还可以作为递增/减的操作符，例如while(n–&gt;0) //n递减至0。
-我们先回顾下箭头符号的一般用法：
-&lt;!-- 单行注释--&gt;  递增/减的操作符&lt;=   小于等于=&gt;   ?=&gt;是ES6中新的用法，也就是本节要讲述的内容。
-随处可见的函数式表达
-在JS中很有意思的地方是当我们需要调用函数时，只需在运行代码中的恰当位置添加就可以了。例如要对按钮的点击做出响应，可以这样写：
-1234$(&quot;#confetti-btn&quot;).click(function (event) &#123;    playTrumpet();    fireConfettiCannon();  &#125;);
-在JS开始盛行前，这样的代码是令人奇怪的，因为很多语言当时都没有类似的
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/箭头函数ES6/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -812,7 +811,7 @@ requestAnimationFrame的用法1234567891011121314151617181920// shim layer with 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>

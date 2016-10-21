@@ -238,6 +238,115 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/27/箭头函数ES6/" itemprop="url">
+                  箭头函数ES6
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T22:57:15+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ES6箭头函数（Arrow functions）的使用。热身
+箭头符号在JS中一直扮演着重要的角色。在JS教程里，一开始都会介绍如何使用箭头括号来加注释。例如：
+123456&lt;script language=&quot;javascript&quot;&gt;  &lt;!--    document.bgColor = &quot;brown&quot;;  // red  // --&gt;  &lt;/script&gt;
+旧版浏览器接收的是两个不支持的标签和一句注释，只有新版浏览器才会识别这是JS代码。
+为了处理这种奇怪的表达方式，浏览器的JS引擎会把&lt;!—识别为一行注释的开始位置。这种处理机制一直沿用至今，现在于Node中也适用。除此之外，–&gt;还可以作为递增/减的操作符，例如while(n–&gt;0) //n递减至0。
+我们先回顾下箭头符号的一般用法：
+&lt;!-- 单行注释--&gt;  递增/减的操作符&lt;=   小于等于=&gt;   ?=&gt;是ES6中新的用法，也就是本节要讲述的内容。
+随处可见的函数式表达
+在JS中很有意思的地方是当我们需要调用函数时，只需在运行代码中的恰当位置添加就可以了。例如要对按钮的点击做出响应，可以这样写：
+1234$(&quot;#confetti-btn&quot;).click(function (event) &#123;    playTrumpet();    fireConfettiCannon();  &#125;);
+在JS开始盛行前，这样的代码是令人奇怪的，因为很多语言当时都没有类似的
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/27/箭头函数ES6/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/26/let/" itemprop="url">
                   let
                 </a>
@@ -642,110 +751,6 @@ for循环的计数器，就很合适使用let命令。
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/22/一行神奇的代码/" itemprop="url">
-                  一行神奇的代码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-08-22T22:32:04+08:00" content="2016-08-22">
-              2016-08-22
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一行神奇的代码javascript现如今，javascript无处不在，因此关于javascript的新知识也是层出不穷。javascript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。
-来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：
-123[].forEach.call($$(&quot;*&quot;),function(a)&#123;  a.style.outline=&quot;1px solid #&quot;+(~~(Math.random()*(1&lt;&lt;24))).toString(16)&#125;)
-现在，在你的Chrome浏览器的控制台中输入这段代码，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1ps的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容中，我们将一起一步一步学习如何理解上面的这段代码。
-选择页面中所有的元素我们需要做的第一件事情是获取页面中所有的元素，在上面的代码中，Addy使用了一个Chrome浏览器中特有的函数$$。你可以在你的Chrome浏览器控制台中输入$$(‘a’)，然后你就能得到一个当前页面中所有锚元素的列表。
-$$函数是许多现代浏览器命令行API中的一个部分，它等价于document.querySelectorAl
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/22/一行神奇的代码/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -791,7 +796,7 @@ $$函数是许多现代浏览器命令行API中的一个部分，它等价于doc
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
