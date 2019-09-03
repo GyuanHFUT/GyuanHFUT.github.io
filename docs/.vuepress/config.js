@@ -8,7 +8,7 @@ module.exports = {
         // ],
         sidebar: [
             {
-                "title": "关于前端",
+                "title": "关于code",
                 "collapsable": true,
                 "children": [
                     "/Article/code/地图学习",
