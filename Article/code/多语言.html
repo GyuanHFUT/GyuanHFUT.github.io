@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端多语言方案 | 源于生活</title>
+    <meta name="description" content="write something！">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.97ad5445.css" as="style"><link rel="preload" href="/assets/js/app.80a9ebbc.js" as="script"><link rel="preload" href="/assets/js/2.fb87c654.js" as="script"><link rel="preload" href="/assets/js/6.8f5f6068.js" as="script"><link rel="prefetch" href="/assets/js/10.6e145a99.js"><link rel="prefetch" href="/assets/js/3.8cc3e27b.js"><link rel="prefetch" href="/assets/js/4.c063c58b.js"><link rel="prefetch" href="/assets/js/5.92f6c708.js"><link rel="prefetch" href="/assets/js/7.df5064ec.js"><link rel="prefetch" href="/assets/js/8.f11eaed1.js"><link rel="prefetch" href="/assets/js/9.fa2eb872.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.97ad5445.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">源于生活</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>关于code</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/code/地图学习.html" class="sidebar-link">地图学习笔记</a></li><li><a href="/Article/code/数据双向绑定的分析和简单实现.html" class="sidebar-link">数据双向绑定的分析和简单实现</a></li><li><a href="/Article/code/多语言.html" class="active sidebar-link">前端多语言方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_1多语言实现流程" class="sidebar-link">1	多语言实现流程</a></li><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_2-语言包结构" class="sidebar-link">2.语言包结构</a></li><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_3-语言包加载流程" class="sidebar-link">3.语言包加载流程</a></li><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_4-翻译工具" class="sidebar-link">4.翻译工具</a></li><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_5-夏令时带来的难点" class="sidebar-link">5.夏令时带来的难点</a></li><li class="sidebar-sub-header"><a href="/Article/code/多语言.html#_6-语言id" class="sidebar-link">6. 语言id</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于生活</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/life/车.html" class="sidebar-link">/Article/life/车.html</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前端多语言方案"><a href="#前端多语言方案" aria-hidden="true" class="header-anchor">#</a> 前端多语言方案</h1> <h2 id="_1多语言实现流程"><a href="#_1多语言实现流程" aria-hidden="true" class="header-anchor">#</a> 1	多语言实现流程</h2> <h2 id="_2-语言包结构"><a href="#_2-语言包结构" aria-hidden="true" class="header-anchor">#</a> 2.语言包结构</h2> <h2 id="_3-语言包加载流程"><a href="#_3-语言包加载流程" aria-hidden="true" class="header-anchor">#</a> 3.语言包加载流程</h2> <p>在路由文件里设置钩子函数beforeEach,开发状态时使用i18n下的语言包进行视图渲染,处于部署打包态时通过请求想后台请求数据,这里有二个可选项,</p> <ul><li>多语言ID可以向后台请求,也可以通过模板语言直接放入html;</li> <li>多语言文件可以分文件也可以单文件</li></ul> <h3 id="router部分代码见下"><a href="#router部分代码见下" aria-hidden="true" class="header-anchor">#</a> router部分代码见下</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">//这里可以做一些获取当前用户信息,token,sg,皮肤等信息的方案</span>
+
+    <span class="token comment">// 获取语言标识的plan A</span>
+    <span class="token keyword">await</span> <span class="token function">getLanguage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      window<span class="token punctuation">.</span>language <span class="token operator">=</span> res<span class="token punctuation">;</span>
+      <span class="token function">setLanguage</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 获取语言标识的plan B</span>
+    <span class="token comment">//通过&lt;meta name=&quot;language&quot; content=&quot;${(language)!}&quot;/&gt; 标签获取到当前语言,</span>
+    window<span class="token punctuation">.</span>language <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;meta&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">&quot;language&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>content<span class="token punctuation">;</span>
+    <span class="token function">setLanguage</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//出错后设置默认语言</span>
+    <span class="token keyword">await</span> <span class="token function">setLanguage</span><span class="token punctuation">(</span><span class="token string">&quot;zh_CN&quot;</span><span class="token punctuation">,</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//plan A获取语言类型的方法</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getLanguage</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> language <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;xxx/language.do&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>language<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> language<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;zh_CN&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 设置预研类型</span>
+<span class="token keyword">const</span> <span class="token function-variable function">setLanguage</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">nowLanguage<span class="token punctuation">,</span> moduleName</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>Node_ENV <span class="token operator">!==</span> <span class="token string">&quot;development&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//获取语言包plan A 所有模块在一个json文件里</span>
+    <span class="token keyword">let</span> lang <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">xxx/i18n/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>nowLanguage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/index.json</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//获取语言包plan B 每个模块在一个json文件里</span>
+    <span class="token keyword">let</span> lang <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">xxx/i18n/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>nowLanguage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>moduleName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    i18n<span class="token punctuation">.</span><span class="token function">setLocalMessage</span><span class="token punctuation">(</span>nowLanguage<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>lang<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  i18n<span class="token punctuation">.</span>local <span class="token operator">=</span> nowLanguage<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="_4-翻译工具"><a href="#_4-翻译工具" aria-hidden="true" class="header-anchor">#</a> 4.翻译工具</h2> <p>开发态的中文语言包需要翻译成其他支持的语言类型的语言包，这时需要将前端开发人员执行<code>i18n:jstoexcel</code>将static\i18n\zh_CN目录下的json文件转化成含有Key和中文Value的Excel文件，翻译人员只需要在Excel中填入对应中文Value值的其他语言值，并由前端开发人员执行<code>i18n:exceltojson</code>转换为静态语言包。</p> <p>前端通过<code>npm run i18n:jstojson</code>获取开发态的语言文件，构建静态多语言文件并拷贝到<code>dist\static\i18n</code>目录下，调用<code>npm run build</code>构建项目静态资源时该命令会被自动执行一遍。</p> <h2 id="_5-夏令时带来的难点"><a href="#_5-夏令时带来的难点" aria-hidden="true" class="header-anchor">#</a> 5.夏令时带来的难点</h2> <p>美国和加拿大原本于每年10月的最后一个星期日凌晨2时起实施冬令时间；4月的第一个星期日凌晨2时起，恢复夏令时间。
+因此前端不能直接展示后台传过来的时间值,他山之石可以攻玉,我们可以引用moment里的二个方法</p> <ol><li>是否夏令时
+<code>moment().isDST();</code>这个方法是用来判断是否是夏令时,example如下
+<code>moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST</code> <code>moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST</code></li> <li>是否被夏令时转换
+<code>moment('2013-03-10 2:30', 'YYYY-MM-DD HH:mm').isDSTShifted()</code>
+在夏时令地区会输出
+<code>moment('2013-03-10 2:30', 'YYYY-MM-DD HH:mm').format(); //=&gt; '2013-03-10T01:30:00-05:00'</code>
+这是因为夏令时将时间从2:00移动到3:00，所以2:30不是实时的。产生的时间取决于浏览器，可以向前或向后调整时间。</li></ol> <h2 id="_6-语言id"><a href="#_6-语言id" aria-hidden="true" class="header-anchor">#</a> 6. 语言id</h2> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code>    丹麦语	da	立陶宛语	lt
+    保加利亚语	bg	依地语	ji
+    加泰罗尼亚语	ca	朝鲜语	ko
+    南非荷兰语	af	芬兰语	fi
+    巴斯克语	eu	祖鲁语	zu
+    希腊语	el	<span class="token function">荷兰语</span><span class="token punctuation">(</span>比利时<span class="token punctuation">)</span>	nl_BE
+    <span class="token function">德语</span><span class="token punctuation">(</span>列支敦士登<span class="token punctuation">)</span>	de_LI	马耳他语	mt
+    <span class="token function">德语</span><span class="token punctuation">(</span>卢森堡<span class="token punctuation">)</span>	de_LU	<span class="token function">荷兰语</span><span class="token punctuation">(</span>标准<span class="token punctuation">)</span>	nl
+    <span class="token function">德语</span><span class="token punctuation">(</span>奥地利<span class="token punctuation">)</span>	de_AT	<span class="token constant">FYRO</span>	mk
+    <span class="token function">德语</span><span class="token punctuation">(</span>标准<span class="token punctuation">)</span>	de	拉脱维亚语	lv
+    <span class="token function">德语</span><span class="token punctuation">(</span>瑞士<span class="token punctuation">)</span>	de_CH	马来西亚语	ms
+    捷克语	cs	<span class="token function">朝鲜语</span><span class="token punctuation">(</span>韩国<span class="token punctuation">)</span>	ko
+    波斯语	fa	　	　
+    爱沙尼亚语	et	<span class="token function">中文</span><span class="token punctuation">(</span>中国台湾<span class="token punctuation">)</span>	zh_TW
+    英语	en	<span class="token function">挪威语</span><span class="token punctuation">(</span>博克马尔<span class="token punctuation">)</span>	no
+    <span class="token function">英语</span><span class="token punctuation">(</span>伯利兹<span class="token punctuation">)</span>	en_BZ	<span class="token function">葡萄牙语</span><span class="token punctuation">(</span>葡萄牙<span class="token punctuation">)</span>	pt
+    <span class="token function">英语</span><span class="token punctuation">(</span>加勒比<span class="token punctuation">)</span>	en	<span class="token function">挪威语</span><span class="token punctuation">(</span>尼诺斯克<span class="token punctuation">)</span>	no
+    <span class="token function">英语</span><span class="token punctuation">(</span>加拿大<span class="token punctuation">)</span>	en_CA	<span class="token function">葡萄牙语</span><span class="token punctuation">(</span>巴西<span class="token punctuation">)</span>	pt_BR
+    <span class="token function">英语</span><span class="token punctuation">(</span>南非<span class="token punctuation">)</span>	en_ZA	斯洛伐克语	sk
+    <span class="token function">英语</span><span class="token punctuation">(</span>新西兰<span class="token punctuation">)</span>	en_NZ	俄语	ru
+    <span class="token function">英语</span><span class="token punctuation">(</span>澳大利亚<span class="token punctuation">)</span>	en_AU	波兰语	pl
+    <span class="token function">英语</span><span class="token punctuation">(</span>爱尔兰<span class="token punctuation">)</span>	en_IE	罗马尼亚语	ro
+    <span class="token function">英语</span><span class="token punctuation">(</span>牙买加<span class="token punctuation">)</span>	en_JM	<span class="token function">罗马尼亚语</span><span class="token punctuation">(</span>摩尔达维亚<span class="token punctuation">)</span>	ro_MO
+    <span class="token function">英语</span><span class="token punctuation">(</span>特立尼达<span class="token punctuation">)</span>	en_TT	<span class="token function">俄语</span><span class="token punctuation">(</span>摩尔达维亚<span class="token punctuation">)</span>	ru_MO
+    <span class="token function">英语</span><span class="token punctuation">(</span>美国<span class="token punctuation">)</span>	en_US	索布语	sb
+    <span class="token function">英语</span><span class="token punctuation">(</span>英国<span class="token punctuation">)</span>	en_GB	拉丁语系	rm
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>乌拉圭<span class="token punctuation">)</span>	es_UY	<span class="token function">中文</span><span class="token punctuation">(</span>中国香港特别行政区<span class="token punctuation">)</span>	zh_HK
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>危地马拉<span class="token punctuation">)</span>	es_GT	瓦纳语	tn
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>厄瓜多尔<span class="token punctuation">)</span>	es_EC	泰语	th
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>哥伦比亚<span class="token punctuation">)</span>	es_CO	<span class="token function">瑞典语</span><span class="token punctuation">(</span>芬兰<span class="token punctuation">)</span>	sv_FI
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>哥斯达黎加<span class="token punctuation">)</span>	es_CR	苏图语	sx
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>墨西哥<span class="token punctuation">)</span>	es_MX	汤加语	ts
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>多米尼加共和国<span class="token punctuation">)</span>	es_DO	<span class="token function">萨摩斯语</span><span class="token punctuation">(</span>拉普兰<span class="token punctuation">)</span>	sz
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>委内瑞拉<span class="token punctuation">)</span>	es_VE	<span class="token function">中文</span><span class="token punctuation">(</span>新加坡<span class="token punctuation">)</span>	zh_SG
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>尼加拉瓜<span class="token punctuation">)</span>	es_NI	乌克兰语	uk
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>巴拉圭<span class="token punctuation">)</span>	es_PY	科萨语	xh
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>巴拿马<span class="token punctuation">)</span>	es_PA	乌尔都语	ur
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>智利<span class="token punctuation">)</span>	es_CL	瑞典语	sv
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>波多黎各<span class="token punctuation">)</span>	es_PR	越南语	vi
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>洪都拉斯<span class="token punctuation">)</span>	es_HN	土耳其语	tr
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>玻利维亚<span class="token punctuation">)</span>	es_BO	<span class="token function">塞尔维亚语</span><span class="token punctuation">(</span>西里尔<span class="token punctuation">)</span>	sr
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>秘鲁<span class="token punctuation">)</span>	es_PE	文达语	ve
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>萨尔瓦多<span class="token punctuation">)</span>	es_SV	<span class="token function">中文</span><span class="token punctuation">(</span>中华人民共和国<span class="token punctuation">)</span>	zh_CN
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>西班牙传统<span class="token punctuation">)</span>	es	斯洛文尼亚语	sl
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>西班牙现代<span class="token punctuation">)</span>	es	阿尔巴尼亚语	sq
+    <span class="token function">西班牙语</span><span class="token punctuation">(</span>阿根廷<span class="token punctuation">)</span>	es_AR	<span class="token function">塞尔维亚语</span><span class="token punctuation">(</span>拉丁<span class="token punctuation">)</span>	sr
+    贝劳语	be	日语	ja
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>也门<span class="token punctuation">)</span>	ar_YE	<span class="token function">意大利语</span><span class="token punctuation">(</span>瑞士<span class="token punctuation">)</span>	it_CH
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>伊拉克<span class="token punctuation">)</span>	ar_IQ	<span class="token function">法语</span><span class="token punctuation">(</span>瑞士<span class="token punctuation">)</span>	fr_CH
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>利比亚<span class="token punctuation">)</span>	ar_LY	希伯来语	he
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>卡塔尔<span class="token punctuation">)</span>	ar_QA	匈牙利语	hu
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>叙利亚<span class="token punctuation">)</span>	ar_SY	冰岛语	is
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>埃及<span class="token punctuation">)</span>	ar_EG	<span class="token function">法语</span><span class="token punctuation">(</span>加拿大<span class="token punctuation">)</span>	fr_CA
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>巴林<span class="token punctuation">)</span>	ar_BH	<span class="token function">法语</span><span class="token punctuation">(</span>标准<span class="token punctuation">)</span>	fr
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>摩洛哥<span class="token punctuation">)</span>	ar_MA	北印度语	hi
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>沙特阿拉伯<span class="token punctuation">)</span>	ar_SA	印度尼西亚语	<span class="token keyword">in</span>
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>科威特<span class="token punctuation">)</span>	ar_KW	<span class="token function">盖尔语</span><span class="token punctuation">(</span>苏格兰<span class="token punctuation">)</span>	gd
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>突尼斯<span class="token punctuation">)</span>	ar_TN	<span class="token function">意大利语</span><span class="token punctuation">(</span>标准<span class="token punctuation">)</span>	it
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>约旦<span class="token punctuation">)</span>	ar_JO	<span class="token function">法语</span><span class="token punctuation">(</span>卢森堡<span class="token punctuation">)</span>	fr_LU
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>阿尔及利亚<span class="token punctuation">)</span>	ar_DZ	<span class="token function">法语</span><span class="token punctuation">(</span>比利时<span class="token punctuation">)</span>	fr_BE
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>阿拉伯联合酋长国<span class="token punctuation">)</span>	ar_AE	法罗语	fo
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>阿曼<span class="token punctuation">)</span>	ar_OM	克罗地亚语	hr
+    <span class="token function">阿拉伯语</span><span class="token punctuation">(</span>黎巴嫩<span class="token punctuation">)</span>	ar_LB	<span class="token function">盖尔语</span><span class="token punctuation">(</span>爱尔兰<span class="token punctuation">)</span>	gd_IE
+    　<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span>`
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/Article/code/数据双向绑定的分析和简单实现.html" class="prev">
+          数据双向绑定的分析和简单实现
+        </a></span> <span class="next"><a href="/Article/life/车.html">
+          /Article/life/车.html
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.80a9ebbc.js" defer></script><script src="/assets/js/2.fb87c654.js" defer></script><script src="/assets/js/6.8f5f6068.js" defer></script>
+  </body>
+</html>
