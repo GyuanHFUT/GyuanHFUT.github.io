@@ -1,0 +1,587 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;lt;!DOCTYPE&amp;gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&amp;lt;!DOCTYPE&amp;gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOCTYPE标签的定义与用法">
+<meta property="og:url" content="http://yoursite.com/2016/08/23/DOCTYPE标签的定义与用法/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="&amp;lt;!DOCTYPE&amp;gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&amp;lt;!DOCTYPE&amp;gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越">
+<meta property="og:updated_time" content="2016-08-23T14:52:22.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOCTYPE标签的定义与用法">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE&amp;gt;标签的定义与用法前言：今天被问道“有没有仔细了解过`&amp;lt;!DOCTYPE&amp;gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/23/DOCTYPE标签的定义与用法/"/>
+
+  <title> DOCTYPE标签的定义与用法 | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DOCTYPE标签的定义与用法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T22:51:46+08:00" content="2016-08-23">
+              2016-08-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="lt-DOCTYPE-gt-标签的定义与用法"><a href="#lt-DOCTYPE-gt-标签的定义与用法" class="headerlink" title="&lt;!DOCTYPE&gt;标签的定义与用法"></a><code>&lt;!DOCTYPE&gt;</code>标签的定义与用法</h2><h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><pre><code>今天被问道“有没有仔细了解过`&lt;!DOCTYPE&gt;`标签？”，愣了一下，因为一开始在W3cschool上看到过建议使用XHTML Transitional DTD,之后就很听话地把Dreamweaver的HTML文档类型默认设置为XHTML 1.0 Transitional。之后就理所当然地一直用到现在了。人这东西还真是，越长大就越懒了，很多东西都被潜意识地当成了理所当然。既然已经被问及，就去找了找资料，总结了一下，权当做笔记吧~~
+</code></pre><h3 id="lt-DOCTYPE-gt-的定义："><a href="#lt-DOCTYPE-gt-的定义：" class="headerlink" title="&lt;!DOCTYPE&gt;的定义："></a><code>&lt;!DOCTYPE&gt;</code>的定义：</h3><pre><code>&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt;标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。
+</code></pre><p>该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML版本。（假如文档中的标记不遵循doctype声明所指定的DTD，这个文档除了不能通过代码校验之外，还有可能无法在浏览器中正确显示。）</p>
+<h3 id="lt-DOCTYPE-gt-的用法："><a href="#lt-DOCTYPE-gt-的用法：" class="headerlink" title="&lt;!DOCTYPE&gt;的用法："></a><code>&lt;!DOCTYPE&gt;</code>的用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+<p>解析：在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。浏览器将明白如何寻找匹配此公共标识符的 DTD。如果找不到，浏览器将使用公共标识符后面的 URL 作为寻找 DTD 的位置。</p>
+<p><code>-</code>  :   表示组织名称未注册。Internet 工程任务组(IETF)和万维网协会(W3C)并非注册的 ISO 组织。 <code>+</code>为默认,表示组织名称已注册。</p>
+<ul>
+<li><p>DTD  :   指定公开文本类，即所引用的对象类型。 默认为DTD。</p>
+</li>
+<li><p>HTML :   指定公开文本描述，即对所引用的公开文本的唯一描述性名称。后面可附带版本号。默认为HTML。</p>
+</li>
+<li><p>URL  ：  指定所引用对象的位置。</p>
+</li>
+<li><p>Strict：排除所有 W3C 专家希望逐步淘汰的代表性属性和元素。</p>
+</li>
+</ul>
+<h2 id="三种HTML文档类型"><a href="#三种HTML文档类型" class="headerlink" title="三种HTML文档类型:"></a>三种HTML文档类型:</h2><p>HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。</p>
+<p>a ) 如果需要干净的标记，免于表现层的混乱，用HTML Strict DTD类型：</p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot; http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot; http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot; http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+</code></pre><h2 id="三种-XML-文档类型："><a href="#三种-XML-文档类型：" class="headerlink" title="三种 XML 文档类型："></a>三种 XML 文档类型：</h2><p>XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。</p>
+<p>a ) 如果需要干净的标记，免于表现层的混乱，用XHTML Strict DTD类型：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+</code></pre><p>b )Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素. 如果用户使用了不支持层叠样式表（CSS）的浏览器以至于你不得不使用 HTML 的呈现特性时，用     Transitional DTD 类型：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+</code></pre><p>c ) Frameset DTD 被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;
+</code></pre><h3 id="选择正确的doctype："><a href="#选择正确的doctype：" class="headerlink" title="选择正确的doctype："></a>选择正确的doctype：</h3><p>为了获得正确的doctype声明，关键就是让dtd与文档所遵循的标准对应。</p>
+<p>例如，假定文档遵循的是xhtml 1.0 strict标准，文档的doctype声明就应该引用相应的dtd。</p>
+<p>另一方面，如果doctype声明指定的是xhtml dtd，但文档包含的是旧式风格的html标记，就是不恰当的；类似地，如果doctype声明指定的是html dtd，但文档包含的是</p>
+<p>xhtml 1.0 strict标记，同样是不恰当的。</p>
+<p>如果没有指定有效的doctype声明，大多数浏览器都会使用一个内建的默认dtd。在这种情况下， 浏览器会用内建的dtd来试着显示你所指定的标记(不过这是页面写得太糟糕的时候的做法)。</p>
+<p>看了一下京东、淘宝、还有博客园，用的都是这个（本人也一直都是用的这个）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+<p>但是发现百度跟谷歌用的是“&lt;!doctype html&gt;”，就再仔细查了一下资料，发现HTML5也是直接用的这个，不过是因为 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。</p>
+<p><strong>建议在以后都直接用“<code>&lt;!doctype html&gt;</code>”，用&lt;!doctype html&gt;的话就会开启浏览器的标准兼容模式，在标准兼容模式下，不能保证与其它版本（IE6之前的，直接忽略吧），的 Internet Explorer 保持兼容，文档的渲染行为也许与将来的 Internet Explorer 不同，但也请大家放心地使用吧~~</strong></p>
+<h4 id="小贴士："><a href="#小贴士：" class="headerlink" title="小贴士："></a>小贴士：</h4><p>XHTML 1就是HTML 4.01的XML化，是一种不向前兼容的格式。</p>
+<p>HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。</p>
+<p>SGML规定了在文档中嵌入描述标记的标准格式，指定了描述文档结构的标准方法，目前在WEB上使用的HTML格式便是使用固定标签集的一种 SGML文档。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/22/一行神奇的代码/" rel="next" title="一行神奇的代码">
+                <i class="fa fa-chevron-left"></i> 一行神奇的代码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/24/Title与H1，你真的明白了么？/" rel="prev" title="Title与title，你真的明白了么？">
+                Title与title，你真的明白了么？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法"><span class="nav-number">1.</span> <span class="nav-text"><!DOCTYPE>标签的定义与用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言："><span class="nav-number">1.1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-DOCTYPE-gt-的定义："><span class="nav-number">1.2.</span> <span class="nav-text"><!DOCTYPE>的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-DOCTYPE-gt-的用法："><span class="nav-number">1.3.</span> <span class="nav-text"><!DOCTYPE>的用法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种HTML文档类型"><span class="nav-number">2.</span> <span class="nav-text">三种HTML文档类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种-XML-文档类型："><span class="nav-number">3.</span> <span class="nav-text">三种 XML 文档类型：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择正确的doctype："><span class="nav-number">3.1.</span> <span class="nav-text">选择正确的doctype：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小贴士："><span class="nav-number">3.1.1.</span> <span class="nav-text">小贴士：</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

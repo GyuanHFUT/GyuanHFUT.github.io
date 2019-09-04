@@ -1,0 +1,579 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="元素所参考的样式用户可以自由的选择加以改变，而导入的样式表单就自动的与剩下的样式表融合在一起了
+CSS与HTML文档结合的4中方法：1 使用&amp;lt;link&amp;gt;元素链接到外部的样式文件2 在&amp;lt;head&amp;gt;元素中使用”style”元素来指定3 使用CSS “@import”标记来导入样式表单4 在&amp;lt;body&amp;gt;内部的元素中使用”style”属性来定义样式
+1 用link进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 样式引入的方法 link 与import的区别">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/CSS-样式引入的方法-link-与import的区别/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="元素所参考的样式用户可以自由的选择加以改变，而导入的样式表单就自动的与剩下的样式表融合在一起了
+CSS与HTML文档结合的4中方法：1 使用&amp;lt;link&amp;gt;元素链接到外部的样式文件2 在&amp;lt;head&amp;gt;元素中使用”style”元素来指定3 使用CSS “@import”标记来导入样式表单4 在&amp;lt;body&amp;gt;内部的元素中使用”style”属性来定义样式
+1 用link进行">
+<meta property="og:updated_time" content="2016-09-05T14:09:08.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 样式引入的方法 link 与import的区别">
+<meta name="twitter:description" content="元素所参考的样式用户可以自由的选择加以改变，而导入的样式表单就自动的与剩下的样式表融合在一起了
+CSS与HTML文档结合的4中方法：1 使用&amp;lt;link&amp;gt;元素链接到外部的样式文件2 在&amp;lt;head&amp;gt;元素中使用”style”元素来指定3 使用CSS “@import”标记来导入样式表单4 在&amp;lt;body&amp;gt;内部的元素中使用”style”属性来定义样式
+1 用link进行">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/05/CSS-样式引入的方法-link-与import的区别/"/>
+
+  <title> CSS 样式引入的方法 link 与import的区别 | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS 样式引入的方法 link 与import的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-05T22:08:46+08:00" content="2016-09-05">
+              2016-09-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><link> 元素所参考的样式用户可以自由的选择加以改变，而导入的样式表单就自动的与剩下的样式表融合在一起了</p>
+<p>CSS与HTML文档结合的4中方法：<br>1 使用<code>&lt;link&gt;</code>元素链接到外部的样式文件<br>2 在<code>&lt;head&gt;</code>元素中使用”style”元素来指定<br>3 使用CSS “@import”标记来导入样式表单<br>4 在<code>&lt;body&gt;</code>内部的元素中使用”style”属性来定义样式</p>
+<p>1 用link进行引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;my.css&quot;&gt;</div></pre></td></tr></table></figure>
+<p>2 用import进行引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        @import url(my.css);</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>第一种是直接在html页面上进行css书写，而第二种和第三种是采用外部引用样式单独提取文件。</p>
+<p>link和@import有什么区别？</p>
+<p>link元素<br>HTML和XHTML都有一个结构，它使网页作者可以增加于HTML文档相关的额外信息。这些额外资源可以是样式化信息（CSS）、导航助手、属于另 外形式的信息（RSS）、联系信息等等。<br>@import<br>指定导入的外部样式表及目标设备类型。<br>其实link和@import的最根本区别就是，link 是一个html 的一个标签 ，而@import 是css 的一个标签 ,<br>link除了调用css外还可以有其他作用譬如声明页面链接属性，声明目录，rss等等，而@import就只能<br>调用css</p>
+<p>问题2.link合import到底那个更好？<br>上面说了因为上面的老大不一样，所以在使用上就会有一些细节的区别，不能说总体谁好谁坏，只能说具体情况具体分析。</p>
+<p>1）我要用javascript进行样式选择；<br>这个时候就要用link,因为link是html元素，可用javascript去控制dom元素最后达到改变样式的效果。<br>看下列代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/styles.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/orange.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; title=&quot;orange&quot; /&gt;</div><div class="line">&lt;link rel=&quot;alternate stylesheet&quot; href=&quot;/css/blue.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; title=&quot;blue&quot; /&gt;</div><div class="line">&lt;link rel=&quot;alternate stylesheet&quot; href=&quot;/css/pink.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; title=&quot;pink&quot; /&gt;</div><div class="line">&lt;link rel=&quot;alternate stylesheet&quot; href=&quot;/css/slate.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; title=&quot;slate&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>这是一段很经典的改变页面风格的代码，因为我们今天主要讲的是link和import，所以我这里只列出了引用css部分。<br>我们先来看看link里面个个属性都是表达了什么意思：<br>[1]rel:用来声明链接对象的作用或者类型。<br>譬如上面的的代码：”stylesheet”表示链接一个默认的css,而”alternate stylesheet”折表示备选的css<br>[2]href:这个就不用我说了吧，引用css的文件路径。<br>[3]tyle:文件类型<br>[4]media:应用的设备，”screen”是说明应用在屏幕上。<br>[5]title:是css的名称。<br>这段代码中一共有5个css,第一个是基本样式，而其他四个是风格样式,利用javascript去控制默认显示的样式title就ok了。</p>
+<p>2）我要在应用打印样式；<br>打印样式顾名思义就是打印页面时候的样式。这个样式在普通浏览下是没有效果的，只有在打印的时候生效。如果要为页面单独引用打印样式的话，link和@import都可以的。</p>
+<p>link代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/styles.css&quot; type=&quot;text/css&quot; media=&quot;print&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>@import代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">@import url(foo.css) print;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>另外对于css来说还有一种方式@media：</p>
+<p>@media print {<br>@import “print.css”<br>}<br>用@media先制定设备为 print,然后再用@impor链接</p>
+<p>3）我要引用多个样式；<br>如果要在一个页面上引用多个样式组合产生效果的话，永link和@import也是都可以的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">link代码</div><div class="line"></div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/styles.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/orange.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;</div><div class="line"></div><div class="line">@import代码</div><div class="line"></div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        @import url(../css/base/my.layout.css);</div><div class="line">        @import url(../css/base/my.typo.css);</div><div class="line">       &lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>不过个人觉得，用@import引用多文件的时候更加清晰一些，另外对于多样式还有一种link于@import的组合用法。</p>
+<p>先用link引用一个css文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/styles.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;</div><div class="line">然后在这个css文件里面再引用。</div><div class="line"></div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        @import url(../css/base/my.layout.css);</div><div class="line">        @import url(../css/base/my.typo.css);</div><div class="line">       &lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>这样做的好处是，如果你一个站点所有页面引用的样式都是一样的，而有又多个css，如果你每个页面都加4,5个一样的css样式，却是浪费代码和精力，所以莫不如这样做，所有一个页面都引用一个css，然后一个css在引用多个css，方便管理和维护。</p>
+<p>加载css link与@import的区别：（加载顺序不一样）其实 link 与 @import 在显示效果上还是有很大区别的，基本上来看 link 的加在会在页面显示之前全部加在完全，而 @import 会是读取完文件之后加在，所以如果网速很好或很快的情况下，会出现先开始无css定义，而后加载css定义。@import加载页面时开始的瞬间会有闪烁 （无样式表的页面），然后才恢复正常（加载样式后的页面），Link没有这个问题。</p>
+<p>他们从方法上是一样的，只是在浏览器识别上有点差距，link在支持CSS的浏览器上都支持而@import只在5.0一行的版本有效，而且还能用 于浏览器过滤也就是hack的使用，兼容一些老版本的浏览器。所以最好还是使用link通用型更强，但是对于高版本的浏览器，也就是现在的浏览器来说，其 实都一样，这是个没有太大意义的区分 。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/IE盒子模型和标准W3C盒子模型/" rel="next" title="IE盒子模型和标准W3C盒子模型">
+                <i class="fa fa-chevron-left"></i> IE盒子模型和标准W3C盒子模型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/07/防止表单重复提交/" rel="prev" title="防止表单重复提交">
+                防止表单重复提交 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Web前端性能优化（上）1. 请减少HTTP请求基本原理：
+在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。
+一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前端性能优化（上）">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/Web前端性能优化（上）/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="Web前端性能优化（上）1. 请减少HTTP请求基本原理：
+在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。
+一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收">
+<meta property="og:updated_time" content="2016-09-01T14:45:59.509Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web前端性能优化（上）">
+<meta name="twitter:description" content="Web前端性能优化（上）1. 请减少HTTP请求基本原理：
+在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。
+一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/01/Web前端性能优化（上）/"/>
+
+  <title> Web前端性能优化（上） | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Web前端性能优化（上）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T22:45:34+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Web前端性能优化（上）"><a href="#Web前端性能优化（上）" class="headerlink" title="Web前端性能优化（上）"></a>Web前端性能优化（上）</h3><h4 id="1-请减少HTTP请求"><a href="#1-请减少HTTP请求" class="headerlink" title="1. 请减少HTTP请求"></a>1. 请减少HTTP请求</h4><p>基本原理：</p>
+<p>在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。</p>
+<p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
+<p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
+<p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
+<p>解决办法：</p>
+<p>合并图片（css sprites），合并CSS和JS文件；图片较多的页面也可以使用 lazyLoad 等技术进行优化。</p>
+<h4 id="2-请正确理解-Repaint-和-Reflow"><a href="#2-请正确理解-Repaint-和-Reflow" class="headerlink" title="2. 请正确理解 Repaint 和 Reflow"></a>2. 请正确理解 Repaint 和 Reflow</h4><p>注：Repaint 和 Reflow 也就是重绘和重排，请允许我在这卖弄下我有限认识的那么几个英语单词…囧</p>
+<p>基本原理：</p>
+<p>Repaint(重绘)就是在一个元素的外观被改变，但没有改变布局(宽高)的情况下发生，如改变visibility、outline、背景色等等。</p>
+<p>Reflow(重排)就是DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会噌噌的往上涨，所以前端也就有必要知道 Repaint 和 Reflow的知识。</p>
+<p>减少性能影响的办法：</p>
+<p>上面提到通过设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式； 有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局；如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</p>
+<p>总之，因为 Reflow 有时确实不可避免，所以只能尽可能限制Reflow的影响范围。</p>
+<h4 id="3-请减少对DOM的操作"><a href="#3-请减少对DOM的操作" class="headerlink" title="3. 请减少对DOM的操作"></a>3. 请减少对DOM的操作</h4><p>基本原理：</p>
+<p>对DOM操作的代价是高昂的，这在网页应用中的通常是一个性能瓶颈。</p>
+<p>天生就慢。在《高性能JavaScript》中这么比喻：“把DOM看成一个岛屿，把JavaScript(ECMAScript)看成另一个岛屿，两者之间以一座收费桥连接”。所以每次访问DOM都会教一个过桥费，而访问的次数越多，交的费用也就越多。所以一般建议尽量减少过桥次数。</p>
+<p>解决办法：</p>
+<p>修改和访问DOM元素会造成页面的Repaint和Reflow，循环对DOM操作更是罪恶的行为。所以请合理的使用JavaScript变量储存内容，考虑大量DOM元素中循环的性能开销，在循环结束时一次性写入。</p>
+<p>减少对DOM元素的查询和修改，查询时可将其赋值给局部变量。</p>
+<p>注：在IE中:hover会降低响应速度。</p>
+<h4 id="4-使用JSON格式来进行数据交换"><a href="#4-使用JSON格式来进行数据交换" class="headerlink" title="4. 使用JSON格式来进行数据交换"></a>4. 使用JSON格式来进行数据交换</h4><p>基本原理：</p>
+<p>JSON是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript原生格式，这意味着在 JavaScript 中处理 JSON数据不需要任何特殊的 API 或工具包。</p>
+<p>与XML序列化相比，JSON序列化后产生的数据一般要比XML序列化后数据体积小，所以在Facebook等知名网站中都采用了JSON作为数据交换方式。</p>
+<p>JS操作JSON：</p>
+<p>在JSON中，有两种结构： 对象和数组。</p>
+<ul>
+<li><ol>
+<li>一个对象以 “ { ”  开始，“ } ” 结束。每个“名称”后跟一个 “ : ” ；“名称/值 对”之间使用 “ ,  ”（逗号）分隔。 名称用引号括起来；值如果是字符串则必须用引号括起来，数值型则不需要。如：</li>
+</ol>
+</li>
+</ul>
+<p>var obj={“name”:”darren”,”age”:24,”location”:”beijing”}  </p>
+<ul>
+<li><ol>
+<li>数组是值（value）的有序集合。一个数组以 “ [ ” 开始， “ ] ” 结束。值之间使用 “ , ” （逗号）分隔。如：</li>
+</ol>
+</li>
+</ul>
+<p>var jsonlist=[{“name”:”darren”,”age”:24,”location”:”beijing”},{“name”:”weidong.nie”,”age”:24,”location”:”hunan”}];</p>
+<p>对这种数组和对象字面量的操作是非常方便且高效的。如果预先知道JSON结构的情况下，使用JSON进行数据传递简直是太美妙了，可以写出很实用美观可读性强的代码。如果你是纯粹的前台开发人员，一定会非常喜欢JSON。</p>
+<h4 id="5-高效使用HTML标签和CSS样式"><a href="#5-高效使用HTML标签和CSS样式" class="headerlink" title="5. 高效使用HTML标签和CSS样式"></a>5. 高效使用HTML标签和CSS样式</h4><p>基本原理：</p>
+<p>HTML是一门用来描述网页的一种语言，它使用标记标签来描述网页，作为一名合格的前端开发，你有必要去知道其常用标签代表的含义(SEO)和属性(表现形式)。</p>
+<p>CSS指层叠样式表 (Cascading Style Sheets)，如果说把页面想象成一个人，HTML就是人的骨架，CSS就是人的衣装，一个人的品味从他的衣装就能一目了然。</p>
+<p>一名专业的前端开发也是一名优秀的重构，因为在页面中经常会有各种不合理的嵌套和重复定义的CSS样式，我不是要你重构页面，只是希望你在碰到这种情况的时候解决这些问题。如这样的HTML：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">        &lt;table&gt;&lt;tr&gt;&lt;td&gt;</div><div class="line">2</div><div class="line">           &lt;table&gt;&lt;tr&gt;&lt;td&gt;</div><div class="line">3</div><div class="line">              ...</div><div class="line">4</div><div class="line">           &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</div><div class="line">5</div><div class="line">        &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</div></pre></td></tr></table></figure>
+<p>或者这样的CSS:</p>
+<p>body .box .border ul li p strong span{color:#000}</p>
+<p>以上都是对HTML和CSS非常糟糕的使用方法。<br>正确理解：</p>
+<p>HTML是一门标记语言，使用合理的HTML标签前你必须了解其属性，比如Flow Elements，Metadata Elements ，Phrasing Elements。比较基础的就是得知道块级元素和内联元素、盒模型、SEO方面的知识。</p>
+<p>CSS是用来渲染页面的，也是存在渲染效率的问题。CSS选择符是从右向左进行匹配的，这里对css选择符按照开销从小到大的顺序梳理一下：</p>
+<p>ID选择符 #box</p>
+<p>类选择符 .box</p>
+<p>标签 div</p>
+<p>伪类和伪元素 a:hover</p>
+<p>当页面被触发引起回流（reflow）的时候，低效的选择符依然会引发更高的开销，所以请避免低效。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/31/亲历某公司面试题/" rel="next" title="亲历某公司面试题">
+                <i class="fa fa-chevron-left"></i> 亲历某公司面试题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/Web前端性能优化（下）/" rel="prev" title="Web前端性能优化（下）">
+                Web前端性能优化（下） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web前端性能优化（上）"><span class="nav-number">1.</span> <span class="nav-text">Web前端性能优化（上）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-请减少HTTP请求"><span class="nav-number">1.1.</span> <span class="nav-text">1. 请减少HTTP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-请正确理解-Repaint-和-Reflow"><span class="nav-number">1.2.</span> <span class="nav-text">2. 请正确理解 Repaint 和 Reflow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-请减少对DOM的操作"><span class="nav-number">1.3.</span> <span class="nav-text">3. 请减少对DOM的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用JSON格式来进行数据交换"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用JSON格式来进行数据交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-高效使用HTML标签和CSS样式"><span class="nav-number">1.5.</span> <span class="nav-text">5. 高效使用HTML标签和CSS样式</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

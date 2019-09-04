@@ -1,0 +1,592 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, Mr Gao" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="计算机图形学与可视化课程报告专业班级：信息与计算科学13-2班  报 告 人： 高源 光照模型光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。
+一：光源特性
+光的色彩      （R、G、B ）
+光的强度       由R，G，B三种色光的强弱决定，总的光强为：
+Total_Value=0.30*Value_R+0.59*Value_G+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="memory">
+<meta property="og:url" content="http://yoursite.com/2016/10/21/计算机图形学与可视化课程报告/index.html">
+<meta property="og:site_name" content="memory">
+<meta property="og:description" content="计算机图形学与可视化课程报告专业班级：信息与计算科学13-2班  报 告 人： 高源 光照模型光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。
+一：光源特性
+光的色彩      （R、G、B ）
+光的强度       由R，G，B三种色光的强弱决定，总的光强为：
+Total_Value=0.30*Value_R+0.59*Value_G+">
+<meta property="og:image" content="http://yoursite.com/../images/1477032017500.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477037307184.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477038252050.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477037980015.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477038034496.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477038138341.png">
+<meta property="og:image" content="http://yoursite.com/../images/1477038209799.png">
+<meta property="og:image" content="http://yoursite.com/../images/1.png">
+<meta property="og:image" content="http://yoursite.com/../images/2.png">
+<meta property="og:image" content="http://yoursite.com/../images/3.png">
+<meta property="og:updated_time" content="2016-10-21T13:47:52.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memory">
+<meta name="twitter:description" content="计算机图形学与可视化课程报告专业班级：信息与计算科学13-2班  报 告 人： 高源 光照模型光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。
+一：光源特性
+光的色彩      （R、G、B ）
+光的强度       由R，G，B三种色光的强弱决定，总的光强为：
+Total_Value=0.30*Value_R+0.59*Value_G+">
+<meta name="twitter:image" content="http://yoursite.com/../images/1477032017500.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/21/计算机图形学与可视化课程报告/"/>
+
+  <title>  | memory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">memory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Mr Gao</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-21T21:45:55+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="计算机图形学与可视化课程报告"><a href="#计算机图形学与可视化课程报告" class="headerlink" title=" 计算机图形学与可视化课程报告"></a><center> 计算机图形学与可视化课程报告</center></h1><h4 id="专业班级：信息与计算科学13-2班-报-告-人：-高源"><a href="#专业班级：信息与计算科学13-2班-报-告-人：-高源" class="headerlink" title="专业班级：信息与计算科学13-2班  报 告 人： 高源 "></a><center>专业班级：信息与计算科学13-2班  <br>报 告 人： 高源 </center></h4><h3 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h3><h4 id="光照模型-Illumination-Model-描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。"><a href="#光照模型-Illumination-Model-描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。" class="headerlink" title="光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。"></a>光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。</h4><hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="../images/1477032017500.png" alt="Alt text"></h2><h4 id="一：光源特性"><a href="#一：光源特性" class="headerlink" title="一：光源特性"></a>一：光源特性</h4><ul>
+<li>光的色彩      （R、G、B ）</li>
+<li>光的强度  <pre><code>     由R，G，B三种色光的强弱决定，总的光强为：
+Total_Value=0.30*Value_R+0.59*Value_G+0.11*Value_B                                                                                                                                         点光源                                                                   
+</code></pre></li>
+<li>光的方向    又可以分为         点光源 ，分布式光源和漫射光源 </li>
+</ul>
+<h4 id="二：物体表面特性包括如下内容："><a href="#二：物体表面特性包括如下内容：" class="headerlink" title="二：物体表面特性包括如下内容："></a>二：物体表面特性包括如下内容：</h4><p><img src="../images/1477037307184.png" alt="Alt text"></p>
+<h5 id="⑴-反射系数"><a href="#⑴-反射系数" class="headerlink" title="⑴ 反射系数"></a>⑴ 反射系数</h5><p>由物体表面的材料和形状决定，分为漫反射(Diffuse Reflection)系数和镜面反射(Specular Reflection)系数</p>
+<h5 id="⑵-透射系数"><a href="#⑵-透射系数" class="headerlink" title="⑵ 透射系数"></a>⑵ 透射系数</h5><p>记为Tp，描述物体透射光线的能力，且有0≤Tp≤1。当Tp为1时，物体是完全透明的，当TP为0时，物体是完全不透明的。 </p>
+<h5 id="⑶-表面方向"><a href="#⑶-表面方向" class="headerlink" title="⑶ 表面方向"></a>⑶ 表面方向</h5><p>物体表面的方向用表面的法线n来表示。多面体物体表面上每个多边形之法线为n=(A,B,C)。其中A，B，C是多边形所在平面方程中x、y、z之系数。</p>
+<h3 id="光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。"><a href="#光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。" class="headerlink" title="光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。"></a>光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。</h3><h4 id="1-漫射光线的情况"><a href="#1-漫射光线的情况" class="headerlink" title="1.漫射光线的情况"></a>1.漫射光线的情况</h4><p><img src="../images/1477038252050.png" alt="Alt text"></p>
+<h4 id="⒉-直射光线的情况"><a href="#⒉-直射光线的情况" class="headerlink" title="⒉ 直射光线的情况"></a>⒉ 直射光线的情况</h4><p><img src="../images/1477037980015.png" alt="Alt text"><br>WP(i)是P点的镜面反射系数(入射角i的函数)。由于W(i)的计算比较复杂，实际中常用一个常数W代替。<br><img src="../images/1477038034496.png" alt="Alt text"><br>    n：控制高光的聚散。它和P点材料有关。对于光滑发亮的金属表面，n就取得大，从而产生会聚的高光点，对于石膏、水泥等无光泽的表面，n取得小，高光区就扩散。n取值一般在1~10之间。 </p>
+<h4 id="⒉-透射光线的情况"><a href="#⒉-透射光线的情况" class="headerlink" title="⒉ 透射光线的情况"></a>⒉ 透射光线的情况</h4><p><img src="../images/1477038138341.png" alt="Alt text"></p>
+<h4 id="将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式："><a href="#将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式：" class="headerlink" title="将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式："></a>将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式：</h4><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="../images/1477038209799.png" alt="Alt text"></h2><h2 id="明暗的光滑处理"><a href="#明暗的光滑处理" class="headerlink" title="明暗的光滑处理"></a>明暗的光滑处理</h2><p>在计算机图形学中，曲面体(例如球)通常是用多面体逼近表达的。这时，分别计算各个面的亮度，就会在多边形与多边形的交界处产生明暗的连续变化，影响曲面的显示效果。 </p>
+<p>解决方法：<br>    采用插补的方法，使得表面明暗光滑化。最常使用的表面明暗光滑化的方法有两种，称为Gourand方法和Phong方法。</p>
+<h3 id="Gourand光滑方法如下："><a href="#Gourand光滑方法如下：" class="headerlink" title="Gourand光滑方法如下："></a>Gourand光滑方法如下：</h3><p>基本思想：在每个多边形顶点处计算颜色，然后在各个多边形内部进行线性插值，得到多边形内部各点颜色。即它是一种颜色插值着色方法。<br>基本步骤：<br>⑴ 先计算出多面体顶点的法线方向<br>⑵ 用光照模型求得V点的亮度。<br>⑶ 由两顶点的亮度，插值得出棱上各点的亮度。由棱上各点的亮度，插值得出面上各点的亮度。<br><img src="../images/1.png" alt="Alt text"><br><img src="../images/2.png" alt="Alt text"></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>能有效的显示漫反射曲面，计算量小<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4></li>
+<li>高光有时会异常</li>
+<li>当对曲面采用不同的多边形进行分割时会产生不同的效果。</li>
+<li>Gouraud明暗处理会造成表面上出现过亮或过暗的条纹，称为马赫带（Mach_band）效应</li>
+<li>改进－Phong提出双线性法向插值，以时间为代价，解决高光问题</li>
+</ul>
+<h3 id="Phong明暗处理方法如下："><a href="#Phong明暗处理方法如下：" class="headerlink" title="Phong明暗处理方法如下："></a>Phong明暗处理方法如下：</h3><p>基本思想：通过对多边形顶点的法矢量进行插值，获得其内部各点的法矢量，又称为法向插值着色方法。<br>步骤<br>    1、计算多边形单位法矢量<br>    2、计算多边形顶点单位法矢量<br>     3、对多边形顶点法矢量进行双线性插值，                          获得内部各点的法矢量<br>     4、利用光照明方程计算多边形内部各点颜色</p>
+<p><img src="../images/3.png" alt="Alt text"></p>
+<h5 id="优点：-Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域"><a href="#优点：-Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域" class="headerlink" title="优点： Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域"></a>优点： Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域</h5><h5 id="缺点-1：Phong着色方法计算量远大于Gouraud着色方法"><a href="#缺点-1：Phong着色方法计算量远大于Gouraud着色方法" class="headerlink" title="缺点 1：Phong着色方法计算量远大于Gouraud着色方法"></a>缺点 1：Phong着色方法计算量远大于Gouraud着色方法</h5><h5 id="2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好"><a href="#2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好" class="headerlink" title="2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好"></a>2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好</h5><h5 id="Blinn-phong光照模型"><a href="#Blinn-phong光照模型" class="headerlink" title="Blinn-phong光照模型"></a>Blinn-phong光照模型</h5><p>相比较Phong模型，图形学界大牛Jim Blinn对Phong模型进行了改进，提出了Blinn-Phong模型。Blinn-phong模型只适用N•H替换了V•R，但却获得了明显的提高，它能提供比Phong更柔和、更平滑的高光，而且速度上也更快，因此成为很多CG软件中默认的光照渲染方法，同时也被集成到大多数的图形芯片中，而且在OpenGL和DirectX 3D的渲染管线中，它也是默认的光照模型。</p>
+<h5 id="在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。"><a href="#在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。" class="headerlink" title="在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。"></a>在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/16/前端江湖之烽烟起，剑在手/" rel="next" title="前端江湖之烽烟起，剑在手">
+                <i class="fa fa-chevron-left"></i> 前端江湖之烽烟起，剑在手
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/567571/4808bacf4cf6340a.jpg"
+               alt="高源" />
+          <p class="site-author-name" itemprop="name">高源</p>
+          <p class="site-description motion-element" itemprop="description">Find css to my html!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机图形学与可视化课程报告"><span class="nav-number">1.</span> <span class="nav-text"> 计算机图形学与可视化课程报告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#专业班级：信息与计算科学13-2班-报-告-人：-高源"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">专业班级：信息与计算科学13-2班  报 告 人： 高源 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光照模型"><span class="nav-number">1.0.1.</span> <span class="nav-text">光照模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#光照模型-Illumination-Model-描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">光照模型(Illumination Model)描述物体表面的色彩明暗同光源特性、物体表面特性之间的关系。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一：光源特性"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">一：光源特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二：物体表面特性包括如下内容："><span class="nav-number">1.1.0.2.</span> <span class="nav-text">二：物体表面特性包括如下内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#⑴-反射系数"><span class="nav-number">1.1.0.2.1.</span> <span class="nav-text">⑴ 反射系数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#⑵-透射系数"><span class="nav-number">1.1.0.2.2.</span> <span class="nav-text">⑵ 透射系数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#⑶-表面方向"><span class="nav-number">1.1.0.2.3.</span> <span class="nav-text">⑶ 表面方向</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。"><span class="nav-number">1.1.1.</span> <span class="nav-text">光照模型分3个部分描述这种关系，即漫射光线的情况、直线光线的情况和透射光线的情况。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-漫射光线的情况"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1.漫射光线的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#⒉-直射光线的情况"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">⒉ 直射光线的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#⒉-透射光线的情况"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">⒉ 透射光线的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式："><span class="nav-number">1.1.1.4.</span> <span class="nav-text">将上述3种情况综合起来，便获得物体表面P点处所发光强EP的计算公式：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明暗的光滑处理"><span class="nav-number">1.3.</span> <span class="nav-text">明暗的光滑处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gourand光滑方法如下："><span class="nav-number">1.3.1.</span> <span class="nav-text">Gourand光滑方法如下：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">1.3.1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.3.1.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phong明暗处理方法如下："><span class="nav-number">1.3.2.</span> <span class="nav-text">Phong明暗处理方法如下：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点：-Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域"><span class="nav-number">1.3.2.0.1.</span> <span class="nav-text">优点： Phong着色方法绘制的图形比Gouraud方法更真实，体现在两个方面：高光区域的扩散，产生正确的高光区域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点-1：Phong着色方法计算量远大于Gouraud着色方法"><span class="nav-number">1.3.2.0.2.</span> <span class="nav-text">缺点 1：Phong着色方法计算量远大于Gouraud着色方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好"><span class="nav-number">1.3.2.0.3.</span> <span class="nav-text">2：在处理某些多边形分割的曲面时，Phong还不如Gouraud好</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Blinn-phong光照模型"><span class="nav-number">1.3.2.0.4.</span> <span class="nav-text">Blinn-phong光照模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。"><span class="nav-number">1.3.2.0.5.</span> <span class="nav-text">在程序中，我们经常同时使用Gouraud和Phong两个模型，因为在现实世界中，任何表面都会同时发生漫反射和镜面反射两种现象，因此我们就要使用两种模型分别计算两种反射后的光强（也就是顶点颜色值），是渲染的效果看起来真实一些。但要注意，这样做并不会带来真正真实的渲染效果，毕竟这两种模型都是经验模型，考虑的都是理想情况下。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高源</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
