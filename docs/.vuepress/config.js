@@ -13,6 +13,7 @@ module.exports = {
                 "children": [
                     "/Article/code/地图学习",
                     "/Article/code/数据双向绑定的分析和简单实现",
+                    "/Article/code/多语言",
                 ]
             },
             {
