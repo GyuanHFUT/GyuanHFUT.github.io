@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实战 3：动态渲染 .vue 文件的组件—— Display | 源于生活</title>
+    <meta name="description" content="write something！">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.97ad5445.css" as="style"><link rel="preload" href="/assets/js/app.beb6e1a2.js" as="script"><link rel="preload" href="/assets/js/2.fb87c654.js" as="script"><link rel="preload" href="/assets/js/24.38b52520.js" as="script"><link rel="prefetch" href="/assets/js/10.76b112d8.js"><link rel="prefetch" href="/assets/js/11.aa7e37d8.js"><link rel="prefetch" href="/assets/js/12.16c26b7b.js"><link rel="prefetch" href="/assets/js/13.a5ff24d9.js"><link rel="prefetch" href="/assets/js/14.76e2d83a.js"><link rel="prefetch" href="/assets/js/15.7531a012.js"><link rel="prefetch" href="/assets/js/16.32b1eed6.js"><link rel="prefetch" href="/assets/js/17.98086da0.js"><link rel="prefetch" href="/assets/js/18.ce8a9952.js"><link rel="prefetch" href="/assets/js/19.1b9a8c39.js"><link rel="prefetch" href="/assets/js/20.216b83ff.js"><link rel="prefetch" href="/assets/js/21.caf31454.js"><link rel="prefetch" href="/assets/js/22.14b71624.js"><link rel="prefetch" href="/assets/js/23.8b830af2.js"><link rel="prefetch" href="/assets/js/25.1b35fa6f.js"><link rel="prefetch" href="/assets/js/26.a60509d3.js"><link rel="prefetch" href="/assets/js/27.d1de37b1.js"><link rel="prefetch" href="/assets/js/28.e8a55e3b.js"><link rel="prefetch" href="/assets/js/29.6d4afabc.js"><link rel="prefetch" href="/assets/js/3.6e21b941.js"><link rel="prefetch" href="/assets/js/30.7d58ead2.js"><link rel="prefetch" href="/assets/js/31.1506f023.js"><link rel="prefetch" href="/assets/js/4.c063c58b.js"><link rel="prefetch" href="/assets/js/5.e9ec8af5.js"><link rel="prefetch" href="/assets/js/6.1d843266.js"><link rel="prefetch" href="/assets/js/7.af3685bd.js"><link rel="prefetch" href="/assets/js/8.516f11f2.js"><link rel="prefetch" href="/assets/js/9.6b635f29.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.97ad5445.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">源于生活</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>关于code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>vue组件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/code/vue组件精讲/1.vue.js的精髓--组件.html" class="sidebar-link">开篇：Vue.js 的精髓——组件</a></li><li><a href="/Article/code/vue组件精讲/2.基础：Vue.js 组件的三个 API：prop、event、slot.html" class="sidebar-link">基础：Vue.js 组件的三个 API：prop、event、slot</a></li><li><a href="/Article/code/vue组件精讲/4.组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法.html" class="sidebar-link">组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法</a></li><li><a href="/Article/code/vue组件精讲/5.实战 1：具有数据校验功能的表单组件——Form.html" class="sidebar-link">实战 1：具有数据校验功能的表单组件——Form</a></li><li><a href="/Article/code/vue组件精讲/6.组件的通信 3：找到任意组件实例——findComponents 系列方法.html" class="sidebar-link">组件的通信 3：找到任意组件实例——findComponents 系列方法</a></li><li><a href="/Article/code/vue组件精讲/7.实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox.html" class="sidebar-link">实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox</a></li><li><a href="/Article/code/vue组件精讲/8.Vue 的构造器——extend 与手动挂载——$mount.html" class="sidebar-link">Vue 的构造器——extend 与手动挂载——$mount</a></li><li><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html" class="active sidebar-link">实战 3：动态渲染 .vue 文件的组件—— Display</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html#接口设计" class="sidebar-link">接口设计</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html#实现" class="sidebar-link">实现</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html#使用" class="sidebar-link">使用</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html#结语" class="sidebar-link">结语</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html#扩展阅读" class="sidebar-link">扩展阅读</a></li></ul></li><li><a href="/Article/code/vue组件精讲/10.实战 4：全局提示组件——$Alert.html" class="sidebar-link">实战 4：全局提示组件——$Alert</a></li><li><a href="/Article/code/vue组件精讲/11.更灵活的组件：Render 函数与 Functional Render.html" class="sidebar-link">更灵活的组件：Render 函数与 Functional Render</a></li><li><a href="/Article/code/vue组件精讲/12.实战 5：可用 Render 自定义列的表格组件——Table.html" class="sidebar-link">实战 5：可用 Render 自定义列的表格组件——Table</a></li><li><a href="/Article/code/vue组件精讲/13.实战 6：可用 slot-scope 自定义列的表格组件——Table.html" class="sidebar-link">实战 6：可用 slot-scope 自定义列的表格组件——Table</a></li><li><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html" class="sidebar-link">递归组件与动态组件</a></li><li><a href="/Article/code/vue组件精讲/15.实战 7：树形控件——Tree.html" class="sidebar-link">实战 7：树形控件——Tree</a></li><li><a href="/Article/code/vue组件精讲/16.拓展：Vue.js 容易忽略的 API 详解.html" class="sidebar-link">拓展：Vue.js 容易忽略的 API 详解</a></li><li><a href="/Article/code/vue组件精讲/17.拓展：Vue.js 面试、常见问题答疑.html" class="sidebar-link">拓展：Vue.js 面试、常见问题答疑</a></li><li><a href="/Article/code/vue组件精讲/18.拓展：如何做好一个开源项目（上篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（上篇）</a></li><li><a href="/Article/code/vue组件精讲/19.拓展：如何做好一个开源项目（下篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（下篇）</a></li><li><a href="/Article/code/vue组件精讲/20.写在最后.html" class="sidebar-link">/Article/code/vue组件精讲/20.写在最后.html</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于生活</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/life/选房.html" class="sidebar-link">待选名单</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实战-3：动态渲染-vue-文件的组件——-display"><a href="#实战-3：动态渲染-vue-文件的组件——-display" aria-hidden="true" class="header-anchor">#</a> 实战 3：动态渲染 .vue 文件的组件—— Display</h1> <p>你可能用过 <a href="https://link.juejin.im/?target=https%3A%2F%2Fjsfiddle.net%2F" target="_blank" rel="noopener noreferrer">jsfiddle<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 或 <a href="https://link.juejin.im/?target=https%3A%2F%2Fjsbin.com" target="_blank" rel="noopener noreferrer">jsbin<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 之类的网站，在里面你可以用 CDN 的形式引入 Vue.js，然后在线写示例，实时运行，比如下面这个例子：</p> <p><a href="https://link.juejin.im/?target=https%3A%2F%2Fjsfiddle.net%2Fc87yh92v%2F" target="_blank" rel="noopener noreferrer">jsfiddle.net/c87yh92v/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>不过，这类网站主要是一个 html，里面包含 js、css 部分，渲染侧是用 iframe 嵌入你编写的 html，并实时更新。在这些网站写示例，是不能直接写 <code>.vue</code> 文件的，因为没法进行编译。</p> <p>再来看另一个网站 <a href="https://link.juejin.im/?target=https%3A%2F%2Frun.iviewui.com%2F" target="_blank" rel="noopener noreferrer">iView Run<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>（之前小节也有提到），它是能够在线编写一个标准的 <code>.vue</code> 文件，并及时渲染的，它也预置了 iView 环境，你可以使用 iView 组件库全部的组件。本小节，我们就来实现这样一个能够动态渲染 .vue 文件的 <code>Display</code> 组件，当然，用到的核心技术就是上一节的 <code>extend</code> 和 <code>$mount</code>。</p> <h2 id="接口设计"><a href="#接口设计" aria-hidden="true" class="header-anchor">#</a> 接口设计</h2> <p>一个常规的 <code>.vue</code> 文件一般都会包含 3 个部分：</p> <ul><li><code>&lt;template&gt;</code>：组件的模板；</li> <li><code>&lt;script&gt;</code>：组件的选项，不包含 <code>el</code>；</li> <li><code>&lt;style&gt;</code>：CSS 样式。</li></ul> <p>回忆一下用 <code>extend</code> 来构造一个组件实例，它的选项 <code>template</code> 其实就是上面 <code>&lt;template&gt;</code> 的内容，其余选项对应的是 <code>&lt;script&gt;</code>，样式 <code>&lt;style&gt;</code> 事实上与 Vue.js 无关，我们可以先不管。这样的话，当拿到一个 .vue 的文件（整体其实是字符串），只需要把 <code>&lt;template&gt;</code>、<code>&lt;script&gt;</code>、<code>&lt;style&gt;</code> 使用正则分割，把对应的部分传递给 extend 创建的实例就可以。</p> <p>Display 是一个功能型的组件，没有交互和事件，只需要一个 prop：code 将 .vue 的内容传递过来，其余工作都是在组件内完成的，这对使用者很友好。当然，你也可以设计成三个 props，分别对应 html、js、css，那分割的工作就要使用者来完成。出于使用者优先原则，苦活累活当然是在组件内完成了，因此推荐第一个方案。</p> <h2 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h2> <p>在 <code>src/components</code> 目录下创建 <code>display</code> 目录，并新建 <code>display.vue</code> 文件，基本结构如下：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> display<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">&quot;display&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      code<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        html<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        js<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        css<span class="token punctuation">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>父级传递 <code>code</code> 后，将其分割，并保存在 data 的 html、js、css 中，后续使用。</p> <p>我们使用正则，基于 <code>&lt;&gt;</code> 和 <code>&lt;/&gt;</code> 的特性进行分割：</p> <div class="language- extra-class"><pre class="language-text"><code>// display.vue，部分代码省略
+export default {
+  methods: {
+    getSource (source, type) {
+      const regex = new RegExp(`&lt;${type}[^&gt;]*&gt;`);
+      let openingTag = source.match(regex);
+
+      if (!openingTag) return '';
+      else openingTag = openingTag[0];
+
+      return source.slice(source.indexOf(openingTag) + openingTag.length, source.lastIndexOf(`&lt;/${type}&gt;`));
+    },
+    splitCode () {
+      const script = this.getSource(this.code, 'script').replace(/export default/, 'return ');
+      const style = this.getSource(this.code, 'style');
+      const template = '&lt;div id=&quot;app&quot;&gt;' + this.getSource(this.code, 'template') + '&lt;/div&gt;';
+
+      this.js = script;
+      this.css = style;
+      this.html = template;
+    },
+  }
+}
+</code></pre></div><p>getSource 方法接收两个参数：</p> <ul><li>source：.vue 文件代码，即 props: code；</li> <li>type：分割的部分，也就是 template、script、style。</li></ul> <p>分割后，返回的内容不再包含 <code>&lt;template&gt;</code> 等标签，直接是对应的内容，在 splitCode 方法中，把分割好的代码分别赋值给 data 中声明的 html、js、css。有两个细节需要注意：</p> <ol><li>.vue 的 <code>&lt;script&gt;</code> 部分一般都是以 <code>export default</code> 开始的，可以看到在 splitCode 方法中将它替换为了 <code>return</code>，这个在后文会做解释，当前只要注意，我们分割完的代码，仍然是字符串；</li> <li>在分割的 <code>&lt;template&gt;</code> 外层套了一个 <code>&lt;div id=&quot;app&quot;&gt;</code>，这是为了容错，有时使用者传递的 <code>code</code>可能会忘记在外层包一个节点，没有根节点的组件，是会报错的。</li></ol> <p>准备好这些基础工作后，就可以用 <code>extend</code> 渲染组件了，在这之前，我们先思考一个问题：上文说到，当前的 <code>this.js</code> 是字符串，而 extend 接收的选项可不是字符串，而是一个对象类型，那就要先把 this.js 转为一个对象。</p> <p>不卖关子，来介绍 <code>new Function</code> 用法，先看个示例：</p> <div class="language- extra-class"><pre class="language-text"><code>const sum = new Function('a', 'b', 'return a + b');
+
+console.log(sum(2, 6)); // 8
+</code></pre></div><p>new Function 的语法：</p> <div class="language- extra-class"><pre class="language-text"><code>new Function ([arg1[, arg2[, ...argN]],] functionBody)
+</code></pre></div><p>arg1, arg2, ... argN 是被函数使用的参数名称，<strong>functionBody</strong> 是一个含有包括函数定义的 JavaScript 语句的<strong>字符串</strong>。也就是说，示例中的字符串 <code>return a + b</code> 被当做语句执行了。</p> <p>上文说到，<code>this.js</code> 中是将 <em>export default</em> 替换为 <em>return</em> 的，如果将 this.js 传入 new Function 里，那么 this.js 就执行了，这时因为有 return，返回的就是一个对象类型的 this.js 了。</p> <p>如果你还不是很理解 new Function，可以到文末的扩展阅读进一步了解。除了 new Function，你熟悉的 <code>eval</code> 函数也可以使用，它与 new Function 功能类似。</p> <p>知道了这些，下面的内容就容易理解了：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> display<span class="token punctuation">.</span>vue，部分代码省略 <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">&quot;display&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        component<span class="token punctuation">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token function">renderCode</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">splitCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>html <span class="token operator">!==</span> <span class="token string">''</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>js <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> parseStrToFunc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>js<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          parseStrToFunc<span class="token punctuation">.</span>template <span class="token operator">=</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+          <span class="token keyword">const</span> Component <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span> parseStrToFunc <span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>component <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Component</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>display<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>component<span class="token punctuation">.</span>$el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">mounted</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>extend 构造的实例通过 $mount 渲染后，挂载到了组件唯一的一个节点 <code>&lt;div ref=&quot;display&quot;&gt;</code> 上。</p> <p>现在 html 和 js 都有了，还剩下 css。加载 css 没有什么奇技淫巧，就是创建一个 <code>&lt;style&gt;</code> 标签，然后把 css 写进去，再插入到页面的 <code>&lt;head&gt;</code> 中，这样 css 就被浏览器解析了。为了便于后面在 <code>this.code</code> 变化或组件销毁时移除动态创建的 <code>&lt;style&gt;</code> 标签，我们给每个 style 标签加一个随机 id 用于标识。</p> <p>在 <code>src/utils</code> 目录下新建 <code>random_str.js</code> 文件，并写入以下内容：</p> <div class="language- extra-class"><pre class="language-text"><code>// 生成随机字符串
+export default function (len = 32) {
+  const $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  const maxPos = $chars.length;
+  let str = '';
+  for (let i = 0; i &lt; len; i++) {
+    str += $chars.charAt(Math.floor(Math.random() * maxPos));
+  }
+  return str;
+}
+</code></pre></div><p>不难理解，这个方法是从指定的 a-zA-Z0-9 中随机生成 32 位的字符串。</p> <p>补全 renderCode 方法：</p> <div class="language- extra-class"><pre class="language-text"><code>// display.vue，部分代码省略
+import randomStr from '../../utils/random_str.js';
+
+export default {
+  data () {
+    return {
+      id: randomStr()
+    }
+  },
+  methods: {
+    renderCode () {
+      if (this.html !== '' &amp;&amp; this.js !== '') {
+        // ...
+        if (this.css !== '') {
+          const style = document.createElement('style');
+          style.type = 'text/css';
+          style.id = this.id;
+          style.innerHTML = this.css;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+    }
+  }
+}
+</code></pre></div><p>当 Display 组件销毁时，也要手动销毁 extend 创建的实例以及上面的 css：</p> <div class="language- extra-class"><pre class="language-text"><code>// display.vue，部分代码省略
+export default {
+  methods: {
+    destroyCode () {
+      const $target = document.getElementById(this.id);
+      if ($target) $target.parentNode.removeChild($target);
+
+      if (this.component) {
+        this.$refs.display.removeChild(this.component.$el);
+        this.component.$destroy();
+        this.component = null;
+      }
+    }
+  },
+  beforeDestroy () {
+    this.destroyCode();
+  }
+}
+</code></pre></div><p>当 <code>this.code</code> 更新时，整个过程要重新来一次，所以要对 <code>code</code> 进行 watch 监听：</p> <div class="language- extra-class"><pre class="language-text"><code>// display.vue，部分代码省略
+export default {
+  watch: {
+    code () {
+      this.destroyCode();
+      this.renderCode();
+    }
+  }
+}
+</code></pre></div><p>以上就是 Display 组件的所有内容。</p> <h2 id="使用"><a href="#使用" aria-hidden="true" class="header-anchor">#</a> 使用</h2> <p>新建一条路由，并在 <code>src/views</code> 下新建页面 <code>display.vue</code> 来使用 Display 组件：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> src<span class="token operator">/</span>views<span class="token operator">/</span>display<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>h3<span class="token operator">&gt;</span>动态渲染 <span class="token punctuation">.</span>vue 文件的组件—— Display<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>i<span class="token operator">-</span>display <span class="token punctuation">:</span>code<span class="token operator">=</span><span class="token string">&quot;code&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">-</span>display<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">import</span> iDisplay <span class="token keyword">from</span> <span class="token string">'../components/display/display.vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> defaultCode <span class="token keyword">from</span> <span class="token string">'./default-code.js'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span> iDisplay <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        code<span class="token punctuation">:</span> defaultCode
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token comment">// src/views/default-code.js</span>
+<span class="token keyword">const</span> code <span class="token operator">=</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;template&gt;
+    &lt;div&gt;
+        &lt;input v-model=&quot;message&quot;&gt;
+        {{ message }}
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        data () {
+            return {
+                message: ''
+            }
+        }
+    }
+&lt;/script&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> code<span class="token punctuation">;</span>
+</code></pre></div><p>如果使用的是 Vue CLI 3 默认的配置，直接运行时，会抛出下面的错误：</p> <blockquote><p>[Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</p></blockquote> <p>这涉及到另一个知识点，就是 Vue.js 的版本。在使用 Vue.js 2 时，有独立构建（standalone）和运行时构建（runtime-only）两种版本可供选择，详细的介绍请阅读文末扩展阅读 2。</p> <p>Vue CLI 3 默认使用了 vue.runtime.js，它不允许编译 template 模板，因为我们在 Vue.extend 构造实例时，用了 <code>template</code> 选项，所以会报错。解决方案有两种，一是手动将 template 改写为 Render 函数，但这成本太高；另一种是对 Vue CLI 3 创建的工程做简单的配置。我们使用后者。</p> <p>在项目根目录，新建文件 <code>vue.config.js</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>module.exports = {
+  runtimeCompiler: true
+};
+</code></pre></div><p>它的作用是，是否使用包含运行时编译器的 Vue 构建版本。设置为 <code>true</code> 后就可以在 Vue 组件中使用 <code>template</code> 选项了，但是应用额外增加 10kb 左右（还好吧）。</p> <p>加了这个配置，报错就消失了，组件也能正常显示。</p> <p>以上就是 Display 组件所有的内容，如果你感兴趣，可以把它进一步封装，做成 iView Run 这样的产品。</p> <h2 id="结语"><a href="#结语" aria-hidden="true" class="header-anchor">#</a> 结语</h2> <p>这个小小的 Display 组件，能做的事还有很多，比如要写一套 Vue 组件库的文档，传统方法是在开发环境写一个个的 .vue 文件，然后编译打包、上传资源、上线，如果要修改，哪怕一个标点符号，都要重新编译打包、上传资源、上线。有了 Display 组件，只需要提供一个服务来在线修改文档的 .vue，就能实时更新，不用打包、上传、上线。</p> <p>还有一点很重要的是，可以看到，在 iView Run 里，默认是直接可以写 iView 组件库的全部组件，并没有额外引入，这是因为 Display 所在的工程，已经将 iView 安装在了全局，Vue.extend 在构造实例时，已经可以使用全局安装的插件了，如果你还全局安装了其它插件，比如 axios，都是可以直接使用的。</p> <h2 id="扩展阅读"><a href="#扩展阅读" aria-hidden="true" class="header-anchor">#</a> 扩展阅读</h2> <ul><li><a href="https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FFunction" target="_blank" rel="noopener noreferrer">new Function<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://link.juejin.im/?target=https%3A%2F%2Fjingsam.github.io%2F2016%2F10%2F23%2Fstandalone-vs-runtime-only-build-in-vuejs2.html" target="_blank" rel="noopener noreferrer">Vue.js 2.0 独立构建和运行时构建的区别<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/Article/code/vue组件精讲/8.Vue 的构造器——extend 与手动挂载——$mount.html" class="prev">
+          Vue 的构造器——extend 与手动挂载——$mount
+        </a></span> <span class="next"><a href="/Article/code/vue组件精讲/10.实战 4：全局提示组件——$Alert.html">
+          实战 4：全局提示组件——$Alert
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.beb6e1a2.js" defer></script><script src="/assets/js/2.fb87c654.js" defer></script><script src="/assets/js/24.38b52520.js" defer></script>
+  </body>
+</html>

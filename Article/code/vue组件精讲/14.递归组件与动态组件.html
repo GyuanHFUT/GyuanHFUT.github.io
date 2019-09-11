@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>递归组件与动态组件 | 源于生活</title>
+    <meta name="description" content="write something！">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.97ad5445.css" as="style"><link rel="preload" href="/assets/js/app.beb6e1a2.js" as="script"><link rel="preload" href="/assets/js/2.fb87c654.js" as="script"><link rel="preload" href="/assets/js/10.76b112d8.js" as="script"><link rel="prefetch" href="/assets/js/11.aa7e37d8.js"><link rel="prefetch" href="/assets/js/12.16c26b7b.js"><link rel="prefetch" href="/assets/js/13.a5ff24d9.js"><link rel="prefetch" href="/assets/js/14.76e2d83a.js"><link rel="prefetch" href="/assets/js/15.7531a012.js"><link rel="prefetch" href="/assets/js/16.32b1eed6.js"><link rel="prefetch" href="/assets/js/17.98086da0.js"><link rel="prefetch" href="/assets/js/18.ce8a9952.js"><link rel="prefetch" href="/assets/js/19.1b9a8c39.js"><link rel="prefetch" href="/assets/js/20.216b83ff.js"><link rel="prefetch" href="/assets/js/21.caf31454.js"><link rel="prefetch" href="/assets/js/22.14b71624.js"><link rel="prefetch" href="/assets/js/23.8b830af2.js"><link rel="prefetch" href="/assets/js/24.38b52520.js"><link rel="prefetch" href="/assets/js/25.1b35fa6f.js"><link rel="prefetch" href="/assets/js/26.a60509d3.js"><link rel="prefetch" href="/assets/js/27.d1de37b1.js"><link rel="prefetch" href="/assets/js/28.e8a55e3b.js"><link rel="prefetch" href="/assets/js/29.6d4afabc.js"><link rel="prefetch" href="/assets/js/3.6e21b941.js"><link rel="prefetch" href="/assets/js/30.7d58ead2.js"><link rel="prefetch" href="/assets/js/31.1506f023.js"><link rel="prefetch" href="/assets/js/4.c063c58b.js"><link rel="prefetch" href="/assets/js/5.e9ec8af5.js"><link rel="prefetch" href="/assets/js/6.1d843266.js"><link rel="prefetch" href="/assets/js/7.af3685bd.js"><link rel="prefetch" href="/assets/js/8.516f11f2.js"><link rel="prefetch" href="/assets/js/9.6b635f29.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.97ad5445.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">源于生活</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>关于code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>vue组件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/code/vue组件精讲/1.vue.js的精髓--组件.html" class="sidebar-link">开篇：Vue.js 的精髓——组件</a></li><li><a href="/Article/code/vue组件精讲/2.基础：Vue.js 组件的三个 API：prop、event、slot.html" class="sidebar-link">基础：Vue.js 组件的三个 API：prop、event、slot</a></li><li><a href="/Article/code/vue组件精讲/4.组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法.html" class="sidebar-link">组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法</a></li><li><a href="/Article/code/vue组件精讲/5.实战 1：具有数据校验功能的表单组件——Form.html" class="sidebar-link">实战 1：具有数据校验功能的表单组件——Form</a></li><li><a href="/Article/code/vue组件精讲/6.组件的通信 3：找到任意组件实例——findComponents 系列方法.html" class="sidebar-link">组件的通信 3：找到任意组件实例——findComponents 系列方法</a></li><li><a href="/Article/code/vue组件精讲/7.实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox.html" class="sidebar-link">实战 2：组合多选框组件——CheckboxGroup &amp; Checkbox</a></li><li><a href="/Article/code/vue组件精讲/8.Vue 的构造器——extend 与手动挂载——$mount.html" class="sidebar-link">Vue 的构造器——extend 与手动挂载——$mount</a></li><li><a href="/Article/code/vue组件精讲/9.实战 3：动态渲染 .vue 文件的组件—— Display.html" class="sidebar-link">实战 3：动态渲染 .vue 文件的组件—— Display</a></li><li><a href="/Article/code/vue组件精讲/10.实战 4：全局提示组件——$Alert.html" class="sidebar-link">实战 4：全局提示组件——$Alert</a></li><li><a href="/Article/code/vue组件精讲/11.更灵活的组件：Render 函数与 Functional Render.html" class="sidebar-link">更灵活的组件：Render 函数与 Functional Render</a></li><li><a href="/Article/code/vue组件精讲/12.实战 5：可用 Render 自定义列的表格组件——Table.html" class="sidebar-link">实战 5：可用 Render 自定义列的表格组件——Table</a></li><li><a href="/Article/code/vue组件精讲/13.实战 6：可用 slot-scope 自定义列的表格组件——Table.html" class="sidebar-link">实战 6：可用 slot-scope 自定义列的表格组件——Table</a></li><li><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html" class="active sidebar-link">递归组件与动态组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html#递归组件" class="sidebar-link">递归组件</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html#动态组件" class="sidebar-link">动态组件</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html#结语" class="sidebar-link">结语</a></li><li class="sidebar-sub-header"><a href="/Article/code/vue组件精讲/14.递归组件与动态组件.html#扩展阅读" class="sidebar-link">扩展阅读</a></li></ul></li><li><a href="/Article/code/vue组件精讲/15.实战 7：树形控件——Tree.html" class="sidebar-link">实战 7：树形控件——Tree</a></li><li><a href="/Article/code/vue组件精讲/16.拓展：Vue.js 容易忽略的 API 详解.html" class="sidebar-link">拓展：Vue.js 容易忽略的 API 详解</a></li><li><a href="/Article/code/vue组件精讲/17.拓展：Vue.js 面试、常见问题答疑.html" class="sidebar-link">拓展：Vue.js 面试、常见问题答疑</a></li><li><a href="/Article/code/vue组件精讲/18.拓展：如何做好一个开源项目（上篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（上篇）</a></li><li><a href="/Article/code/vue组件精讲/19.拓展：如何做好一个开源项目（下篇）.html" class="sidebar-link">拓展：如何做好一个开源项目（下篇）</a></li><li><a href="/Article/code/vue组件精讲/20.写在最后.html" class="sidebar-link">/Article/code/vue组件精讲/20.写在最后.html</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于生活</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/life/选房.html" class="sidebar-link">待选名单</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="递归组件与动态组件"><a href="#递归组件与动态组件" aria-hidden="true" class="header-anchor">#</a> 递归组件与动态组件</h1> <h2 id="递归组件"><a href="#递归组件" aria-hidden="true" class="header-anchor">#</a> 递归组件</h2> <p>递归组件就是指组件在模板中调用自己，开启递归组件的必要条件，就是在组件中设置一个 <code>name</code> 选项。比如下面的示例：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>my<span class="token operator">-</span>component<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>my<span class="token operator">-</span>component<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'my-component'</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>在 Webpack 中导入一个 Vue.js 组件，一般是通过 <code>import myComponent from 'xxx'</code> 这样的语法，然后在当前组件（页面）的 <code>components: { myComponent }</code> 里注册组件。这种组件是不强制设置 <code>name</code>字段的，组件的名字都是使用者在 import 进来后自定义的，但递归组件的使用者是组件自身，它得知道这个组件叫什么，因为没有用 <code>components</code> 注册，所以 <code>name</code> 字段就是必须的了。除了递归组件用 <code>name</code>，我们在之前的小节也介绍过，用一些特殊的方法，通过遍历匹配组件的 name 选项来寻找组件实例。</p> <p>不过呢，上面的示例是有问题的，如果直接运行，会抛出 <code>max stack size exceeded</code> 的错误，因为组件会无限递归下去，死循环。解决这个问题，就要给递归组件一个限制条件，一般会在递归组件上用 <code>v-if</code> 在某个地方设置为 <code>false</code> 来终结。比如我们给上面的示例加一个属性 count，当大于 5 时就不再递归：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>my<span class="token operator">-</span>component <span class="token punctuation">:</span>count<span class="token operator">=</span><span class="token string">&quot;count + 1&quot;</span> v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;count &lt;= 5&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>my<span class="token operator">-</span>component<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      count<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>所以，总结下来，实现一个递归组件的必要条件是：</p> <ul><li>要给组件设置 <strong>name</strong>；</li> <li>要有一个明确的结束条件</li></ul> <p>递归组件常用来开发具有未知层级关系的独立组件，在业务开发中很少使用。比如常见的有级联选择器和树形控件：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="540"></svg>)</p> <p>这类组件一般都是数据驱动型的，父级有一个字段 children，然后递归。下一节的实战，会开发一个树形控件 Tree。</p> <h2 id="动态组件"><a href="#动态组件" aria-hidden="true" class="header-anchor">#</a> 动态组件</h2> <p>有的时候，我们希望根据一些条件，动态地切换某个组件，或动态地选择渲染某个组件。在之前小节介绍函数式组件 Functional Render 时，已经说过，它是一个没有上下文的函数，常用于程序化地在多个组件中选择一个。使用 Render 或 Functional Render 可以解决动态切换组件的需求，不过那是基于一个 JS 对象（Render 函数），而 Vue.js 提供了另外一个内置的组件 <code>&lt;component&gt;</code> 和 <code>is</code> 特性，可以更好地实现动态组件。</p> <p>先来看一个 <code>&lt;component&gt;</code> 和 <code>is</code> 的基本示例，首先定义三个普通组件：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> a<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    组件 <span class="token constant">A</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> b<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    组件 <span class="token constant">B</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> c<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    组件 <span class="token constant">C</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>然后在父组件中导入这 3 个组件，并动态切换：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">&quot;handleChange('A')&quot;</span><span class="token operator">&gt;</span>显示 <span class="token constant">A</span> 组件<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">&quot;handleChange('B')&quot;</span><span class="token operator">&gt;</span>显示 <span class="token constant">B</span> 组件<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">&quot;handleChange('C')&quot;</span><span class="token operator">&gt;</span>显示 <span class="token constant">C</span> 组件<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>component <span class="token punctuation">:</span>is<span class="token operator">=</span><span class="token string">&quot;component&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>component<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">import</span> componentA <span class="token keyword">from</span> <span class="token string">'../components/a.vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> componentB <span class="token keyword">from</span> <span class="token string">'../components/b.vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> componentC <span class="token keyword">from</span> <span class="token string">'../components/c.vue'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        component<span class="token punctuation">:</span> componentA
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handleChange</span> <span class="token punctuation">(</span><span class="token parameter">component</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>component <span class="token operator">===</span> <span class="token string">'A'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>component <span class="token operator">=</span> componentA<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>component <span class="token operator">===</span> <span class="token string">'B'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>component <span class="token operator">=</span> componentB<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>component <span class="token operator">===</span> <span class="token string">'C'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>component <span class="token operator">=</span> componentC<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>这里的 <code>is</code> 动态绑定的是一个组件对象（Object），它直接指向 a / b / c 三个组件中的一个。除了直接绑定一个 Object，还可以是一个 String，比如标签名、组件名。下面的这个组件，将原生的按钮 button 进行了封装，如果传入了 <code>prop: to</code>，那它会渲染为一个 <code>&lt;a&gt;</code> 标签，用于打开这个链接地址，如果没有传入 <code>to</code>，就当作普通 button 使用。来看下面的示例：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> button<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>component <span class="token punctuation">:</span>is<span class="token operator">=</span><span class="token string">&quot;tagName&quot;</span> v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">&quot;tagProps&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>slot<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>component<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 链接地址</span>
+      to<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 链接打开方式，如 _blank</span>
+      target<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'_self'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 动态渲染不同的标签</span>
+      <span class="token function">tagName</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>to <span class="token operator">===</span> <span class="token string">''</span> <span class="token operator">?</span> <span class="token string">'button'</span> <span class="token punctuation">:</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 如果是链接，把这些属性都绑定在 component 上</span>
+      <span class="token function">tagProps</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> props <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>to<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          props <span class="token operator">=</span> <span class="token punctuation">{</span>
+            target<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token punctuation">,</span>
+            href<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>to
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> props<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>使用组件：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>i<span class="token operator">-</span>button<span class="token operator">&gt;</span>普通按钮<span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>i<span class="token operator">-</span>button to<span class="token operator">=</span><span class="token string">&quot;https://juejin.im&quot;</span><span class="token operator">&gt;</span>链接按钮<span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>i<span class="token operator">-</span>button to<span class="token operator">=</span><span class="token string">&quot;https://juejin.im&quot;</span> target<span class="token operator">=</span><span class="token string">&quot;_blank&quot;</span><span class="token operator">&gt;</span>新窗口打开链接按钮<span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">import</span> iButton <span class="token keyword">from</span> <span class="token string">'../components/a.vue'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span> iButton <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>最终会渲染出一个原生的 <code>&lt;button&gt;</code> 按钮和两个原生的链接 <code>&lt;a&gt;</code>，且第二个点击会在新窗口中打开链接，如图：</p> <p>![img](data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="328" height="166"></svg>)</p> <p>i-button 组件中的 <code>&lt;component&gt;</code> <code>is</code> 绑定的就是一个标签名称 button / a，并且通过 <code>v-bind</code> 将一些额外的属性全部绑定到了 <code>&lt;component&gt;</code> 上。</p> <p>再回到第一个 a / b / c 组件切换的示例，如果这类的组件，频繁切换，事实上组件是会重新渲染的，比如我们在组件 A 里加两个生命周期：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> a<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    组件 <span class="token constant">A</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">mounted</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'组件创建了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">beforeDestroy</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'组件销毁了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>只要切换到 A 组件，<code>mounted</code> 就会触发一次，切换到其它组件，<code>beforeDestroy</code> 也会触发一次，说明组件再重新渲染，这样有可能导致性能问题。为了避免组件的重复渲染，可以在 <code>&lt;component&gt;</code> 外层套一个 Vue.js 内置的 <code>&lt;keep-alive&gt;</code> 组件，这样，组件就会被缓存起来：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div></div><pre class="language-js"><code><span class="token operator">&lt;</span>keep<span class="token operator">-</span>alive<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>component <span class="token punctuation">:</span>is<span class="token operator">=</span><span class="token string">&quot;component&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>component<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>keep<span class="token operator">-</span>alive<span class="token operator">&gt;</span>
+</code></pre></div><p>这时，只有 <code>mounted</code> 触发了，如果不离开当前页面，切换到其它组件，<code>beforeDestroy</code> 不会被触发，说明组件已经被缓存了。</p> <p>keep-alive 还有一些额外的 props 可以配置：</p> <ul><li><code>include</code>：字符串或正则表达式。只有名称匹配的组件会被缓存。</li> <li><code>exclude</code>：字符串或正则表达式。任何名称匹配的组件都不会被缓存。</li> <li><code>max</code>：数字。最多可以缓存多少组件实例。</li></ul> <h2 id="结语"><a href="#结语" aria-hidden="true" class="header-anchor">#</a> 结语</h2> <p>还有一类是异步组件，Vue.js 文档已经介绍的很清楚了，可以阅读文末的扩展阅读 1。事实上异步组件我们用的很多，比如 router 的配置列表，一般都是用的异步组件形式：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  path: '/form',
+  component: () =&gt; import('./views/form.vue')
+}
+</code></pre></div><p>这样每个页面才会在路由到时才加载对应的 JS 文件，否则入口文件会非常庞大。</p> <p>递归组件、动态组件和异步组件是 Vue.js 中相对冷门的 3 种组件模式，不过在封装复杂的独立组件时，前两者会经常使用。</p> <h2 id="扩展阅读"><a href="#扩展阅读" aria-hidden="true" class="header-anchor">#</a> 扩展阅读</h2> <ul><li><a href="https://link.juejin.im/?target=https%3A%2F%2Fcn.vuejs.org%2Fv2%2Fguide%2Fcomponents-dynamic-async.html%23%25E5%25BC%2582%25E6%25AD%25A5%25E7%25BB%2584%25E4%25BB%25B6" target="_blank" rel="noopener noreferrer">异步组件<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/Article/code/vue组件精讲/13.实战 6：可用 slot-scope 自定义列的表格组件——Table.html" class="prev">
+          实战 6：可用 slot-scope 自定义列的表格组件——Table
+        </a></span> <span class="next"><a href="/Article/code/vue组件精讲/15.实战 7：树形控件——Tree.html">
+          实战 7：树形控件——Tree
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.beb6e1a2.js" defer></script><script src="/assets/js/2.fb87c654.js" defer></script><script src="/assets/js/10.76b112d8.js" defer></script>
+  </body>
+</html>
