@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实现小型打包工具 | 源于生活</title>
+    <meta name="description" content="write something">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2e629a8b.css" as="style"><link rel="preload" href="/assets/js/app.40f46a03.js" as="script"><link rel="preload" href="/assets/js/2.b61884c0.js" as="script"><link rel="preload" href="/assets/js/34.8637e11c.js" as="script"><link rel="prefetch" href="/assets/js/10.cef75600.js"><link rel="prefetch" href="/assets/js/11.d20f5ffc.js"><link rel="prefetch" href="/assets/js/12.e3a2b48e.js"><link rel="prefetch" href="/assets/js/13.0b39c694.js"><link rel="prefetch" href="/assets/js/14.85568d35.js"><link rel="prefetch" href="/assets/js/15.4334a8c6.js"><link rel="prefetch" href="/assets/js/16.7385e1c4.js"><link rel="prefetch" href="/assets/js/17.36a6a396.js"><link rel="prefetch" href="/assets/js/18.6334fa75.js"><link rel="prefetch" href="/assets/js/19.83d2cde1.js"><link rel="prefetch" href="/assets/js/20.abe5e400.js"><link rel="prefetch" href="/assets/js/21.166fa48f.js"><link rel="prefetch" href="/assets/js/22.4c524dca.js"><link rel="prefetch" href="/assets/js/23.f13aa316.js"><link rel="prefetch" href="/assets/js/24.d71d4d4d.js"><link rel="prefetch" href="/assets/js/25.ee931a3e.js"><link rel="prefetch" href="/assets/js/26.b80c1347.js"><link rel="prefetch" href="/assets/js/27.4834fc45.js"><link rel="prefetch" href="/assets/js/28.5dd96a08.js"><link rel="prefetch" href="/assets/js/29.f6e8d795.js"><link rel="prefetch" href="/assets/js/3.768e72ae.js"><link rel="prefetch" href="/assets/js/30.6315de72.js"><link rel="prefetch" href="/assets/js/31.a91a2848.js"><link rel="prefetch" href="/assets/js/32.c5b85177.js"><link rel="prefetch" href="/assets/js/33.9898a9ea.js"><link rel="prefetch" href="/assets/js/35.36f70523.js"><link rel="prefetch" href="/assets/js/36.6a882fec.js"><link rel="prefetch" href="/assets/js/37.03a8e5e0.js"><link rel="prefetch" href="/assets/js/38.60b9b3ca.js"><link rel="prefetch" href="/assets/js/39.b117c14b.js"><link rel="prefetch" href="/assets/js/4.5960558f.js"><link rel="prefetch" href="/assets/js/40.ac6bb60c.js"><link rel="prefetch" href="/assets/js/41.0d8378c1.js"><link rel="prefetch" href="/assets/js/5.d96a9da9.js"><link rel="prefetch" href="/assets/js/6.74792406.js"><link rel="prefetch" href="/assets/js/7.1a988641.js"><link rel="prefetch" href="/assets/js/8.ce6a39d7.js"><link rel="prefetch" href="/assets/js/9.73dc9b99.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2e629a8b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">源于生活</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>关于code</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Article/code/实现小型打包工具.html" class="active sidebar-link">实现小型打包工具</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Article/code/实现小型打包工具.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/Article/code/NextTick 原理分析.html" class="sidebar-link">NextTick 原理分析</a></li><li><a href="/Article/code/Service Worker.html" class="sidebar-link">Service Worker</a></li><li><a href="/Article/code/Vue 和 React 之间的区别.html" class="sidebar-link">Vue 和 React 之间的区别</a></li><li><a href="/Article/code/vue的mvvm原理.html" class="sidebar-link">vue的mvvm原理</a></li><li><a href="/Article/code/前端路由原理.html" class="sidebar-link">前端路由原理</a></li><li><a href="/Article/code/vue编译过程.html" class="sidebar-link">vue编译过程</a></li><li><a href="/Article/code/浏览器的缓存策略.html" class="sidebar-link">浏览器的缓存策略</a></li><li><a href="/Article/code/浏览器缓存位置.html" class="sidebar-link">浏览器缓存位置</a></li><li><a href="/Article/code/多语言.html" class="sidebar-link">前端多语言方案</a></li><li><a href="/Article/code/地图学习.html" class="sidebar-link">地图学习笔记</a></li><li><a href="/Article/code/数据双向绑定的分析和简单实现.html" class="sidebar-link">数据双向绑定的分析和简单实现</a></li><li><a href="/Article/code/多语言.html" class="sidebar-link">前端多语言方案</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue组件</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实现小型打包工具"><a href="#实现小型打包工具" class="header-anchor">#</a> 实现小型打包工具</h1> <p>因为涉及到 ES6 转 ES5，所以我们首先需要安装一些 Babel 相关的工具</p> <div class="language- extra-class"><pre><code>npm i babylon babel-traverse babel-core babel-preset-env  
+</code></pre></div><p>接下来我们将这些工具引入文件中</p> <div class="language- extra-class"><pre><code>const fs = require('fs')
+const path = require('path')
+const babylon = require('babylon')
+const traverse = require('babel-traverse').default
+const { transformFromAst } = require('babel-core')
+</code></pre></div><p>首先实现个读取文件的方法，通过babel将传入的文件es6转es5，并且将这个文件的依赖给获取到</p> <div class="language- extra-class"><pre><code>function readCode(filePath) {
+  // 读取文件内容
+  const content = fs.readFileSync(filePath, 'utf-8')
+  // 生成 AST
+  const ast = babylon.parse(content, {
+    sourceType: 'module'
+  })
+  // 寻找当前文件的依赖关系
+  const dependencies = []
+  traverse(ast, {
+    ImportDeclaration: ({ node }) =&gt; {
+      dependencies.push(node.source.value)
+    }
+  })
+  // 通过 AST 将代码转为 ES5
+  const { code } = transformFromAst(ast, null, {
+    presets: ['env']
+  })
+  return {
+    filePath,
+    dependencies,
+    code
+  }
+}
+</code></pre></div><p>再实现个getDependencies函数，用来调用readCode，并接收入口文件，区分js和css，函数返回所有的依赖集合</p> <div class="language- extra-class"><pre><code>function getDependencies(entry) {
+  // 读取入口文件
+  const entryObject = readCode(entry)
+  const dependencies = [entryObject]
+  // 遍历所有文件依赖关系
+  for (const asset of dependencies) {
+    // 获得文件目录
+    const dirname = path.dirname(asset.filePath)
+    // 遍历当前文件依赖关系
+    asset.dependencies.forEach(relativePath =&gt; {
+      // 获得绝对路径
+      const absolutePath = path.join(dirname, relativePath)
+      // CSS 文件逻辑就是将代码插入到 `style` 标签中
+      if (/\.css$/.test(absolutePath)) {
+        const content = fs.readFileSync(absolutePath, 'utf-8')
+        const code = `
+          const style = document.createElement('style')
+          style.innerText = ${JSON.stringify(content).replace(/\\r\\n/g, '')}
+          document.head.appendChild(style)
+        `
+        dependencies.push({
+          filePath: absolutePath,
+          relativePath,
+          dependencies: [],
+          code
+        })
+      } else {
+        // JS 代码需要继续查找是否有依赖关系
+        const child = readCode(absolutePath)
+        child.relativePath = relativePath
+        dependencies.push(child)
+      }
+    })
+  }
+  return dependencies
+}
+</code></pre></div><p>现在我们已经获取到了所有的依赖文件，接下来就是实现打包的功能了</p> <div class="language- extra-class"><pre><code>function bundle(dependencies, entry) {
+  let modules = ''
+  // 构建函数参数，生成的结构为
+  // { './entry.js': function(module, exports, require) { 代码 } }
+  dependencies.forEach(dep =&gt; {
+    const filePath = dep.relativePath || entry
+    modules += `'${filePath}': (
+      function (module, exports, require) { ${dep.code} }
+    ),`
+  })
+  // 构建 require 函数，目的是为了获取模块暴露出来的内容
+  const result = `
+    (function(modules) {
+      function require(id) {
+        const module = { exports : {} }
+        modules[id](module, module.exports, require)
+        return module.exports
+      }
+      require('${entry}')
+    })({${modules}})
+  `
+  // 当生成的内容写入到文件中
+  fs.writeFileSync('./bundle.js', result)
+}
+</code></pre></div><p>bundle函数就会输出打包后浏览器加载的样子了，一般会是下面</p> <div class="language- extra-class"><pre><code>;(function(modules) {
+  function require(id) {
+    // 构造一个 CommonJS 导出代码
+    const module = { exports: {} }
+    // 去参数中获取文件对应的函数并执行
+    modules[id](module, module.exports, require)
+    return module.exports
+  }
+  require('./entry.js')
+})({
+  './entry.js': function(module, exports, require) {
+    // 这里继续通过构造的 require 去找到 a.js 文件对应的函数
+    var _a = require('./a.js')
+    console.log(_a2.default)
+  },
+  './a.js': function(module, exports, require) {
+    var a = 1
+    // 将 require 函数中的变量 module 变成了这样的结构
+    // module.exports = 1
+    // 这样就能在外部取到导出的内容了
+    exports.default = a
+  }
+  // 省略
+})
+</code></pre></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>webpack的核心步骤就是</p> <ol><li>找出入口文件所有的依赖关系</li> <li>然后通过构建 CommonJS 代码来获取 exports 导出的内容
+从入口文件开始一层层遍历将依赖扁平化，然后通过js代码实现commonjs规范的module、exports、 require，让浏览器能成功运行。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/Article/code/NextTick 原理分析.html">
+        NextTick 原理分析
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="cat-container" data-v-a13867c0><canvas id="vuepress-cat" width="280" height="250" class="live2d" data-v-a13867c0></canvas></div></div></div>
+    <script src="/assets/js/app.40f46a03.js" defer></script><script src="/assets/js/2.b61884c0.js" defer></script><script src="/assets/js/34.8637e11c.js" defer></script>
+  </body>
+</html>
